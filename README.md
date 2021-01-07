@@ -1,6 +1,8 @@
 # reader_online
 online reader  contain server(php),android client ,apple client;
-一 具体分为三个项目：
+
+一 具体分为三个项目
+
 1. android_reader_online 安卓端
 
 2.ios_reader_online  苹果端
