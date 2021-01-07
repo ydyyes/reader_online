@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/ll_product_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="6dp"
+        android:background="@drawable/pay_product_item_broad"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="18dp"
+        android:paddingBottom="14dp">
+
+
+        <TextView
+            android:id="@+id/tv_product_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:textColor="#FF222222"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_sale_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="9dp"
+            android:textColor="#AD760F"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/tv_normal_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="#8f8f8f"
+            android:textSize="14sp" />
+
+
+        <TextView
+            android:id="@+id/tv_gift_coin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/pay_product_item_bg"
+            android:lines="1"
+            android:paddingLeft="6.5dp"
+            android:paddingTop="3.5dp"
+            android:paddingRight="6.5dp"
+            android:paddingBottom="3.5dp"
+            android:textColor="#ffffff"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+
+</FrameLayout>

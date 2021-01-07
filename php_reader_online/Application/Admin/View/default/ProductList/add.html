@@ -1,0 +1,53 @@
+<div class="page">
+    <div class="pageContent">
+
+        <form method="post" action="__URL__/insert/navTabId/{:strtoupper(CONTROLLER_NAME)}/callbackType/closeCurrent" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone)">
+            <div class="pageFormContent" layoutH="58">
+
+                <div class="unit">
+                    <label>商品名称：</label>
+                    <input type="text" class="required" value="" name="product_name" size ="60">
+                </div>
+                <div class="unit">
+                    <label>时间：</label>
+                    <input type="text" class="required" value="" name="exchange_time" size ="60"  onkeyup="value=this.value.replace(/\D+/g,'')"><span>注意：单位为:天</span>
+                </div>
+                <div class="unit">
+                    <label>商品类型：</label>
+                    {:Helper("Form")->name('type')->option($type)->value(2)->select();}
+                </div>
+                <div class="unit">
+                    <label>原价：</label>
+                    <input type="text" class="required" value="" name="price" size ="60" onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')" ><span>注意：保留小数点后2位</span>
+                </div>
+                <div class="unit">
+                    <label>现价：</label>
+                    <input type="text" class="required" value="" name="discount_price" size ="60" onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')" ><span>注意：保留小数点后2位</span>
+                </div>
+                <div class="unit">
+                    <label>赠送的金币：</label>
+                    <input type="text" class="required" value="" name="send_gold" size ="60" onkeyup="value=this.value.replace(/\D+/g,'')" >
+                </div>
+                <div class="unit">
+                    <label>商品说明：</label>
+                    <input type="text" class="required" value="" name="explain" size ="60">
+                </div>
+                <div class="unit">
+                    <label>商品状态：</label>
+                    {:Helper("Form")->name('status')->option($status)->value(1)->select();}
+                </div>
+
+            </div>
+
+
+            <div class="formBar">
+                <ul>
+                    <li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+                    <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+                </ul>
+            </div>
+        </form>
+
+    </div>
+</div>
+

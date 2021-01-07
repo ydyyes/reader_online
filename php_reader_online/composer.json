@@ -1,0 +1,35 @@
+{
+  "name" : "shuhai/hongdong",
+  "description" : "hongdong.org",
+  "authors" : [ {
+    "name" : "尘缘",
+    "email" : "admin@4wei.cn"
+  } ],
+  "keywords": ["framework", "laravel", "thinkphp"],
+  "license": "proprietary",
+  "type": "project",
+  "repositories": [ {
+    "type": "package",
+    "package": {
+      "name": "thinkphp",
+      "version": "3.0",
+      "source": {
+          "url": "git@git.coding.net:vus520/thinkphp.git",
+          "type": "git",
+          "reference": "master"
+      }
+    }
+  } ],
+  "require": {
+    "php": ">=5.4.0",
+    "thinkphp": "3.0",
+    "swiftmailer/swiftmailer": "@stable",
+    "knplabs/knp-menu": "~2.0",
+    "filp/whoops": "1.1.*",
+    "sami/sami": "3.0",
+    "endroid/qr-code": "1.*@dev",
+    "robmorgan/phinx": "0.9.2",
+    "monolog/monolog": "~1.0",
+    "giggsey/libphonenumber-for-php": "^8.9"
+  }
+}

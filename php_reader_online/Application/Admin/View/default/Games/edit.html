@@ -1,0 +1,37 @@
+<div class="page">
+	<div class="pageContent">
+
+	<form method="post" action="__URL__/update/navTabId/{:strtoupper(CONTROLLER_NAME)}/callbackType/closeCurrent" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone)">
+		<div class="pageFormContent" layoutH="58">
+			<input type="hidden" name="id" value="{$vo.id}">
+			<div class="unit">
+				<label>项目名称：</label>
+				<input type="text" class="required" value="{$vo.name}" name="name"  readonly size="60">
+			</div>
+			<div class="unit">
+				<label>封面：</label>
+				<input style="width:250px" class="" type="text" name="pic" value="{$vo['img']}" id="identify" readonly placeholder="文件名"/>
+				<a class="btnAttach" id="uploadAttachments" href="__URL__/uploader" lookupGroup="" width="560" height="300" title="附件">附件</a>
+				<span class="info" style="cursor:pointer;" onclick="document.getElementById('uploadAttachments').click()">(点击上传文件，支持png、jpg)</span>
+				<input type="hidden" name="img" value="{$vo['img']}">
+			</div>
+			<div class="unit">
+				<label>链接：</label>
+				<input type="text" class="required" value="{$vo.link}" name="link" size="60">
+			</div>
+			<div class="unit">
+				<label>状态：</label>
+				{:Helper("Form")->name('status')->option($status)->value($vo['status'])->render('radio');}
+			</div>
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+		</div>
+	</form>
+	
+	</div>
+</div>
+

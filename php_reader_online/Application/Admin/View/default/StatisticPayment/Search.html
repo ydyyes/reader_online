@@ -1,0 +1,47 @@
+	<div class="pageContent" style="border-left:1px #B8D0D6 solid;border-right:1px #B8D0D6 solid">
+		<div class="panelBar">
+			<ul class="toolBar">
+				<li><a class="icon" href="#" onclick="javascript:exports(this);" ><span>导出EXCEL</span></a></li>
+			</ul>
+		</div>
+		
+		<table class="list" id="table_<?php echo $page_id=rand();?>" rel="jbsxBox" style="width:100%;" layoutH="145">
+			<thead>
+			<tr>
+				<th width="20%">渠道</th>
+				<th width="20%">付费量</th>
+				<th width="15%">付费总人数</th>
+				<th width="15%">月付费人数</th>
+				<th width="15%">半年付费总人数</th>
+				<th width="15%">年付费总人数</th>
+			</tr>
+			</thead>
+				<php>
+					if( count($list) ):
+						$data = [];
+				</php>
+					<tbody>
+					<volist id="vo" name="list">
+						<tr>
+							<td>{$post.channel|default="*"}</td>
+							<td>
+								<php>echo number_format($vo['amount'], 2);</php>
+							</td>
+							<td>{$vo['persons']}</td>
+							<td>{$vo['persons_mon']}</td>
+							<td>{$vo['persons_hy']}</td>
+							<td>{$vo['persons_y']}</td>
+						</tr>
+					</volist>
+					</tbody>
+			<php>endif;</php>
+		</table>
+	</div>
+	
+	<script>
+		$('#table_<?php echo $page_id;?>').dataTable({
+			"info": false,
+			"paging": false,
+			"searching": false,
+		});
+	</script>

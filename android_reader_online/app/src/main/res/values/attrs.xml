@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ScrollRefreshLayout">
+        <attr name="layout_scroll_empty" format="reference" />
+        <attr name="text_error_tip" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="RefreshLayout">
+        <attr name="layout_refresh_empty" format="reference" />
+        <attr name="layout_refresh_error" format="reference" />
+        <attr name="layout_refresh_loading" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="EasyRatingBar">
+        <attr name="rateNum" format="integer" />
+        <attr name="rating" format="integer" />
+        <attr name="rateNormal" format="reference" />
+        <attr name="rateSelect" format="reference" />
+        <attr name="rateInterval" format="dimension" />
+        <attr name="isIndicator" format="boolean" />
+    </declare-styleable>
+
+    <!-- RVPIndicator -->
+    <declare-styleable name="RVPIndicator">
+        <attr name="item_count" />
+        <attr name="text_color_normal" />
+        <attr name="text_color_hightlight" />
+        <attr name="text_size" />
+        <attr name="indicator_color" />
+        <attr name="indicator_src" />
+        <attr name="indicator_style" />
+    </declare-styleable>
+
+    <declare-styleable name="RecyclerViewBar">
+        <attr name="slider_height" format="dimension" />
+        <attr name="slider_paddingLeft" format="dimension" />
+        <attr name="slider_paddingRight" format="dimension" />
+    </declare-styleable>
+
+
+    <declare-styleable name="SmoothCheckBox">
+        <attr name="duration" format="integer" />
+        <attr name="stroke_width" format="dimension" />
+        <attr name="color_tick" format="color" />
+        <attr name="color_checked" format="color" />
+        <attr name="color_unchecked" format="color" />
+        <attr name="color_unchecked_stroke" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ToolBarView">
+        <attr name="tb_title" format="string" />
+        <attr name="tb_is_img" format="boolean" />
+        <attr name="tb_is_shadow" format="boolean" />
+        <attr name="tb_right_text" format="string" />
+        <attr name="tb_img_right" format="reference" />
+        <attr name="tb_background" format="reference" />
+        <attr name="tb_back_button_icon" format="reference" />
+        <attr name="tb_status_bar_color" format="color" />
+        <attr name="tb_is_show_divider" format="boolean" />
+    </declare-styleable>
+
+</resources>

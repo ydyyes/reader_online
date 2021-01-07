@@ -1,0 +1,41 @@
+<div class="page">
+	<div class="pageContent">
+	<form method="post" action="__URL__/update/navTabId/CHANNELLIST/callbackType/closeCurrent" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone)">
+		<div class="pageFormContent" layoutH="58">
+            <div class="unit">
+			<input type="hidden" name="id" value="{$vo.id}" />
+			    <label>产品版本号：</label>
+			    <select class="combox" name="version_id" id="w_version_channel">
+			    	 <php>$versionList = D('SysVersion')->select();</php>
+					<volist name="versionList" id="item">
+                		<option value="{$item['id']}">{$item['version_code']}:{$item['version_name']}</option>
+                	</volist>
+			    </select>
+				
+				<script>
+					$("#w_version_channel>option[value='{$vo[version_id]}']").attr("selected", true);
+				</script>
+            </div>
+			
+			<div class="unit">
+				<label>版本状态</label>
+				 <select class="combox" name="status" id="status">
+					<php>$statusList = array('0'=>'禁用', '1'=>'启用');</php>
+					<volist name="statusList" id="vot">
+						<option value="{$key}">{$vot}</option>
+					</volist>
+			    </select>
+			<script>
+				$("#status>option[value='{$vo[status]}']").attr("selected", true);
+			</script>
+			</div>
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+		</div>
+	</form>
+	</div>
+</div>

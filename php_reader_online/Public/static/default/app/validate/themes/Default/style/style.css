@@ -1,0 +1,7 @@
+.onError, .onFocus {
+	background: #FFF2E9 no-repeat;
+	font-size: 14px;
+	line-height: 25px;
+	vertical-align: middle;
+	text-align: center;
+}

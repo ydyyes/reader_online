@@ -1,0 +1,186 @@
+<div class="page">
+	<div class="pageContent">
+
+	<form method="post" action="__URL__/insert/navTabId/{:strtoupper(CONTROLLER_NAME)}/callbackType/closeCurrent" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone)">
+		<div class="pageFormContent" layoutH="58">
+		
+			<div class="unit">
+				<label>小说名称：</label>
+				<input type="text" class="required" value="" name="title" placeholder="30字以内" size="60">
+			</div>
+			<div class="unit">
+				<label>小说作者：</label>
+				<input type="text" class="required" value="" name="author" size="60">
+			</div>
+			<div class="unit">
+				<label>小说简介：</label>
+				<input type="text" class="required" value="" name="longIntro" placeholder="100字以内" size="60">
+			</div>
+			<div class="unit">
+				<label>主分类：</label>
+				{:Helper("Form")->name('maCate')->option($cates)->value()->select();}
+			</div>
+			<div class="unit">
+				<label>子分类：</label>
+				<div id="chi_cate">{:Helper("Form")->name('minCate')->option()->value()->select();}</div>
+			</div>
+
+			<div class="unit">
+				<label>小说封面：</label>
+				<input style="width:250px" class="required" type="text" name="img" value="" id="identify" readonly placeholder="文件名"/>
+				<a class="btnAttach" id="uploadAttachments" href="__URL__/uploader/type/img" lookupGroup="" width="560" height="300" title="附件">附件</a>
+				<span class="info" style="cursor:pointer;" onclick="document.getElementById('uploadAttachments').click()">(点击上传png or jpg, 上传图片像素为180-258px)</span>
+				<input type="hidden" name="cover">
+			</div>
+			<div class="unit">
+				<label>小说字数：</label>
+				<input type="text" class="required" value="0" name="wordCount" placeholder="小说字数"  onkeyup="value=this.value.replace(/\D+/g,'')" size="60">
+			</div>
+			<div class="unit">
+				<label>适合人群：</label>
+				{:Helper("Form")->name('gender')->option($crowd)->value(0)->render('radio');}
+			</div>
+			<div class="unit">
+				<label>小说等级：</label>
+				{:Helper("Form")->name('openlevel')->option($openlevel)->value(1)->select();}
+			</div>
+			<div class="unit">
+				<label>是否完结：</label>
+				{:Helper("Form")->name('over')->option($over)->value(1)->render('radio');}
+			</div>
+			<div class="unit">
+				<label>小说评分：</label>
+				<input id="grade" name="score" type="text" class="form-control" onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')" placeholder="小说评分" /><span>注意：数字格式，小数点后一位，0~10分，10分满分</span>
+			</div>
+			<div class="unit">
+				<label>评论人数：</label>
+				<input type="text" class="required" value="0" name="count" placeholder="评论人数" size="60" onkeyup="value=this.value.replace(/\D+/g,'')">
+			</div>
+			<div class="unit">
+				<label>评论是否真实：</label>
+				{:Helper("Form")->name('comment_real')->option($comment_real)->value(1)->render('radio');}
+			</div>
+			<div class="unit">
+				<label>日更新字数：</label>
+				<input type="text" class="required" value="0" name="serializeWordCount" size="60" onkeyup="value=this.value.replace(/\D+/g,'')">
+			</div>
+			<div class="unit">
+				<label>追书人数：</label>
+				<input type="latelyFollower" class="required" value="0" name="latelyFollower" size="60" onkeyup="value=this.value.replace(/\D+/g,'')">
+			</div>
+			<div class="unit">
+				<label>留存率：</label>
+				<input id="retention_rate" name="retentionRatio" type="text" class="form-control" onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')" placeholder="留存率" /><span>注意：数字格式,例如85.23</span>
+			</div>
+
+			<div class="unit">
+				<label>是否为系列书籍：</label>
+				{:Helper("Form")->name('isSerial')->option($seriral)->value(0)->render('radio');}
+			</div>
+			<div class="unit">
+				<label>章节数量：</label>
+				<input id="chapter_num" name="chaptersCount" type="text" class="form-control required" onkeyup="value=this.value.replace(/\D+/g,'')" placeholder="请输入数量" />
+			</div>
+			<div class="unit">
+				<label>最新章节：</label>
+				<input id="lastChapter" name="lastChapter" type="text" class="form-control required" onkeyup="value=this.value.replace(/\D+/g,'')" placeholder="请输入数量" />
+			</div>
+			<div class="unit">
+				<label>是否有版权：</label>
+				{:Helper("Form")->name('hasCopyright')->option($copyright)->value(0)->render('radio');}
+			</div>
+			<div class="unit">
+				<label>小说来源：</label>
+				<input type="text" class="" value="" name="copyright" size="60">
+			</div>
+			<div class="unit">
+				<label>是否免费：</label>
+				{:Helper("Form")->name('isfree')->option($free)->value(1)->render('radio');}
+			</div>
+
+			<div class="unit">
+				<label>开始收费章节：</label>
+				<input id="Number" name="isPayChapter" type="text" class="form-control required" onkeyup="value=this.value.replace(/\D+/g,'')" placeholder="请输入数量" />
+			</div>
+			<div class="unit">
+				<label>购买类型：</label>
+				<input type="text" class="" value="" name="buytype" size="60">
+			</div>
+			<div class="unit">
+				<label>允许包月：</label>
+				{:Helper("Form")->name('allowMonthly')->option($moth)->value(1)->render('radio');}
+			</div>
+			<div class="unit">
+				<label>小说标签：</label>
+				<input type="text" class="" value="" name="tags" placeholder="小说标签" size="60">
+			</div>
+			<div class="unit">
+				<label>分类：</label>
+				<input type="text" class="" value="" name="cat" placeholder="分类" size="60">
+			</div>
+			<div class="unit">
+				<label>所属榜单：</label>
+				{:Helper("Form")->name('type')->option($Newcharts)->value('new')->select();}
+			</div>
+			<php>
+				$html_show=['否','是']
+			</php>
+			<div class="unit">
+				<label>榜单是否展示在web：</label>
+				{:Helper("Form")->name('html_show')->option($moth)->value(0)->render('radio');}
+			</div>
+			<div class="unit">
+				<label>权重：</label>
+				<input type="text" value="0" name="weight" size="40"><span>注意：只支持正整数，数值越高，权重越高</span>
+			</div>
+
+			<div class="unit">
+				<label>是否上下架：</label>
+				{:Helper("Form")->name('status')->option($status)->value(1)->render('radio');}
+			</div>
+		</div>
+		
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+		</div>
+	</form>
+		<script type="text/javascript">
+
+            var URL ={XS_URL: "{:U('XsNovels/getAjaxCates')}"};
+            $('select[name="majorCate"]').change(function(){
+            	if($(this).val() !='') {
+					$.ajax({
+						url: URL.XS_URL,
+						type: 'post',
+						data: {id: $(this).val()},
+						dataType: 'json',
+						success: function (data, status) {
+
+							if(data.errno == '200') {
+								var html = '<select name="chi_cate" id="">';
+								$.each(data.data, function (i, k) {
+									html += '<option value=' + i + '>' + k + '</option>'
+								});
+								html += '<select>';
+								$('select[name="minorCate"]').html(html);
+							}else{
+								var html = '<select name="chi_cate" id="">';
+								html += '<option value="">请选择</option>'
+								html += '<select>';
+								$('select[name="minorCate"]').html(html);
+							}
+						},
+						fail: function (err, status) {
+							console.log(err)
+						}
+					})
+				}
+			});
+		</script>
+	
+	</div>
+</div>
+

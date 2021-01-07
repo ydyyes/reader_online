@@ -1,0 +1,44 @@
+<div class="page">
+	<form method="post" action="__URL__/save/channel_name/{$_REQUEST.channel_name}" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone)">
+	<div class="pageContent">
+		<div class="panelBar">
+			<ul class="toolBar">
+				<li><a class="add" href="__URL__/add/channel_id/{$_REQUEST.channel_id}/channel_name/{$_REQUEST.channel_name}/open/{$open}" target="dialog" mask="true"><span>新增</span></a></li>
+				<li class="line">line</li>
+				<li><a class="delete" href="__URL__/foreverdelete/id/{sid_user}/channel_name/{$_REQUEST.channel_name}/navTabId/{:strtoupper(CONTROLLER_NAME)}" target="ajaxTodo" title="你确定要删除吗？" warn="请选择配置项"><span>删除</span></a></li>
+			</ul>
+		</div>
+		
+		<table class="list" width="100%" layoutH="150">
+		<div class="pageFormContent" style="display:none;">
+			<div class="unit">
+				<label style="color:red;">[ 渠道： {$channel_name} ]</label>
+			</div>
+		</div>
+			<thead>
+			<tr>
+				<th>配置项</th>
+				<th>中文名称</th>
+				<th>值</th>
+			</tr>
+			</thead>
+			<tbody>
+			<volist id="vx" name="list">
+				<tr target="sid_user" rel="{$vx['id']}">
+					<td>{$vx['id']}</td>
+					<td>{$vx['name']}</td>
+					<td>{$vx['cname']}</td>
+					<td><notempty><input size="39" name="{$vx[id]}" value="{$vx['value']}"></notempty></td>
+				</tr>
+			</volist>
+			</tbody>
+		</table>
+		<div class="formBar">
+		<ul>
+			<li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+			<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+		</ul>
+		</div>
+	</div>
+	</form>
+</div>

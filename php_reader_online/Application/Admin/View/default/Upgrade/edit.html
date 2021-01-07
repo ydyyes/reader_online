@@ -1,0 +1,60 @@
+<div class="page">
+	<div class="pageContent">
+
+	<form method="post" action="__URL__/update/navTabId/{:strtoupper(CONTROLLER_NAME)}/callbackType/closeCurrent" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone)">
+		<div class="pageFormContent" layoutH="58">
+			<input type="hidden" name="id" value="{$vo.id}">
+
+			<div class="unit">
+				<label>当前版本号：</label>
+				<input type="text" class="required alphanumeric" value="{$vo.version}" readonly name="version" size="30">
+			</div>
+			<div class="unit">
+				<label>更新日志：</label>
+				<textarea class="required" name="update_log" placeholder="100字以内" cols="50">{$vo['update_log']}</textarea>
+			</div>
+			<div class="unit">
+				<label>文件：</label>
+				<input type="text" name="apk_url" value="{$vo['apk_url']}" size="60" readonly>
+			</div>
+			<div class="unit">
+				<label>md5：</label>
+				<input type="text" name="md5" value="{$vo['md5']}" size="60" readonly>
+			</div>
+			<div class="unit">
+				<label>size：</label>
+				<input type="text" name="target_size" value="{$vo['target_size']}" size="60" readonly>
+			</div>
+			<php>
+				$forced_updating = ['N','Y']
+			</php>
+			<div class="unit">
+				<label>是否强制更新：</label>
+				{:Helper("Form")->name('forced_updating')->option($forced_updating)->value($vo['forced_updating'])->render('radio');}
+			</div>
+			<div class="unit">
+				<label>是否上架：</label>
+				{:Helper("Form")->name('status')->option($status)->value($vo['status'])->render('radio');}
+			</div>
+			<div class="unit">
+				<label>支持更新的渠道：</label>
+				<php>
+					$chn_id = array_filter(explode(',', trim($vo['chn_id'], ',')));
+				</php>
+				<volist id="chn" name="channels">
+					<input type="checkbox" name="chn_id[]" value="{$key}" <php>if (in_array($key, $chn_id)){echo 'checked';}</php> />{$chn}
+				</volist>
+			</div>
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+		</div>
+
+	</form>
+	
+	</div>
+</div>
+

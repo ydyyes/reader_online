@@ -1,0 +1,136 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'io.objectbox' // apply last
+android {
+    compileSdkVersion 27
+    defaultConfig {
+ //       applicationId "com.free.myxiaoshuo"
+        applicationId "com.cohesion.kdxiaoshuo"
+        //applicationId "com.freex.xiaoshuo1.whalereader"
+        minSdkVersion 19
+        targetSdkVersion 27
+        // 25对应3.3.5, 37对应3.6.0
+        versionCode 39
+        versionName "3.4.9"
+        multiDexEnabled true
+        ndk {
+            abiFilters 'armeabi', 'armeabi-v7a','arm64-v8a'
+        }
+    }
+
+    signingConfigs {
+        debug {
+//            storeFile file("./kd_huawei.jks")
+//            storeFile file("./reader.jks")
+            storeFile file("./red_meiyue_readers.jks")
+            storePassword "reader123"
+            keyAlias "reader"
+            keyPassword "reader123"
+        }
+        release {
+//            storeFile file("./kd_huawei.jks")
+//            storeFile file("./reader.jks")
+            storeFile file("./red_meiyue_readers.jks")
+            storePassword "reader123"
+            keyAlias "reader"
+            keyPassword "reader123"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //signingConfig signingConfigs.debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+}
+
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+    maven {
+        url 'https://dl.bintray.com/qichuan/maven/'
+    }
+    mavenCentral()
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.aar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    // View injection
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    kapt "com.jakewharton:butterknife-compiler:8.8.1"
+    // RxJava
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.3'
+    // NetWork
+    implementation 'com.squareup.okhttp3:okhttp:3.12.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+    // ImageLoader
+    implementation 'com.github.bumptech.glide:glide:4.5.0'
+    kapt 'com.github.bumptech.glide:compiler:4.5.0'
+    implementation 'jp.wasabeef:glide-transformations:2.0.1'
+    implementation 'q.rorbin:VerticalTabLayout:1.2.5'
+    implementation 'q.rorbin:badgeview:1.1.3'
+    //zxing二维码
+    implementation 'com.google.zxing:core:3.3.0'
+    implementation 'com.google.zxing:android-core:3.3.0'
+    //AutofitTextView
+    implementation 'me.grantland:autofittextview:0.2.1'
+    //ProgressBar
+    implementation 'com.zhangmonke:MProgressBar:1.0.1'
+    //CircleImageView
+    implementation 'de.hdodenhof:circleimageview:2.1.0'
+    //SwitchButton
+    implementation 'com.kyleduo.switchbutton:library:1.4.4'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.5.0'
+    implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
+    //轮播图控件
+    implementation 'com.youth.banner:banner:1.4.10'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.anko:anko-commons:$anko_version"
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46'
+    implementation 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:2.1.0'
+    implementation 'com.hyman:flowlayout-lib:1.1.2'
+    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'
+    // 穿山甲
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6'
+    //    implementation 'com.github.czy1121:update:1.1.1'
+    implementation 'com.allenliu.versionchecklib:library:2.1.9'
+    // 友盟
+    implementation 'com.umeng.umsdk:utdid:1.1.5.3'
+    implementation 'com.umeng.umsdk:push:5.0.2'
+    implementation files('libs/GDTUnionSDK.4.28.902.min.jar')
+}

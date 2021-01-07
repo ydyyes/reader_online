@@ -1,0 +1,60 @@
+<div class="page">
+	<div class="pageContent">
+	
+		<form method="post" action="__URL__/update/navTabId/{:strtoupper(CONTROLLER_NAME)}/callbackType/closeCurrent" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone)">
+			<input type="hidden" name="user_id" value="<?php echo $_SESSION[C('USER_AUTH_KEY')] ?>"/>
+			<input type="hidden" name="id" value="{$vo.id}" />
+			<div class="pageFormContent" layoutH="58">
+
+			<div class="unit">
+				<label>渠道名(不能修改)：</label>
+				<input type="text" class="required" class="required alphanumeric" name="name" value="{$vo.name}" size="30" readonly>
+			</div>
+			
+			<div class="unit">
+				<label>渠道名_中文：</label>
+				<input type="text" name="cname" value="{$vo.cname|safe}" size="30" maxlength="100" class="required"/>
+			</div>
+			
+            <div class="unit">
+                <label>显示比例：</label>
+                <input type="text" name="ratio_show" value="{$vo.ratio_show}" size="30" maxlength="100" class="required number"/>%
+				<span class="info">（0-100之间的数字）</span>
+            </div>
+            
+            <div class="unit">
+                <label>点击比例：</label>
+                <input type="text" name="ratio_click" value="{$vo.ratio_click}" size="30" maxlength="100" class="required number"/>%
+				<span class="info">（0-100之间的数字）</span>
+            </div>
+
+			<div class="unit">
+				<label>分成比例：</label>
+				<input type="text" name="ratio_sharing" value="{$vo.ratio_sharing}" size="30" maxlength="100" class="required number"/>%
+				<span class="info">（0-100之间的数字）</span>
+			</div>
+
+			<div class="unit">
+				<label>渠道备注：</label>
+				<input type="text" name="mark" value="{$vo.mark|safe}" size="30" maxlength="100" value=""/>
+			</div>
+
+			<div class="unit">
+				<label>状态：</label>
+				<select class="combox small bLeft"  name="status">
+					<option <eq name="vo.status" value="1" >selected</eq> value="1">启用</option>
+					<option <eq name="vo.status" value="0" >selected</eq> value="0">禁用</option>
+				</select>
+			</div>
+			</div>
+			
+			<div class="formBar">
+				<ul>
+					<li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+					<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+				</ul>
+			</div>
+		</form>
+	
+	</div>
+</div>

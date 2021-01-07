@@ -1,0 +1,56 @@
+<div class="page">
+	<div class="pageContent">
+
+	<form method="post" action="__URL__/update/navTabId/{:strtoupper(CONTROLLER_NAME)}/callbackType/closeCurrent" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone)">
+		<div class="pageFormContent" layoutH="58">
+			<input type="hidden" name="id" value="{$vo.id}">
+			<input type="hidden" name="uid" value="{$vo.uid}">
+			<input type="hidden" name="orno" value="{$vo.orno}">
+			<php>
+				$username = D('Admin/Users')->where(['id'=>$vo['uid']])->getField('username');
+			</php>
+			<div class="unit">
+				<label>手机号：</label>
+				<input type="text" value="{$username}" readonly size="30">
+			</div>
+			<div class="unit">
+				<label>提出金币：</label>
+				<input type="text" name="gamecoin" readonly value="{$vo['gamecoin']}">
+			</div>
+			<div class="unit">
+				<label>提现金额：</label>
+				<input type="text" name="receipt_amount" readonly value="{$vo['receipt_amount']}">
+			</div>
+			<div class="unit">
+				<label>支付宝账户：</label>
+				<input type="text" name="alipay" value="{$vo['alipay']}" size="60" readonly>
+			</div>
+			<div class="unit">
+				<label>账户姓名：</label>
+				<input type="text" name="md5" value="{$vo['md5']}" size="60" readonly>
+			</div>
+			<div class="unit">
+				<label>联系方式：</label>
+				<input type="text" name="contact" value="{$vo['contact']}" size="60" readonly>
+			</div>
+			<div class="unit">
+				<label>支付宝退款订单号：</label>
+				<input type="text" name="pay_ali_or" placeholder="审核通过必须填写该订单号" value="" size="60">
+			</div>
+			<div class="unit">
+				<label>状态：</label>
+				{:Helper("Form")->name('status')->option($status)->value($vo['status'])->render('radio');}
+			</div>
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+		</div>
+
+	</form>
+	
+	</div>
+</div>
+

@@ -1,0 +1,24 @@
+.header{height: 128px;border-bottom: 1px solid #ccc;text-align: center;padding-top: 46px;}
+.main{width: 530px;margin: 0 auto;padding: 64px 0 0 0}
+.selecto,.selectt{width: 50%;float: left;text-align: center;height: 165px;color: #333;padding-top: 34px;cursor: pointer;}
+.selecto{border-right: 1px solid #cccccc}
+.stip{width: 495px;border: 1px dotted #cccccc;clear: both;border-radius: 6px;margin: 0 auto;float: none;margin-top: 50px;font-size: 14px;color: #666;line-height: 25px;padding: 15px 23px 15px 53px;; }
+.stip i{font-style: normal;margin-left: -28px;color: #cc3333}
+.stip em{font-style: normal;color: #000}
+.alipaybox{display: none;}
+.alipaybox .tip{color: #666666;padding-bottom: 14px;}
+.alipaybox em{color: #000;font-style: normal;}
+.extraL{float: left;width: 265px;color: #666;text-align: right;margin-bottom:0;font-weight: 100}
+.extrali{display: inline-block;width: 100%;height: 30px;line-height: 30px;}
+.extraR{float: left;color: #333}
+.extrali i{color: #cc0000;font-style: normal;}
+.extrali input{float: left;width: 144px;height: 30px;margin-right: 4px;}
+.extrbuttom{text-align: center;padding-top: 16px;}
+.extrbuttom a{width: 92px;margin-right: 11px}
+.telbox{display: none}
+.extraR label i{height: 30px;line-height: 30px;text-align: center;border: 1px solid #cccccc;border-radius: 4px;padding: 0 16px;display: inline-block;color: #666666;font-weight: 100;font-size: 14px;cursor: pointer;}
+.extraR label input{display: none}
+.extraR label input:checked~i{border-color: #cc0000;color: #cc0000}
+.telM{margin-right: -100px;}
+.telM label{display: none}
+.teltip{color: #cc0000;margin-right: -100px;display: inline-block;float: right;}

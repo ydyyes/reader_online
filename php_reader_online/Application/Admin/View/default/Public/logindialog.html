@@ -1,0 +1,48 @@
+<div class="page">
+	<div class="pageContent">
+	
+	<form method="post" action="__URL__/checkLogin/" class="pageForm required-validate" onsubmit="return validateCallback(this, LoginDialogAjaxDone)">
+		<div class="pageFormContent" layoutH="58">
+			
+			<div class="unit">
+				<label>帐号：</label>
+				<input type="text" name="account" value="{:cookie('last_login')}" size="20" class="login_input" />
+			</div>
+			
+			<div class="unit">
+				<label>密码：</label>
+				<input type="password" name="password" size="20" class="login_input" />
+			</div>
+
+			<div class="unit">
+				<label>验证码：</label>
+				<input class="code" name="verify" type="text" size="5" />
+				<img src="__URL__/verify/" BORDER="0" ALT="click" id="verifyImg" onClick="fleshVerify()" style="cursor:pointer" align="absmiddle">
+			</div>
+		
+		</div>
+		
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+		</div>
+	</form>
+	
+	</div>
+</div>
+<script>
+navTab.closeCurrentTab();
+function LoginDialogAjaxDone(json){
+	DWZ.ajaxDone(json);
+	if (json.statusCode == DWZ.statusCode.ok){
+		if (json.navTabId){
+			navTab.reload(json.forwardUrl, {}, json.navTabId);
+		}
+		$.pdialog.closeCurrent();
+	}else{
+		fleshVerify();
+	}
+}
+</script>

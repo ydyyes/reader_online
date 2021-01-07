@@ -1,0 +1,28 @@
+<div class="page">
+	<div class="pageContent">
+	
+		<form method="post" action="__URL__/update/navTabId/{:strtoupper(CONTROLLER_NAME)}/callbackType/closeCurrent" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone)">
+			<input type="hidden" name="user_id" value="<?php echo $_SESSION[C('USER_AUTH_KEY')] ?>"/>
+			<input type="hidden" name="id" value="{$vo.id}" />
+			<div class="pageFormContent" layoutH="58">
+				<div class="unit">
+					<label>版本名称：</label>
+					<input type="text" class="required" class="required alphanumeric" name="version_name" value="{$vo['version_name']}" >
+				</div>
+				
+				<div class="unit">
+					<label>版本号：</label>
+					<input type="text" name="version_code" value="{$vo['version_code']}" size="30" maxlength="100" class="required"/>
+				</div>
+			</div>
+			
+			<div class="formBar">
+				<ul>
+					<li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+					<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+				</ul>
+			</div>
+		</form>
+	
+	</div>
+</div>

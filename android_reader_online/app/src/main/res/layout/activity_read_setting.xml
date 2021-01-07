@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF5F5F5"
+    android:orientation="vertical">
+
+    <com.bule.free.ireader.common.widget.ToolBarView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tb_title="阅读设置" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--亮度-->
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/tv_bright"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="14dp"
+                    android:text="亮度"
+                    android:textColor="#FF222222"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/btn_bright_follow_system"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="14dp"
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.bule.free.ireader.newbook.widget.SmoothCheckBox
+                        android:id="@+id/scb_follow_sys"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="6dp"
+                        android:clickable="false"
+                        app:color_checked="#767676"
+                        app:color_tick="#ffffff"
+                        app:color_unchecked="#ffffff"
+                        app:color_unchecked_stroke="#c1c1c1"
+                        app:duration="150"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_follow_system"
+                        app:layout_constraintRight_toLeftOf="@+id/tv_follow_system"
+                        app:layout_constraintTop_toTopOf="@+id/tv_follow_system" />
+
+
+                    <TextView
+                        android:id="@+id/tv_follow_system"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="跟随系统"
+                        android:textColor="#FF222222"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/iv_ic_bright_small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="33dp"
+                    android:layout_marginTop="14dp"
+                    android:src="@drawable/read_ic_bright_small"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_bright" />
+
+                <com.monke.mprogressbar.MHorProgressBar
+                    android:id="@+id/hpb_light"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_weight="1"
+                    app:bgdrawable="#FFDEDEDE"
+                    app:cantouch="true"
+                    app:cursordrawable="@drawable/shape_progress_cursor_read"
+                    app:cursordrawable_height="13dp"
+                    app:cursordrawable_width="13dp"
+                    app:fontdrawable="#FF2F94F9"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_ic_bright_small"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_ic_bright_small"
+                    app:layout_constraintRight_toLeftOf="@+id/iv_ic_bright_big"
+                    app:layout_constraintTop_toTopOf="@+id/iv_ic_bright_small"
+                    app:maxprogress="255"
+                    app:progresswidth="2dp" />
+
+                <ImageView
+                    android:id="@+id/iv_ic_bright_big"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="33dp"
+                    android:src="@drawable/read_ic_bright_big"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_ic_bright_small"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/iv_ic_bright_small" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="15dp"
+                    android:background="#FFECECEC"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_ic_bright_small" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <!--字号-->
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/tv_font_size_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="14dp"
+                    android:text="字号"
+                    android:textColor="#FF222222"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/btn_restore_to_default"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="9dp"
+                    android:padding="5dp"
+                    android:text="恢复默认"
+                    android:textColor="#FF2F94F9"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_font_size_title"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_font_size_title" />
+
+                <TextView
+                    android:id="@+id/btn_font_size_smaller"
+                    android:layout_width="98dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/read_setting_selector_font_size"
+                    android:gravity="center"
+                    android:paddingVertical="5dp"
+                    android:text="A-"
+                    android:textColor="#FF222222"
+                    android:textSize="13sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_font_size_title" />
+
+                <TextView
+                    android:id="@+id/tv_current_font_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="18"
+                    android:textColor="#FF222222"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/btn_font_size_smaller"
+                    app:layout_constraintLeft_toRightOf="@+id/btn_font_size_smaller"
+                    app:layout_constraintRight_toLeftOf="@+id/btn_font_size_bigger"
+                    app:layout_constraintTop_toTopOf="@+id/btn_font_size_smaller" />
+
+                <TextView
+                    android:id="@+id/btn_font_size_bigger"
+                    android:layout_width="98dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginRight="32dp"
+                    android:background="@drawable/read_setting_selector_font_size"
+                    android:gravity="center"
+                    android:paddingVertical="5dp"
+                    android:text="A+"
+                    android:textColor="#FF222222"
+                    android:textSize="13sp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_font_size_title" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="14dp"
+                    android:background="#FFECECEC"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_font_size_smaller" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <!--背景-->
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/tv_background_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="14dp"
+                    android:text="背景"
+                    android:textColor="#FF222222"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/cb_bg_white"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="14dp"
+                    android:src="@drawable/icon_readbook_white"
+                    app:civ_border_color="#0000"
+                    app:civ_border_width="1dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/cb_bg_yellow"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_background_title" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/cb_bg_yellow"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/icon_readbook_yellow"
+                    app:civ_border_color="#FF2F94F9"
+                    app:civ_border_width="1dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/cb_bg_white"
+                    app:layout_constraintLeft_toRightOf="@+id/cb_bg_white"
+                    app:layout_constraintRight_toLeftOf="@+id/cb_bg_green"
+                    app:layout_constraintTop_toTopOf="@+id/cb_bg_white" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/cb_bg_green"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/icon_readbook_green"
+                    app:civ_border_color="#0000"
+                    app:civ_border_width="1dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/cb_bg_white"
+                    app:layout_constraintLeft_toRightOf="@+id/cb_bg_yellow"
+                    app:layout_constraintRight_toLeftOf="@+id/cb_bg_black"
+                    app:layout_constraintTop_toTopOf="@+id/cb_bg_white" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/cb_bg_black"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/icon_readbook_black"
+                    app:civ_border_color="#0000"
+                    app:civ_border_width="1dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/cb_bg_white"
+                    app:layout_constraintLeft_toRightOf="@+id/cb_bg_green"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/cb_bg_white" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="14dp"
+                    android:background="#FFECECEC"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cb_bg_white" />
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/tv_turn_page_anim"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="14dp"
+                    android:text="翻页动画"
+                    android:textColor="#FF222222"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/cb_no_turn_page_anim"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:drawableTop="@drawable/read_selector_ic_no_turn_page_anim"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="5dp"
+                    android:text="无"
+                    android:textColor="#FF7F7F7F"
+                    android:textSize="9sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/cb_override_turn_page_anim"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_turn_page_anim" />
+
+                <TextView
+                    android:id="@+id/cb_override_turn_page_anim"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableTop="@drawable/read_selector_ic_override_turn_page_anim"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="5dp"
+                    android:text="覆盖"
+                    android:textColor="#FF7F7F7F"
+                    android:textSize="9sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/cb_no_turn_page_anim"
+                    app:layout_constraintLeft_toRightOf="@+id/cb_no_turn_page_anim"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@color/common_divider"
+                    android:visibility="invisible"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cb_no_turn_page_anim" />
+            </android.support.constraint.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="14dp"
+                        android:layout_weight="1"
+                        android:text="音量键翻页"
+                        android:textColor="#FF222222"
+                        android:textSize="13sp" />
+
+                    <com.kyleduo.switchbutton.SwitchButton
+                        android:id="@+id/cb_voice_key_turn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="14dp"
+                        app:kswBackColor="@drawable/selector_switchbutton"
+                        app:kswThumbColor="#ffffff"
+                        app:kswThumbHeight="15dp"
+                        app:kswThumbWidth="15dp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginHorizontal="14dp"
+                    android:background="@color/common_divider" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="14dp"
+                        android:layout_weight="1"
+                        android:text="点击页面两侧翻下一页"
+                        android:textColor="#FF222222"
+                        android:textSize="13sp" />
+
+                    <com.kyleduo.switchbutton.SwitchButton
+                        android:id="@+id/sb_key"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="14dp"
+                        app:kswBackColor="@drawable/selector_switchbutton"
+                        app:kswThumbColor="#ffffff"
+                        app:kswThumbHeight="15dp"
+                        app:kswThumbWidth="15dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

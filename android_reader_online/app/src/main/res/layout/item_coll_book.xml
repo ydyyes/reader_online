@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_shelf_decorator"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:translationY="-4dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/coll_book_iv_cover" />
+
+    <ImageView
+        android:id="@+id/coll_book_iv_cover"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintDimensionRatio="78:105"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.65" />
+
+    <ImageView
+        android:id="@+id/iv_book_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:src="@drawable/ic_book_status_over"
+        app:layout_constraintLeft_toLeftOf="@+id/coll_book_iv_cover"
+        app:layout_constraintTop_toTopOf="@id/coll_book_iv_cover" />
+
+    <LinearLayout
+        android:id="@+id/ll_book_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="@+id/coll_book_iv_cover"
+        app:layout_constraintRight_toRightOf="@+id/coll_book_iv_cover"
+        app:layout_constraintTop_toBottomOf="@+id/coll_book_iv_cover">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:orientation="horizontal">
+
+            <View
+                android:id="@+id/coll_book_red_rot"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/shape_red_circle" />
+
+            <TextView
+                android:id="@+id/coll_book_tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="left"
+                android:singleLine="true"
+                android:textColor="#212121"
+                android:textSize="14sp"
+                tools:text="逆鳞" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/coll_book_tv_lastchapter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="15dp"
+            android:ellipsize="end"
+            android:gravity="left"
+            android:singleLine="true"
+            android:textColor="#a7a7a7"
+            android:textSize="10sp"
+            tools:text="章节" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

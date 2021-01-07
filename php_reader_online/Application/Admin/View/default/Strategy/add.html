@@ -1,0 +1,35 @@
+<div class="page">
+	<div class="pageContent">
+	<form method="post" action="__URL__/insert/navTabId/{:strtoupper(CONTROLLER_NAME)}/callbackType/closeCurrent/" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone)">
+		<div class="pageFormContent" layoutH="58">
+			<div class="unit">
+				<label>渠道：</label>
+				<input type="text" readonly class="required" size="30" name="channel_name" value="{$_REQUEST.channel_name}"/>
+			</div>
+			<div class="unit">
+				<label>配置项_英文：</label>
+				<input type="text" class="required" size="30" name="name" />
+			</div>
+			<div class="unit">
+				<label>配置名_中文：</label>
+				<input type="text" class="required" size="30" name="cname" />
+			</div>
+			<div class="unit">
+				<label>配置值：</label>
+				<input type="text" class="required" size="30" name="value" />
+			</div>
+			<div class="unit">
+				<label>接口是否下发：</label>
+				{:Helper("Form")->name('status')->value(1)->option(['1'=>'是','2'=>'否'])->select()}
+			</div>
+			<input type="hidden" name="channel_id" value="{$_REQUEST.channel_id}">		
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+		</div>
+	</form>
+	</div>
+</div>

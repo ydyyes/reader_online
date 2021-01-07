@@ -1,0 +1,45 @@
+<resources>
+    <!--小米华为等渠道使用app名-->
+    --<string name="app_name">快读小说</string>
+    <!--红色美阅使用的app名-->
+    <!--<string name="app_name">美阅小说</string>-->
+
+    <!--string_array-->
+    <string-array name="nb_fragment_title">
+        <item>@string/title_bookshelf</item>
+        <item>@string/title_mall</item>
+        <item>@string/title_recreation</item>
+        <item>@string/title_my</item>
+    </string-array>
+
+    <!--fragment_title:主页的名字-->
+    <string name="title_bookshelf">书架</string>
+    <string name="title_mall">书城</string>
+    <string name="title_recreation">福利</string>
+    <string name="title_my">我的</string>
+
+    <!--fragment-->
+    <!--SplashActivity-->
+    <string name="splash_skip">跳过</string>
+
+    <!--book:书籍的信息-->
+    <string name="book_message">%1$s人在追 | %2$s%%读者留存</string>
+    <string name="book_word">%1$d&#160;万字</string>
+    <!--sort:每类的书-->
+    <!--book_detail : -->
+    <string name="book_detail_recommend_book_list">推荐书本</string>
+    <string name="book_detail_chase_update">加入书架</string>
+    <string name="book_detail_give_up">取消添加</string>
+    <string name="book_detail_start_read">开始阅读</string>
+
+    <!--DownloadTask:书籍下载-->
+    <!--search-->
+    <string name="search_book_brief">%1$s人在追 | %2$s读者留存 | %3$s著</string>
+
+    <string name="list_hot">热门榜</string>
+    <string name="list_new_book">新书榜</string>
+    <string name="list_high_comment">口碑榜</string>
+    <string name="list_finished_book">完结榜</string>
+
+    <string name="watch_video"><u>观看视频免30分钟广告 >></u></string>
+</resources>

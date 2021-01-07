@@ -1,0 +1,87 @@
+<script src="{:cdn('PUBLIC')}/app/datatable/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<style>
+	.searchBar{height:auto;}
+	.searchContent {width:auto; display:inline; float:auto; height:200px;}
+	.searchBar ul.searchContent {height:auto;}
+	.searchContent input {width:150px;display:inline;}
+	#suggest ul{width:250px;}
+</style>
+<script>
+	function exports(obj)
+	{
+		//查找table的节点，提交给后台
+        var data = $(obj).parent().parent().parent().parent().find("table");
+        var dt = new Date();
+        var day = dt.getDate();
+        var month = dt.getMonth() + 1;
+        var year = dt.getFullYear();
+        var hour = dt.getHours();
+        var mins = dt.getMinutes();
+        var postfix = day + "." + month + "." + year + "_" + hour + "." + mins;
+        var a = document.createElement('a');
+        var data_type = 'data:application/vnd.ms-excel';
+        var head = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:x='urn:schemas-microsoft-com:office:excel' xmlns='http://www.w3.org/TR/REC-html40'><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>";
+        var table_html = head + data.html().replace(/ /g, '%20') + "</table></body></html>";
+        a.href = data_type + ', ' + table_html;
+        a.download = 'exported_table_' + postfix + '.xls';
+        a.click();
+        obj.preventDefault();
+	}
+</script>
+<div class="pageContent">
+	<div class="panel collapse" >
+		<h1>{:D("SysConfig")->getValue('ANALYSIS_NOTE');}</h1>
+		<div class="searchBar">
+			<form id="pagerForm" onsubmit="return divSearch(this, '<?php echo $page_id=rand();?>');"
+			action="{:U("search")}" method="post">
+			<ul class="searchContent">
+				<li>
+					<label>开始时间：</label>
+					<input name="start_day" value="{:date('Y-m-d', strtotime('-7 day'))}" class="date" readonly="true" style="width:auto"/>
+				</li>
+				
+				<li>
+					<label>截止时间：</label>
+					<input name="end_day" value="{:date('Y-m-d', strtotime('today'))}" class="date" readonly="true" style="width:auto"/>
+					<select id="lastdate2">
+						<option value="d7">最近一周</option>
+						<option value="d14">最近两周</option>
+						<option value="d31">最近一月</option>
+						<option value="w1">本周</option>
+						<option value="m1">本月</option>
+					</select>
+				</li>
+				
+				<script>
+					$("#lastdate2").change(function(){
+						var s = {
+								"d7":["<?php echo date('Y-m-d', strtotime('-7 day'));?>", "<?php echo date('Y-m-d', strtotime('-1 day'));?>"],
+								"d14":["<?php echo date('Y-m-d', strtotime('-14 day'));?>", "<?php echo date('Y-m-d', strtotime('-1 day'));?>"],
+								"d31":["<?php echo date('Y-m-d', strtotime('-31 day'));?>", "<?php echo date('Y-m-d', strtotime('-1 day'));?>"],
+								"w1":["<?php echo date('Y-m-d', strtotime('this week'));?>", "<?php echo date('Y-m-d', strtotime('-1 day'));?>"],
+								"m1":["<?php echo date('Y-m-01', strtotime('-1 day'));?>", "<?php echo date('Y-m-d', strtotime('-1 day'));?>"],
+						};
+						var d = $(this).val();
+						
+						for (var k in s) {
+							if (k == d) {
+								$("input[name=start_day]").val(s[k][0]);
+								$("input[name=end_day]").val(s[k][1]);
+							}
+						}
+					});
+				</script>
+
+				<li>
+					<label>渠道名称：</label>
+					{:Helper("Form")->name('channel')->option($channels)->value()->select()}
+				</li>
+                <div class="buttonActive"><div class="buttonContent"><button type="submit">查询</button></div></div>
+			</ul>
+			</form>
+		</div>
+	</div>
+	
+	<div id="{$page_id}" class="unitBox" style="padding:0 5px 0 5px;">
+	</div>
+</div>

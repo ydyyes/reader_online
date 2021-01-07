@@ -1,0 +1,19 @@
+#edit-yedit{width:700px;min-height:410px;border-radius:4px 4px 0 0;border:1px #E3E3E3 solid;position:relative;}
+#edit-head-yedit{height:20px;width:688px;border-bottom:1px #E3E3E3 solid;padding:12px 2px 8px 10px}
+#edit-bodyer-yedit{min-height:368px;width:700px;}
+#edit{width:688px;max-width:688px;min-width:688px;resize:vertical;height:358px;border:none;padding:4px 6px;font-family:"微软雅黑","宋体","Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;line-height:24px;}
+#edit-head-yedit ul{margin:0;padding:0;list-style:none;}
+#edit-head-yedit ul li{float:left}
+#edit-head-yedit ul li a{display:block;text-decoration:none;color:#383838;padding:0 8px;}
+#edit-head-yedit ul li span{color:#CCC;display:block;padding:0 10px 0 4px;}
+#edit-head-yedit ul li a:hover{color:#000;text-decoration:underline;}
+#myCode,#myLink,#myImgLink{display:none;width:500px;}
+.uploadify-queue{display:none;}
+.uploadify{margin:2px 0 0 0;}
+.uploadify:hover{background:#FFF;cursor:pointer;box-shadow:none;}
+#unlist{background:url('list-bullet.png') no-repeat;width:16px;height:16px;margin-left:10px;}
+#numberlist{background:url('list-numeric.png') no-repeat;width:16px;height:16px;margin-left:10px;}
+textarea:focus{box-shadow:none;}
+.upload-info{position:absolute;font-size:12px;top:-36px;left:200px;border-radius:2px;display:none;}
+.alert{padding:6px 35px 6px 14px;min-width:200px;min-width:450px;max-width:450px;}
+.autosave{font-size:12px;color:#363636}

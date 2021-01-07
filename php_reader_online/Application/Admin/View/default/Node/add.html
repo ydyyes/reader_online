@@ -1,0 +1,76 @@
+<div class="page">
+	<div class="pageContent">
+
+	<form method="post" action="__URL__/insert/navTabId/{:strtoupper(CONTROLLER_NAME)}/callbackType/closeCurrent" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone)">
+		<input type="hidden" name="user_id" value="<?php echo $_SESSION[C('USER_AUTH_KEY')] ?>"/> 
+		<input type="hidden" name="level" value="{$level}">
+		<input type="hidden" name="pid" value="{$pid}">
+		<div class="pageFormContent" layoutH="58">
+			<div class="unit">
+				<label>上级节点：</label>
+				<label><empty name="parent_node_name">根节点<else/>{$parent_node_name}</empty></label>
+			</div>
+		
+			<div class="unit">
+				<label>模块名(英文)：</label>
+				<input type="text" class="required" value="{$vo.name}" name="name">
+			</div>
+			
+			<div class="unit">
+				<label>节点名称(中文)：</label>
+				<input type="text" class="required" value="{$vo.title}" name="title">
+			</div>
+			
+			<div class="unit">
+				<label>默认方法：</label>
+				<input type="text" class="required" value="<empty name="vo.action">index<else/>{$vo.action}</empty>" name="action">
+			</div>
+			
+			<div class="unit">
+				<label>请求参数(一行一个)：</label>
+				<textarea name="params" rows="4" cols="57" title="numPerPage=20"></textarea>
+			</div>
+            
+			<div class="unit">
+				<label>节点菜单：</label>
+				<select name="group_id">
+						<volist name="groupList" id="group">
+						<option value="{$group.id}" <eq name="group.id" value="$vo['group_id']">selected</eq>>{$group.name}</option>
+						</volist>
+				</select>
+			</div>
+			
+			<div class="unit">
+				<label>显示方式：</label>
+				<select name="type">
+					<volist name="node_type" id="n">
+						<option value="{$key}" <eq name="key" value="$vo['type']">selected</eq>>{$n}</option>
+					</volist>
+				</select>
+			</div>
+            
+			<div class="unit">
+				<label>状态：</label>
+				<select name="status">
+					<option <eq name="vo.status" value="1" >selected</eq> value="1">启用</option>
+					<option <eq name="vo.status" value="0" >selected</eq> value="0">禁用</option>
+				</select>
+			</div>
+			
+			<div class="unit">
+				<label>备注(功能及权限)：</label>
+				<textarea name="remark" rows="3" cols="57">{$vo.remark}</textarea>
+			</div>
+		</div>
+		
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+		</div>
+	</form>
+	
+	</div>
+</div>
+

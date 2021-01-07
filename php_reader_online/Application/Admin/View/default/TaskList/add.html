@@ -1,0 +1,46 @@
+<div class="page">
+    <div class="pageContent">
+
+        <form method="post" action="__URL__/insert/navTabId/{:strtoupper(CONTROLLER_NAME)}/callbackType/closeCurrent" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone)">
+            <div class="pageFormContent" layoutH="58">
+                <div class="unit">
+                    <div class="unit">
+                        <label>任务名称：</label>
+                        <input type="text" class="required" value="" name="name" placeholder="任务名称" size="60">
+                    </div>
+                </div>
+                <div class="unit">
+                    <label>任务说明</label>
+                    <textarea class="describe" name="describe" placeholder="100字以内" cols="50"></textarea>
+                </div>
+                <div class="unit">
+                    <label>任务类型</label>
+                    {:Helper("Form")->name('task_type')->option($task_type)->value(1)->select();}
+                </div>
+                <div class="unit">
+                    <label>奖励类型：</label>
+                    {:Helper("Form")->name('type')->option($type)->value(1)->select();}
+                </div>
+
+                <div class="unit">
+                    <label>奖励对应的数量:</label>
+                    <input type="text" class="required" value="" name="num" placeholder="小时或者金币的数量" size="60">
+                </div>
+
+                <div class="unit">
+                        <label>状态：</label>
+                    {:Helper("Form")->name('status')->option($status)->value(1)->render('radio');}
+                </div>
+            </div>
+
+            <div class="formBar">
+                <ul>
+                    <li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+                    <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+                </ul>
+            </div>
+        </form>
+
+    </div>
+</div>
+

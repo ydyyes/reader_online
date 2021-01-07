@@ -1,0 +1,48 @@
+<style>
+    .searchBar{height:auto;}
+    .searchContent {width:auto; display:inline; float:auto; height:200px;}
+    .searchBar ul.searchContent {height:auto;}
+    .searchContent input {width:150px;display:inline;}
+</style>
+<form id="pagerForm" action="__URL__" method="post">
+    <input type="hidden" name="pid" value="{$_REQUEST.pid}"/>
+    <input type="hidden" name="pageNum" value="{$_REQUEST.pageNum}"/>
+    <input type="hidden" name="numPerPage" value="{$_REQUEST.numPerPage}" />
+    <input type="hidden" name="orderField" value="{$_REQUEST.orderField}" />
+    <input type="hidden" name="orderDirection" value="{$_REQUEST.orderDirection}" />
+    <input type="hidden" name="do" value="{$_REQUEST.do}">
+    <volist name="_search" key="name" id="field">
+        <input type="hidden" name="_search[{$key}]" value="{$field|safe}"/>
+    </volist>
+</form>
+
+<div class="page">
+    <div class="pageHeader">
+
+    </div>
+
+    <div class="pageContent">
+        <div class="panelBar">
+            <ul class="toolBar">
+                <li><a class="add" href="__URL__/chapterUpload/id/{$id}" target="navTab"  width="600" height="450"><span>章节上传</span></a></li>
+                <li><a class="add" href="__URL__/chapterUploadContinue/id/{$id}" target="navTab"  width="600" height="450"><span>章节续传</span></a></li>
+                <li><a class="add" href="__URL__/chapterUpdate/id/{$id}" target="navTab"  width="600" height="450"><span>章节修改</span></a></li>
+                <li><a class="delete" href="__URL__/chapterDel/id/{$id}" target="navTab" mask="true" warn="请选择操作对象" width="600" height="450"><span>删除全本</span></a></li>
+            </ul>
+        </div>
+        <table class="list" width="100%" layoutH="138">
+            <thead>
+            <tr>
+                <th width="100">章节名称</th>
+            </tr>
+            </thead>
+            <tbody>
+            <volist id="vo" name="list">
+                <tr target="sid_node" rel="{$id}">
+                    <td>{$vo['title']}</td>
+            </volist>
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>

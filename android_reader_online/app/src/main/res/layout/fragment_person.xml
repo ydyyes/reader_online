@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="148dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/person_bg_top"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.bule.free.ireader.common.widget.StatusBarPlaceHolder
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="56dp"
+            android:src="@drawable/person_ic_avatar_def"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:text=""
+            android:textColor="#FF222222"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tv_share_code"
+            app:layout_constraintLeft_toRightOf="@+id/iv_avatar"
+            app:layout_constraintTop_toTopOf="@+id/iv_avatar"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/tv_vip"
+            android:layout_width="30dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="4dp"
+            android:background="@drawable/person_bg_vip"
+            android:gravity="center"
+            android:text="VIP"
+            android:textColor="#FFFF3424"
+            android:textSize="11dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_user_name"
+            app:layout_constraintLeft_toRightOf="@+id/tv_user_name"
+            app:layout_constraintTop_toTopOf="@+id/tv_user_name"
+            tools:layout_editor_absoluteY="61dp" />
+
+        <!--<TextView-->
+        <!--android:id="@+id/tv_user_type"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="7dp"-->
+        <!--android:text="游客"-->
+        <!--android:textColor="#FF999999"-->
+        <!--android:textSize="11sp"-->
+        <!--app:layout_constraintBottom_toBottomOf="@+id/iv_avatar"-->
+        <!--app:layout_constraintLeft_toLeftOf="@+id/tv_user_name"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/tv_user_name" />-->
+
+        <TextView
+            android:id="@+id/tv_share_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="推荐码：2YTJK"
+            android:textColor="#FF666666"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_expire"
+            app:layout_constraintLeft_toLeftOf="@+id/tv_user_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_user_name" />
+
+        <TextView
+            android:id="@+id/tv_expire"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="会员到期时间：2019-11-12"
+            android:textColor="#FF8C8C8C"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_avatar"
+            app:layout_constraintLeft_toLeftOf="@+id/tv_user_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_share_code" />
+
+        <TextView
+            android:id="@+id/btn_login"
+            android:layout_width="90dp"
+            android:layout_height="32dp"
+            android:layout_marginRight="18dp"
+            android:background="@drawable/main_person_bg_login"
+            android:elevation="3dp"
+            android:gravity="center"
+            android:text="登录"
+            android:textColor="#FFFFFFFF"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_avatar"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/iv_avatar" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_today_read_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="0"
+                android:textColor="#FF222222"
+                android:textSize="19sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="14.5dp"
+                android:text="今日阅读（分钟）"
+                android:textColor="#FF666666"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="50dp"
+            android:background="#FFE8E8E8" />
+
+        <LinearLayout
+            android:id="@+id/layout_user_coin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_coin_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="0"
+                android:textColor="#FF222222"
+                android:textSize="19sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="14.5dp"
+                android:text="金币"
+                android:textColor="#FF666666"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="#f4f4f4" />
+
+    <include layout="@layout/layout_person_menu" />
+
+</LinearLayout>

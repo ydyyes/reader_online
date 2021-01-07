@@ -1,0 +1,92 @@
+<div class="page">
+	<div class="pageContent">
+	<form method="post" id="form1" action="__URL__/assperSave/navTabId/{:strtoupper(CONTROLLER_NAME)}" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone)">
+		<div class="pageFormContent">
+			<input type="hidden" name="user_id" value="<?php echo $_SESSION[C('USER_AUTH_KEY')] ?>"/> 
+			<input type="hidden" name="ajax" value="1">
+			
+			<table width="100%" class="list" border="0">
+				<volist id="vo" name="channelConfig">
+					<tr>
+					    <td width="100">{$vo.detail} <input type="checkbox" name="{$vo.name}All" onclick="chkAll(this)" /> </td>
+						<td>
+							<volist id="vo2" name="vo['data']">
+								<input  <if condition="in_array($vo2['id'], $channelGroup)">checked</if> type="checkbox" name="{$vo.name}" value="{$vo2.id}"  onclick="chkOne(this)" />{$vo2.name}[<font color='red' >{$vo2.id}</font>]&nbsp;&nbsp;
+							</volist>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							&nbsp;
+							<input type="hidden" name="id" value="{$id}"/>
+						</td>
+					</tr>
+				</volist>
+				<!--<tr>-->
+					<!--<td colspan="2"><font color='red'>数据统计是否显示CP管理组 ： </font>&nbsp;&nbsp;-->
+						<!--<input type="radio" name="cpStatus" class="required" value="1" <if condition="$cpStatus eq 1">checked="checked"</if>/>显示&nbsp;-->
+						<!--<input type="radio" name="cpStatus" class="required" value="2" <if condition="$cpStatus eq 2">checked="checked"</if>/>不显示-->
+					<!--</td>-->
+				<!--</tr>-->
+				<!--<tr height="10"></tr>-->
+				<tr>
+					<td colspan="2"><font color='red'>数据统计是否显示渠道管理组：</font>&nbsp;&nbsp;
+						<input type="radio" name="channelStatus" class="required" value="1" <if condition="$channelStatus eq 1">checked="checked"</if>/>显示&nbsp;
+						<input type="radio" name="channelStatus" class="required" value="2" <if condition="$channelStatus eq 2">checked="checked"</if>/>不显示
+					</td>
+				</tr>
+				<!--<tr height="10"></tr>-->
+			  <!--<tr>-->
+			    <!--<td width="100">&nbsp;</td>-->
+			    <!--<td>&nbsp;</td>-->
+			  <!--</tr>-->
+			</table>		
+		</div>
+		<div id="div1">
+			<input type="hidden" name="s_channel" value="{$qdInfo}"/>
+			<input type="hidden" name="s_cp" value="{$cpInfo}"/>
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+		</div>
+	</form>
+	</div>
+</div>
+<script type="text/javascript">
+function getValues() 
+{
+    var channel = getCheckboxValues("channel");
+    var cp = getCheckboxValues("cp");
+    var sdk = getCheckboxValues("sdk");	
+    var input = '<input type="hidden" name="s_channel" value='+ '"' + channel + '"' +'/><input type="hidden" name="s_cp" value='+ '"' + cp + '"' +'/><input type="hidden" name="s_sdk" value='+ '"' + sdk + '"' +'/>';
+    $("#div1").append(input);
+}
+
+
+function getCheckboxValues(name) {
+    return $(":checkbox[name="+name+"]:checked").map(function(){  
+        return $(this).val(); 
+    }).get().join(",");
+ 
+}
+
+function chkOne()
+{
+	getValues();
+}
+
+function chkAll(obj) 
+{    
+    var name = $(obj).attr("name");
+    var str = name.indexOf("All");
+   
+    $(":checkbox[name=" + name.substring(0, str) + "]").each(function () {
+        this.checked = obj.checked;
+    });
+    
+    getValues();
+}
+</script>

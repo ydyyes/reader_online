@@ -1,0 +1,53 @@
+<div class="page">
+<div class="pageContent">
+
+	<form name="entry" method="post" action="__URL__/Access/callbackType/closeCurrent" class="pageForm" onsubmit="return validateCallback(this, navTabAjaxDone);">
+	<input type="hidden" name="id" value="{$vo.id}">
+	<input type="hidden" name="hash" value="{$hash}">
+	<input type="hidden" name="node_id[]" value="1">
+	<div class="formBar">
+		<ul>
+			<li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+			<li><div class="button"><div class="buttonContent"><button type="button" class="close">关闭</button></div></div></li>
+		</ul>
+	</div>
+
+	<div class="tabs" currentIndex="0" eventType="hover">
+		<div class="tabsHeader">
+			<div class="tabsHeaderContent">
+				<ul>
+					<volist name="grantTable" id="Group">
+					<li><a href="javascript:;"><span>{$Group.group.name}</span></a></li>
+					</volist>
+				</ul>
+			</div>
+
+		</div>
+		<div class="tabsContent" style="height:600p;">
+			<volist name="grantTable" id="Group">
+			<div>
+					<!-- 遍历出节点 -->
+					<volist name="Group.nodes" id="node">
+					
+					<ul class="tree treeFolder treeCheck expand">
+						<li><a tname="node_id[]" tvalue="{$node.id}" <if condition="$Access[$node['id']]">checked</if>>{$node.title}:{$node.name}</a>
+							<ul>
+								<volist name="node.action" id="action">
+								<li><a tname="node_id[]" tvalue="{$action.id}" <if condition="$Access[$action['id']]">checked</if>>{$action.title}:{$action.name}</a></li>
+								</volist>
+							</ul>
+						</li>
+					</ul>
+					</volist>
+			</div>
+			</volist>
+
+		</div>
+		<div class="tabsFooter">
+			<div class="tabsFooterContent"></div>
+		</div>
+
+	</div>
+	</form>
+</div>
+</div>

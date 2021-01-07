@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_menu_top"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_menu_top_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <!--<com.bule.free.ireader.common.widget.StatusBarPlaceHolder-->
+            <!--android:id="@+id/status_bar_ph"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content" />-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/iv_return"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/bg_ib_pre"
+                android:clickable="true"
+                android:src="@drawable/selector_icon_return" />
+
+            <me.grantland.widget.AutofitTextView
+                android:id="@+id/atv_title"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/tv_btn_normal_black"
+                android:textSize="16sp"
+                app:minTextSize="14sp" />
+
+            <ImageView
+                android:id="@+id/iv_check_bookmark"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/bg_ib_pre"
+                android:clickable="true"
+                android:paddingHorizontal="17dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"
+                android:src="@drawable/read_selector_bookmark_top" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@drawable/bg_shadow" />
+</LinearLayout>

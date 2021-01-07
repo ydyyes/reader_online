@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_shadow_left"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/main_bg_top_day_rec_shadow_left"
+        app:layout_constraintBottom_toBottomOf="@id/v_bg"
+        app:layout_constraintRight_toLeftOf="@+id/v_bg"
+        app:layout_constraintTop_toTopOf="@+id/v_bg" />
+
+    <ImageView
+        android:id="@+id/iv_shadow_right"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/main_bg_top_day_rec_shadow_right"
+        app:layout_constraintBottom_toBottomOf="@id/v_bg"
+        app:layout_constraintLeft_toRightOf="@+id/v_bg"
+        app:layout_constraintTop_toTopOf="@+id/v_bg" />
+
+    <ImageView
+        android:id="@+id/iv_shadow_top"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/main_bg_top_day_rec_shadow_top"
+        app:layout_constraintBottom_toTopOf="@+id/v_bg"
+        app:layout_constraintLeft_toLeftOf="@id/iv_shadow_left"
+        app:layout_constraintRight_toRightOf="@+id/iv_shadow_right" />
+
+    <ImageView
+        android:id="@+id/iv_shadow_bottom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/main_bg_top_day_rec_shadow_bottom"
+        app:layout_constraintLeft_toLeftOf="@id/v_bg"
+        app:layout_constraintRight_toRightOf="@+id/iv_shadow_right"
+        app:layout_constraintTop_toBottomOf="@+id/iv_shadow_left" />
+
+
+    <View
+        android:id="@+id/v_bg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="18dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/layout_notify"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/iv_rec_book_cover" />
+
+    <ImageView
+        android:id="@+id/iv_rec_book_cover"
+        android:layout_width="78dp"
+        android:layout_height="105dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/ic_book_default"
+        android:scaleType="fitXY"
+        app:layout_constraintLeft_toLeftOf="@+id/v_bg"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_mrtj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="12dp"
+        android:text="【每日推荐】"
+        android:textColor="#FF2F94F9"
+        android:textSize="11sp"
+        app:layout_constraintLeft_toRightOf="@+id/iv_rec_book_cover"
+        app:layout_constraintTop_toTopOf="@+id/v_bg" />
+
+    <TextView
+        android:id="@+id/tv_book_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="#FF222222"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_rec_book_author_and_type"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_mrtj"
+        app:layout_constraintRight_toLeftOf="@+id/v_divider"
+        app:layout_constraintTop_toBottomOf="@+id/tv_mrtj" />
+
+    <TextView
+        android:id="@+id/tv_rec_book_author_and_type"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:textColor="#FF999999"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_rec_book_des"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_mrtj"
+        app:layout_constraintRight_toLeftOf="@+id/v_divider"
+        app:layout_constraintTop_toBottomOf="@+id/tv_book_title" />
+
+    <TextView
+        android:id="@+id/tv_rec_book_des"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="#FF999999"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_rec_book_cover"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_mrtj"
+        app:layout_constraintRight_toLeftOf="@+id/v_divider" />
+
+    <View
+        android:id="@+id/v_divider"
+        android:layout_width="1px"
+        android:layout_height="67dp"
+        android:background="#FFEAEAEA"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_rec_book_cover"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintLeft_toLeftOf="@id/v_bg"
+        app:layout_constraintRight_toRightOf="@+id/v_bg" />
+
+    <TextView
+        android:id="@+id/tv_sign_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="已签到"
+        android:textColor="#FF999999"
+        android:textSize="10sp"
+        app:layout_constraintLeft_toRightOf="@+id/v_divider"
+        app:layout_constraintRight_toRightOf="@+id/v_bg"
+        app:layout_constraintTop_toTopOf="@+id/v_divider" />
+
+    <TextView
+        android:id="@+id/tv_signed_day_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1356天"
+        app:layout_constraintBottom_toTopOf="@+id/btn_sign"
+        app:layout_constraintLeft_toRightOf="@+id/v_divider"
+        app:layout_constraintRight_toRightOf="@+id/v_bg"
+        app:layout_constraintTop_toBottomOf="@+id/tv_sign_status" />
+
+    <TextView
+        android:id="@+id/btn_sign"
+        android:layout_width="52dp"
+        android:layout_height="24dp"
+        android:background="@drawable/selector_login_button"
+        android:gravity="center"
+        android:text="签到"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/v_divider"
+        app:layout_constraintLeft_toRightOf="@+id/v_divider"
+        app:layout_constraintRight_toRightOf="@+id/v_bg"
+        app:layout_constraintTop_toBottomOf="@+id/tv_signed_day_count" />
+
+
+    <View
+        android:id="@+id/v_divider2"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        app:layout_constraintLeft_toLeftOf="@+id/v_bg"
+        app:layout_constraintRight_toRightOf="@+id/v_bg"
+        app:layout_constraintTop_toBottomOf="@+id/iv_rec_book_cover" />
+
+    <LinearLayout
+        android:id="@+id/layout_notify"
+        android:layout_width="0dp"
+        android:layout_height="34dp"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="@+id/v_bg"
+        app:layout_constraintRight_toRightOf="@+id/v_bg"
+        app:layout_constraintTop_toBottomOf="@+id/v_divider2"
+        app:layout_goneMarginBottom="20dp"
+        app:layout_goneMarginTop="20dp">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#FFF3F3F3" />
+
+        <com.bule.free.ireader.common.widget.MarqueTextView
+            android:id="@+id/tv_notify"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="15dp"
+            android:drawableLeft="@drawable/main_ic_notify"
+            android:drawablePadding="8dp"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="客服QQ：667267326878"
+            android:textColor="#FF222222"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/btn_rec_book"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_rec_book_cover"
+        app:layout_constraintLeft_toLeftOf="@+id/iv_rec_book_cover"
+        app:layout_constraintRight_toRightOf="@+id/v_divider"
+        app:layout_constraintTop_toTopOf="@+id/iv_rec_book_cover" />
+
+    <View
+        android:id="@+id/v_divider3"
+        android:layout_width="0dp"
+        android:layout_height="23dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/v_bg"
+        app:layout_constraintRight_toRightOf="@+id/v_bg"
+        app:layout_constraintTop_toBottomOf="@+id/layout_notify" />
+
+</android.support.constraint.ConstraintLayout>

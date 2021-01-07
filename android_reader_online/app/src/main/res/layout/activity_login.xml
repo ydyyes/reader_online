@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bg_total"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <com.bule.free.ireader.common.widget.ToolBarView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tb_background="@color/transparent"
+        app:tb_is_show_divider="false" />
+
+    <ImageView
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="34dp"
+        android:src="@drawable/login_ic_logo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="欢迎登录快读小说"
+        android:textColor="#FF222222"
+        android:textSize="20sp" />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="18dp"
+        android:layout_marginTop="54dp">
+
+        <ImageView
+            android:id="@+id/iv_temp1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/login_ic_phone"
+            app:layout_constraintBottom_toBottomOf="@+id/edit_phone_number"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/edit_phone_number" />
+
+        <EditText
+            android:id="@+id/edit_phone_number"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:background="@null"
+            android:hint="请输入您的手机号"
+            android:inputType="phone"
+            android:paddingVertical="15dp"
+            android:singleLine="true"
+            android:textColor="#222"
+            android:textColorHint="#b3b3b3"
+            android:textSize="17sp"
+            app:layout_constraintLeft_toRightOf="@+id/iv_temp1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0.6dp"
+            android:background="@color/divider_f0"
+            app:layout_constraintLeft_toLeftOf="@+id/edit_phone_number"
+            app:layout_constraintRight_toRightOf="@+id/edit_phone_number"
+            app:layout_constraintTop_toBottomOf="@+id/edit_phone_number" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0.6dp"
+            android:background="@color/divider_f0"
+            app:layout_constraintLeft_toLeftOf="@+id/edit_phone_code"
+            app:layout_constraintRight_toRightOf="@+id/tv_get_phone_code"
+            app:layout_constraintTop_toBottomOf="@+id/edit_phone_code" />
+
+        <ImageView
+            android:id="@+id/iv_temp2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/login_ic_pwd"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_temp1" />
+
+        <EditText
+            android:id="@+id/edit_phone_code"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:background="@null"
+            android:hint="请输入验证码"
+            android:inputType="numberSigned"
+            android:maxLength="6"
+            android:paddingVertical="16dp"
+            android:singleLine="true"
+            android:textColor="#222"
+            android:textColorHint="#b3b3b3"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_temp2"
+            app:layout_constraintLeft_toRightOf="@+id/iv_temp2"
+            app:layout_constraintRight_toLeftOf="@+id/tv_get_phone_code"
+            app:layout_constraintTop_toTopOf="@+id/iv_temp2" />
+
+        <TextView
+            android:id="@+id/tv_get_phone_code"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="2dp"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:paddingVertical="5dp"
+            android:text="获取验证码"
+            android:textColor="#FF3083FF"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_temp2"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/iv_temp2" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginHorizontal="18dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/selector_login_button"
+        android:gravity="center"
+        android:text="登录"
+        android:textColor="#FFFFFFFF"
+        android:textSize="18sp" />
+
+</LinearLayout>

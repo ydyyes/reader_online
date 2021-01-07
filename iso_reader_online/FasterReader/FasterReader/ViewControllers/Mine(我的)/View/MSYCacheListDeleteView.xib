@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="MSYCacheListDeleteView" customModule="FasterReader" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CBg-7l-2bO">
+                    <rect key="frame" x="0.0" y="0.0" width="374" height="1"/>
+                    <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="Ov7-92-ttd"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IfQ-nz-jXT">
+                    <rect key="frame" x="186.5" y="5" width="1" height="40"/>
+                    <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="1" id="vcc-tZ-Rtm"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wF1-ad-K6e">
+                    <rect key="frame" x="0.0" y="1" width="186.5" height="49"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="全选">
+                        <color key="titleColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="selected" title="取消全选">
+                        <color key="titleColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="clickSelectOrCancel:" destination="iN0-l3-epB" eventType="touchUpInside" id="Ibm-VP-kg4"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHa-wl-aPc">
+                    <rect key="frame" x="187.5" y="1" width="186.5" height="49"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="删除">
+                        <color key="titleColor" red="0.91059639084507038" green="0.063572843309859156" blue="0.0" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="clickDelete:" destination="iN0-l3-epB" eventType="touchUpInside" id="Z6d-mq-R2N"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="IfQ-nz-jXT" firstAttribute="leading" secondItem="wF1-ad-K6e" secondAttribute="trailing" id="3n7-Ao-hhe"/>
+                <constraint firstItem="yHa-wl-aPc" firstAttribute="top" secondItem="CBg-7l-2bO" secondAttribute="bottom" id="6rP-7B-k9m"/>
+                <constraint firstItem="wF1-ad-K6e" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Huq-dS-pad"/>
+                <constraint firstItem="CBg-7l-2bO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Jx6-Sj-q4v"/>
+                <constraint firstAttribute="bottom" secondItem="IfQ-nz-jXT" secondAttribute="bottom" constant="5" id="LEe-LZ-rie"/>
+                <constraint firstItem="IfQ-nz-jXT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="ME1-Mf-E9v"/>
+                <constraint firstItem="IfQ-nz-jXT" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="MUn-Ik-60z"/>
+                <constraint firstItem="CBg-7l-2bO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Qbc-fh-mM8"/>
+                <constraint firstAttribute="bottom" secondItem="yHa-wl-aPc" secondAttribute="bottom" id="Rdd-t7-S0u"/>
+                <constraint firstItem="yHa-wl-aPc" firstAttribute="leading" secondItem="IfQ-nz-jXT" secondAttribute="trailing" id="UvI-T6-LbR"/>
+                <constraint firstAttribute="bottom" secondItem="wF1-ad-K6e" secondAttribute="bottom" id="XPM-T6-CBJ"/>
+                <constraint firstAttribute="trailing" secondItem="yHa-wl-aPc" secondAttribute="trailing" id="eqZ-wd-Pcn"/>
+                <constraint firstAttribute="trailing" secondItem="CBg-7l-2bO" secondAttribute="trailing" id="n04-lz-UFc"/>
+                <constraint firstItem="wF1-ad-K6e" firstAttribute="top" secondItem="CBg-7l-2bO" secondAttribute="bottom" id="zbo-pi-oWJ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="deleteButton" destination="yHa-wl-aPc" id="1Rw-uW-y9T"/>
+                <outlet property="selectOrCancelAllBUtton" destination="wF1-ad-K6e" id="OA2-qJ-t0L"/>
+            </connections>
+            <point key="canvasLocation" x="104.34782608695653" y="-62.946428571428569"/>
+        </view>
+    </objects>
+</document>

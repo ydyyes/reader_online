@@ -1,0 +1,96 @@
+<style>
+	.searchBar{height:auto;}
+	.searchContent {width:auto; display:inline; float:auto; height:200px;}
+	.searchBar ul.searchContent {height:auto;}
+	.searchContent input {width:150px;display:inline;}
+</style>
+<form id="pagerForm" action="__URL__/index" method="post">
+	<input type="hidden" name="pid" value="{$_REQUEST.pid}"/>
+	<input type="hidden" name="pageNum" value="{$_REQUEST.pageNum}"/>
+	<input type="hidden" name="numPerPage" value="{$_REQUEST.numPerPage}" />
+	<input type="hidden" name="orderField" value="{$_REQUEST.orderField}" />
+	<input type="hidden" name="orderDirection" value="{$_REQUEST.orderDirection}" />
+	<input type="hidden" name="do" value="{$_REQUEST.do}">
+	<input type="hidden" name="nid" value="{$nid}">
+	<volist name="_search" key="name" id="field">
+		<input type="hidden" name="_search[{$key}]" value="{$field|safe}"/>
+	</volist>
+</form>
+
+<div class="page">
+	<div class="pageHeader">
+		<form onsubmit="return navTabSearch(this);" action="__URL__/index" method="post">
+		<div class="searchBar">
+			<!-- <ul class="searchContent">
+				<li>
+					<label>章节标题：</label>
+					<input type="text" name="_search[title]" class="medium" value="{$_search.title}">
+				</li>
+				<div class="buttonActive"><div class="buttonContent"><button type="submit">查询</button></div></div>
+			</ul> -->
+		</div>
+		</form>
+	</div>
+	
+	<div class="pageContent">
+		<div class="panelBar">
+			<ul class="toolBar">
+				<li><a class="add" href="__URL__/add/nid/{$nid}" target="navTab" mask="true" width="600" height="450"><span>新增</span></a></li>
+				<li><a class="edit" href="__URL__/edit/nid/{$nid}" target="navTab" mask="true" width="600" height="450"><span>修改</span></a></li>
+				<li><a class="delete" href="__URL__/foreverdelete/id/{sid_node}/navTabId/{sid_node}" target="ajaxTodo" title="你确定要删除吗？" warn="请选择用户"><span>删除</span></a></li>
+			</ul>
+		</div>
+		<table class="list" width="100%" layoutH="138">
+			<thead>
+			<tr>
+				<th width="60" orderField="id" class="{:orderField('id','desc')}">ID</th>
+				<th width="100" orderField="serial" class="{:orderField('serial','desc')}">序号</th>
+				<th width="100">章节标题</th>
+				<th width="100">文件名</th>
+				<th width="100">查看</th>
+				<th width="150">添加时间</th>
+				<th width="150">更新时间</th>
+			</tr>
+			</thead>
+			<tbody>
+			<volist id="vo" name="list">
+				<tr target="sid_node" rel="{$vo['id']}">
+					<td>{$vo['id']}</td>
+					<td>{$vo['serial']}</td>
+					<td>{$vo['title']}</td>
+					<td>{$vo['link']}</td>
+					<php>
+						if (false === stripos($vo['link'], 'http://'))
+						{
+					</php>	
+					<td><a href="{:cdn('ATTACH')}{$vo['link']}" target="_blank">查看内容</a></td>		
+					<php>
+						} else {
+					</php>
+					<td><a href="{$vo['link']}" target="_blank">查看内容</a></td>
+					<php>
+						}
+					</php>
+					<td>{$vo['create_at']|date="Y-m-d H:i:s",###}</td>
+					<td>{$vo['update_at']|date="Y-m-d H:i:s",###}</td>
+				</tr>
+			</volist>
+			</tbody>
+		</table>
+
+		<div class="panelBar">
+			<div class="pages">
+				<span>显示</span>
+				<select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
+					<option value="10" <eq name="numPerPage" value="10">selected</eq>>10</option>
+					<option value="20" <eq name="numPerPage" value="20">selected</eq>>20</option>
+					<option value="50" <eq name="numPerPage" value="50">selected</eq>>50</option>
+					<option value="100" <eq name="numPerPage" value="100">selected</eq>>100</option>
+					<option value="200" <eq name="numPerPage" value="200">selected</eq>>200</option>
+				</select>
+				<span>共{$totalCount}条</span>
+			</div>
+			<div class="pagination" targetType="navTab" totalCount="{$totalCount}" numPerPage="{$numPerPage}" pageNumShown="10" currentPage="{$currentPage}"></div>
+		</div>
+	</div>
+</div>

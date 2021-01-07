@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MSYFeedBackController" customModule="NightReader" customModuleProvider="target">
+            <connections>
+                <outlet property="emailTextFiled" destination="Koc-No-Y0p" id="Lgp-1O-xjb"/>
+                <outlet property="pleaceHolderLabel" destination="Qd1-CZ-ToT" id="ZOn-DW-TW0"/>
+                <outlet property="submitButton" destination="zYK-VT-zk4" id="9zf-D3-5YX"/>
+                <outlet property="textView" destination="ewi-uq-tJd" id="Gxq-NN-hhW"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ewi-uq-tJd">
+                    <rect key="frame" x="12" y="61" width="390" height="138"/>
+                    <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="138" id="Ude-xW-puT"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有什么想对我们说的...(11-200个字符)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qd1-CZ-ToT">
+                    <rect key="frame" x="22" y="71" width="239" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kxW-UX-ana">
+                    <rect key="frame" x="12" y="217" width="390" height="40"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="联系邮箱：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wDs-Iv-kuR">
+                            <rect key="frame" x="14" y="11.5" width="71.5" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入邮箱号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Koc-No-Y0p">
+                            <rect key="frame" x="90.5" y="11.5" width="299.5" height="17"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="Koc-No-Y0p" firstAttribute="leading" secondItem="wDs-Iv-kuR" secondAttribute="trailing" constant="5" id="MGe-T3-KAA"/>
+                        <constraint firstAttribute="trailing" secondItem="Koc-No-Y0p" secondAttribute="trailing" id="Z6b-FR-abI"/>
+                        <constraint firstItem="wDs-Iv-kuR" firstAttribute="leading" secondItem="kxW-UX-ana" secondAttribute="leading" constant="14" id="eFR-rX-C5b"/>
+                        <constraint firstItem="wDs-Iv-kuR" firstAttribute="centerY" secondItem="kxW-UX-ana" secondAttribute="centerY" id="fVX-vW-bfo"/>
+                        <constraint firstAttribute="height" constant="40" id="feo-1W-sfR"/>
+                        <constraint firstItem="Koc-No-Y0p" firstAttribute="centerY" secondItem="wDs-Iv-kuR" secondAttribute="centerY" id="vlf-TD-q9E"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zYK-VT-zk4">
+                    <rect key="frame" x="147" y="281" width="120" height="42"/>
+                    <color key="backgroundColor" red="0.18431372549019609" green="0.58039215686274503" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="gf8-Y5-YJU"/>
+                        <constraint firstAttribute="width" constant="120" id="vYi-1e-fyE"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="提交反馈">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="clickSubmit:" destination="-1" eventType="touchUpInside" id="Hc1-4x-VVN"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Qd1-CZ-ToT" firstAttribute="top" secondItem="ewi-uq-tJd" secondAttribute="top" constant="10" id="5Hc-5j-QcX"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ewi-uq-tJd" secondAttribute="trailing" constant="12" id="7Gp-h5-8wi"/>
+                <constraint firstItem="kxW-UX-ana" firstAttribute="top" secondItem="ewi-uq-tJd" secondAttribute="bottom" constant="18" id="Meo-As-BBH"/>
+                <constraint firstItem="Qd1-CZ-ToT" firstAttribute="leading" secondItem="ewi-uq-tJd" secondAttribute="leading" constant="10" id="QNd-Sd-d98"/>
+                <constraint firstItem="kxW-UX-ana" firstAttribute="trailing" secondItem="ewi-uq-tJd" secondAttribute="trailing" id="X44-ey-Ubh"/>
+                <constraint firstItem="ewi-uq-tJd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="dGS-XE-vnZ"/>
+                <constraint firstItem="zYK-VT-zk4" firstAttribute="top" secondItem="kxW-UX-ana" secondAttribute="bottom" constant="24" id="fCi-Wc-FcZ"/>
+                <constraint firstItem="kxW-UX-ana" firstAttribute="leading" secondItem="ewi-uq-tJd" secondAttribute="leading" id="fSd-6e-9pv"/>
+                <constraint firstItem="zYK-VT-zk4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="m28-Gm-8cV"/>
+                <constraint firstItem="ewi-uq-tJd" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="17" id="wK7-1V-Pte"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+</document>

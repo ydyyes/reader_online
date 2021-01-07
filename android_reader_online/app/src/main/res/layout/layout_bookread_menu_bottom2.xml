@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_menu_bottom"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@drawable/bg_shadow2" />
+
+    <LinearLayout
+        android:id="@+id/ll_menu_bottom_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_pre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_ib_pre"
+                android:clickable="true"
+                android:enabled="false"
+                android:padding="10dp"
+                android:text="上一章"
+                android:textColor="@color/selector_tv_black"
+                android:textSize="12sp" />
+
+            <com.monke.mprogressbar.MHorProgressBar
+                android:id="@+id/hpb_read_progress"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="8dp"
+                android:layout_weight="1"
+                app:bgdrawable="#FFDEDEDE"
+                app:cantouch="true"
+                app:cursordrawable="@drawable/shape_progress_cursor_read"
+                app:cursordrawable_height="13dp"
+                app:cursordrawable_width="13dp"
+                app:fontdrawable="#FF2F94F9"
+                app:progresswidth="2dp" />
+
+            <TextView
+                android:id="@+id/tv_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_ib_pre"
+                android:clickable="true"
+                android:enabled="false"
+                android:padding="10dp"
+                android:text="下一章"
+                android:textColor="@color/selector_tv_black"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/ll_catalog"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_ib_pre"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:paddingBottom="8dp">
+
+                <ImageView
+                    android:id="@+id/iv_ic_catalog"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/read_ic_catelog" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="3dp"
+                    android:text="目录"
+                    android:textColor="#FF7F7F7F"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_dn_mode"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_ib_pre"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:paddingBottom="8dp">
+
+                <ImageView
+                    android:id="@+id/iv_dn_mode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/read_ic_day_mode" />
+
+                <TextView
+                    android:id="@+id/tv_dn_mode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="3dp"
+                    android:text="夜间模式"
+                    android:textColor="#FF7F7F7F"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_bookmark"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_ib_pre"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:paddingBottom="8dp">
+
+                <ImageView
+                    android:id="@+id/iv_ic_bookmark"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/read_ic_bookmark" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="3dp"
+                    android:text="书签"
+                    android:textColor="#FF7F7F7F"
+                    android:textSize="9sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_setting"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_ib_pre"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:paddingBottom="8dp">
+
+                <ImageView
+                    android:id="@+id/iv_ic_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/read_ic_setting" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="3dp"
+                    android:text="设置"
+                    android:textColor="#FF7F7F7F"
+                    android:textSize="10sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

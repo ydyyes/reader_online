@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+<title>{$Think.config.sitename}</title>
+<link href="{:cdn('PUBLIC')}/app/dwz/themes/css/login.css?20110824" rel="stylesheet" type="text/css" />
+<script src="{:cdn('PUBLIC')}/app/dwz/js/jquery-1.4.4.min.js?20110425" type="text/javascript"></script>
+<script language="JavaScript">
+<!--
+function fleshVerify(type){ 
+	//重载验证码
+	var timenow = new Date().getTime();
+	if (type){
+		$('#verifyImg').attr("src", '__URL__/verify/adv/1/'+timenow);
+	}else{
+		$('#verifyImg').attr("src", '__URL__/verify/'+timenow);
+	}
+}
+$(function(){
+	fleshVerify();
+});
+//-->
+</script>
+</head>
+<body>
+<div id="login">
+	<div id="login_header">
+		<h1 class="login_logo">
+			<a href="#"><img src="{:cdn('PUBLIC')}/app/dwz/themes/default/images/login_logo.gif" /></a>
+		</h1>
+		<div class="login_headerContent">
+			<div class="navList">
+				<ul>
+				</ul>
+			</div>
+			<h2 class="login_title"><img src="{:cdn('PUBLIC')}/app/dwz/themes/default/images/login_title.png" /></h2>
+		</div>
+	</div>
+	<div id="login_content">
+		<div class="loginForm">
+			<php>if(!strpos($_SERVER[HTTP_USER_AGENT], 'WebKit')):</php>
+			<div style="color:red">
+				<label>温馨提醒：</label>您使用的浏览器不被良好支持<br/>请使用Chrome浏览器访问<br/><a href="http://rj.baidu.com/soft/detail/14744.html?ald" target="_blank">或点这里下载安装Chrome</a>
+			</div>
+			<php>endif;</php>
+			<form method="post" action="__URL__/checkLogin/">
+				<p>
+					<label>帐号：</label>
+					<input type="text" name="account" size="15" value="{:cookie('last_login')}" style="width:120px" class="login_input" />
+				</p>
+				<p>
+					<label>密码：</label>
+					<input type="password" name="password" size="15" style="width:120px" class="login_input" />
+				</p>
+				<p>
+					<label>验证码：</label>
+					<input class="code" name="verify" type="text" size="5" />
+					<span><img id="verifyImg" src="__URL__/verify" onClick="fleshVerify()" border="0" alt="点击刷新验证码" style="cursor:pointer" align="absmiddle"></span>
+				</p>
+				<div class="login_bar">
+					<input class="sub" type="submit" value=" " />
+				</div>
+			</form>
+		</div>
+		<div class="login_banner"><img src="{:cdn('PUBLIC')}/app/dwz/themes/default/images/login_banner.jpg" /></div>
+		<div class="login_main">
+			<ul class="helpList">
+			</ul>
+			<div class="login_inner">
+			</div>
+		</div>
+	</div>
+	<div id="login_footer">
+		Copyright &copy; 2009 - {:date("Y")} {$Think.config.COMPANY} Inc. All Rights Reserved. 
+		Powered by <a href="http://www.thinkphp.cn/" target="_blank">ThinkPHP.</a>, <a href="http://www.j-ui.com/" target="_blank">JUI.</a></a>
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/book_detail_bottom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/book_list_tv_chase"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:text="@string/book_detail_chase_update"
+                    android:textColor="#248af0"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/book_detail_tv_read"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#339afe"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:text="@string/book_detail_start_read"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/book_detail_bottom_layout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <FrameLayout
+                    android:id="@+id/fl_top_book_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/shape_book_detail_bg" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <android.support.v7.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/toolbar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@color/transparent"
+                            android:fitsSystemWindows="true"
+                            android:minHeight="?attr/actionBarSize"
+                            android:theme="@style/Theme.ToolBar.Detail"
+                            app:contentInsetStart="0dp">
+
+                            <TextView
+                                android:id="@+id/toolbar_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:singleLine="true"
+                                android:textColor="@color/text_common_h2"
+                                android:textSize="18sp" />
+
+                        </android.support.v7.widget.Toolbar>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:paddingBottom="15dp">
+
+                            <FrameLayout
+                                android:id="@+id/book_detail_fl_cover"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_marginRight="10dp">
+
+                                <ImageView
+                                    android:id="@+id/book_detail_iv_cover"
+                                    android:layout_width="85dp"
+                                    android:layout_height="115dp"
+                                    android:contentDescription="@null"
+                                    android:scaleType="centerCrop" />
+
+                                <!--<ImageView-->
+                                <!--android:id="@+id/iv_book_status"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!---->
+                                <!--/>-->
+
+                            </FrameLayout>
+
+
+                            <TextView
+                                android:id="@+id/book_detail_tv_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginBottom="10dp"
+                                android:layout_toRightOf="@+id/book_detail_fl_cover"
+                                android:ellipsize="end"
+                                android:singleLine="true"
+                                android:textColor="#000000"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/book_detail_tv_type"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/book_detail_tv_title"
+                                android:layout_toRightOf="@id/book_detail_fl_cover"
+                                android:ellipsize="end"
+                                android:singleLine="true"
+                                android:textColor="#4995f7"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/book_detail_tv_author"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/book_detail_tv_title"
+                                android:layout_toRightOf="@+id/book_detail_tv_type"
+                                android:ellipsize="end"
+                                android:singleLine="true"
+                                android:textColor="#4995f7"
+                                android:textSize="14sp" />
+
+
+                            <TextView
+                                android:id="@+id/book_detail_tv_word_count"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/book_detail_tv_author"
+                                android:layout_marginTop="6dp"
+                                android:layout_toRightOf="@id/book_detail_fl_cover"
+                                android:ellipsize="end"
+                                android:singleLine="true"
+                                android:textColor="#666666"
+                                android:textSize="14sp" />
+
+                            <com.bule.free.ireader.common.widget.EasyRatingBar xmlns:rate="http://schemas.android.com/apk/res-auto"
+                                android:id="@+id/hot_comment_erb_rate"
+                                android:layout_width="120dp"
+                                android:layout_height="18dp"
+                                android:layout_below="@id/book_detail_tv_word_count"
+                                android:layout_marginLeft="-4dp"
+                                android:layout_marginTop="6dp"
+                                android:layout_toRightOf="@id/book_detail_fl_cover"
+                                rate:rateNormal="@drawable/rating_star_user_nor"
+                                rate:rateSelect="@drawable/rating_star_user_press" />
+
+                            <LinearLayout
+                                android:id="@+id/book_detail_layout_tag"
+                                android:layout_width="wrap_content"
+                                android:layout_height="25dp"
+                                android:layout_below="@id/hot_comment_erb_rate"
+                                android:layout_marginTop="10dp"
+                                android:layout_toRightOf="@id/book_detail_fl_cover"
+                                android:orientation="horizontal" />
+
+
+                        </RelativeLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+
+                                <TextView
+                                    android:id="@+id/book_detail_tv_follower_count"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:singleLine="true"
+                                    android:textColor="#212121"
+                                    android:textSize="16sp" />
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:ellipsize="end"
+                                    android:singleLine="true"
+                                    android:text="追书人数"
+                                    android:textColor="#999999"
+                                    android:textSize="13sp" />
+
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="1px"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="6dp"
+                                android:layout_marginBottom="6dp"
+                                android:background="#cccccc" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+
+                                <TextView
+                                    android:id="@+id/book_detail_tv_retention"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:singleLine="true"
+                                    android:textColor="#212121"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:ellipsize="end"
+                                    android:singleLine="true"
+                                    android:text="读者留存率"
+                                    android:textColor="#999999"
+                                    android:textSize="13sp" />
+
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="1px"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="6dp"
+                                android:layout_marginBottom="6dp"
+                                android:background="#cccccc" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/book_detail_tv_day_word_count"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:singleLine="true"
+                                    android:textColor="#212121"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:ellipsize="end"
+                                    android:singleLine="true"
+                                    android:text="日更新字数"
+                                    android:textColor="#999999"
+                                    android:textSize="13sp" />
+
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#cccccc" />
+
+
+                <TextView
+                    android:id="@+id/book_detail_tv_brief"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:lineSpacingExtra="6dp"
+                    android:maxLines="4"
+                    android:padding="15dp"
+                    android:textColor="#212121"
+                    android:textSize="14sp" />
+
+                <FrameLayout
+                    android:id="@+id/fl_adv_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#cccccc" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="#f2f2f2 " />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#cccccc" />
+
+                <TextView
+                    android:id="@+id/book_list_tv_recommend_book_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="15dp"
+                    android:text="@string/book_detail_recommend_book_list"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/book_detail_rv_recommend_book_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:foregroundGravity="center" />
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>
+
+

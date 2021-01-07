@@ -1,0 +1,64 @@
+<div class="page">
+	<div class="pageContent">
+		<form method="post" action="__URL__/insert/navTabId/{:strtoupper(CONTROLLER_NAME)}/callbackType/closeCurrent" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone)">
+			<div class="pageFormContent" layoutH="58">
+				<php>
+					$vo[type] = isset($vo[type]) ? $vo[type] : 'input';
+					$vo[validate_type] = isset($vo[validate_type]) ? $vo[validate_type] : 'string';
+					$vo[status] = isset($vo[status]) ? $vo[status] : 1;
+				</php>
+
+				<div class="unit">
+					<label>配置名称：</label>
+					<input type="text" class="required alphanumeric" name="name" value="{$vo['name']}" size="50"/>
+					<label>英文、数字、下划线</label>
+				</div>
+				
+				<div class="unit">
+					<label>说明：</label>
+					<input type="text" class="required" name="comment" value="{$vo['comment']|safe}" size="100" maxlength="300" />
+				</div>				
+				
+				<div class="unit">
+					<label>值：</label>
+					<input type="text" class="required" name="value" value="{$vo['value']|safe}" size="100" maxlength="300" />
+				</div>
+				
+				<div class="unit">
+					<label>字段类型：</label>
+					<div style="width:80%;min-width:450px;float:left;">
+						{:Helper("Form")->class('required')->name('type')->value($vo[type])->option(D("SysConfig")->type)->radio()}
+					</div>
+				</div>
+				
+				<div class="unit">
+					<label>数据类型：</label>
+					<div style="width:80%;min-width:450px;float:left;">
+						{:Helper("Form")->class('required')->name('validate_type')->value($vo[validate_type])->option(D("SysConfig")->validate_type)->radio()}
+					</div>
+				</div>
+				
+				<div class="unit">
+					<label>选项列表：</label>
+					<textarea name="option" cols="99" rows="5" placeholder='{"a":"b","c":[1,2,3]}'>{$vo.option}</textarea>
+				</div>
+				
+				<div class="unit">
+					<label>默认值：</label>
+					<input type="text" name="default" value="{$vo['default']|safe}" size="100" maxlength="300" />
+				</div>
+				
+				<div class="unit">
+					<label>状态：</label>
+					{:Helper("Form")->class('required')->name('status')->value($vo[status])->option(["禁用", "启用"])->select()}
+				</div>
+			</div>
+			<div class="formBar">
+				<ul>
+					<li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+					<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+				</ul>
+			</div>
+		</form>
+	</div>
+</div>

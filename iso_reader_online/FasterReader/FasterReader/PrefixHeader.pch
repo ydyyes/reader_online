@@ -1,0 +1,46 @@
+//
+//  PrefixHeader.pch
+//  NightReader
+//
+//  Created by 张俊平 on 2019/2/17.
+//  Copyright © 2019 ZHANGJUNPING. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "ReaderHeader.h"
+#import "MSYAdvertisementKeyHeader.h"
+#import <UMAnalytics/MobClick.h>
+
+#define APP_NAME @"美阅小说"
+#define PhotoTips @"请在手机“设置->隐私->照片 中 开启“美阅小说”允许访问您的手机相册"
+
+#define WeakObj(o)   autoreleasepool{} __weak   typeof(o)  o##Weak = o
+#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
+
+#ifdef DEBUG
+#define NSLog(...) NSLog(__VA_ARGS__)
+#else
+#define NSLog(...)
+#endif
+
+
+enum  {
+	IMG_SOURCE_SMALL = 0,
+	IMG_SOURCE_MIDDLE,
+	IMG_SOURCE_BIG,
+	IMG_SOURCE_CARD_IMG,
+};
+	//上传图片
+#define DELETE_IMAGE(imageName)       [Utils deleteImageName:imageName]
+#define SAVE_IMAGE(imageName,anImage) [Utils saveImageName:imageName image:anImage]
+#define GET_IMAGE_PATH(imageName,aType) [Utils getImagePathByName:imageName type:aType]
+#define GET_CARD_IMG_PATH(imageName) [Utils getCardImagePathByName:imageName]
+#define ADD_FILEPACH(aPath, name) [NSString stringWithFormat:@"%@/%@", aPath, name]
+#define DEFAULT_FILEPATH @"imagecache"
+
+#endif /* PrefixHeader_pch */

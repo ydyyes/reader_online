@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true">
+
+    <com.bule.free.ireader.newbook.contentswitchview.ContentSwitchView
+        android:id="@+id/csv_book"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true" />
+
+    <FrameLayout
+        android:id="@+id/layout_adv_container"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:visibility="visible">
+
+        <FrameLayout
+            android:id="@+id/fl_banner_ad_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/btn_close_banner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="14dp"
+            android:src="@drawable/tm_close" />
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/fl_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <include layout="@layout/layout_read_menu_top2" />
+
+        <include layout="@layout/layout_bookread_menu_bottom2" />
+    </FrameLayout>
+
+    <com.bule.free.ireader.newbook.widget.ChapterListView
+        android:id="@+id/clp_chapterlist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</FrameLayout>

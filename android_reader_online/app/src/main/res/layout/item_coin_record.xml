@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="14dp">
+
+    <TextView
+        android:id="@+id/tv_mission_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:singleLine="true"
+        android:text="签到奖励"
+        android:textColor="#FF222222"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_mission_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_mission_title"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="10dp"
+        android:singleLine="true"
+        android:textColor="#FF777777"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_mission_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_mission_title" />
+
+    <TextView
+        android:id="@+id/tv_mission_reward"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+10"
+        android:textColor="#FFFE3B30"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_mission_title"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_mission_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FF222222"
+        android:textSize="11sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_mission_content"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

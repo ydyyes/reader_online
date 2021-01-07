@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?><!--通用的书籍介绍界面-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_common_bg"
+
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="10dp">
+
+    <ImageView
+        android:id="@+id/book_brief_iv_portrait"
+        android:layout_width="65dp"
+        android:layout_height="85dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/book_brief_iv_portrait"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/book_brief_tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="书名"
+            android:textColor="#212121"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:id="@+id/book_brief_tv_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="作者"
+            android:textColor="#4995f7" />
+
+        <TextView
+            android:id="@+id/book_brief_tv_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="xxxxxxxxxxxxxxxx"
+            android:textColor="#999999"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/book_brief_iv_portrait"
+        android:layout_marginTop="20dp"
+        android:background="#d9d9d9" />
+</RelativeLayout>

@@ -1,0 +1,151 @@
+<style>
+	.searchBar{height:auto;}
+	.searchContent {width:auto; display:inline; float:auto; height:200px;}
+	.searchBar ul.searchContent {height:auto;}
+	.searchContent input {width:150px;display:inline;}
+</style>
+<form id="pagerForm" action="__URL__" method="post">
+	<input type="hidden" name="pid" value="{$_REQUEST.pid}"/>
+	<input type="hidden" name="pageNum" value="{$_REQUEST.pageNum}"/>
+	<input type="hidden" name="numPerPage" value="{$_REQUEST.numPerPage}" />
+	<input type="hidden" name="orderField" value="{$_REQUEST.orderField}" />
+	<input type="hidden" name="orderDirection" value="{$_REQUEST.orderDirection}" />
+	<input type="hidden" name="do" value="{$_REQUEST.do}">
+	<volist name="_search" key="name" id="field">
+		<input type="hidden" name="_search[{$key}]" value="{$field|safe}"/>
+	</volist>
+</form>
+
+<div class="page">
+	<div class="pageHeader">
+		<form onsubmit="return navTabSearch(this);" action="__URL__/index" method="post">
+		<div class="searchBar">
+			<ul class="searchContent">
+
+				<li>
+					<label>小说名称：</label>
+					<input type="text" name="_search[title]" class="medium" value="{$_search.title}">
+				</li>
+				<li>
+					<label>作者：</label>
+					<input type="text" name="_search[author]" class="medium" value="{$_search.author}">
+				</li>
+
+				<php>
+					 $manualUpdate =['1' => '启用',
+									'0' => '禁用',]
+				</php>
+				<li>
+
+				<li>
+					<label>是否为手动设置：</label>
+					{:Helper("Form")->name('_search[manualUpdate]')->option($manualUpdate)->value($_search['manualUpdate'])->select();}
+				</li>
+
+				<div class="unit">
+
+				</div>
+
+				<php>
+					$over = ['0' => '连载中',
+					         '1' => '完结'];
+					$status =['1' => '上架',
+					          '0' => '下架',]
+
+				</php>
+				<li>
+					<label>完结：</label>
+					{:Helper("Form")->name('_search[over]')->option($over)->value($_search['over'])->select();}
+				</li>
+				<li>
+					<label>状态：</label>
+					{:Helper("Form")->name('_search[status]')->option($status)->value($_search['status'])->select();}
+				</li>
+
+				<php>
+					$order_manualUpdate = ['1' => '是'];
+				</php>
+				<li>
+					<label>按跟书人数排序：</label>
+					<if condition = " $Think.cookie.order_manualUpdate eq 1">
+						{:Helper("Form")->name('_search[order_manualUpdate]')->option($order_manualUpdate)->value(1)->render('checkbox');}
+						<else/>
+						{:Helper("Form")->name('_search[order_manualUpdate]')->option($order_manualUpdate)->value('')->render('checkbox');}
+					</if>
+				</li>
+				<div class="buttonActive"><div class="buttonContent"><button type="submit">查询</button></div></div>
+			</ul>
+		</div>
+		</form>
+	</div>
+	
+	<div class="pageContent">
+		<div class="panelBar">
+
+		</div>
+		<table class="list" width="100%" layoutH="138">
+			<thead>
+			<tr>
+				<th width="60">ID</th>
+				<th width="100">小说名称</th>
+				<th width="100">作者</th>
+				<th width="100">开始收费章节</th>
+				<th width="100">是否完结</th>
+				<th width="100">来源</th>
+				<th width="100">字数</th>
+				<th width="100">跟书人数</th>
+				<th width="100">分类</th>
+				<th width="100">是否设置为手动</th>
+				<th width="150">状态</th>
+				<th width="150">添加时间</th>
+				<th width="150">更新时间</th>
+			</tr>
+			</thead>
+			<tbody>
+			<volist id="vo" name="list">
+				<tr target="sid_node" rel="{$vo['id']}">
+					<td>{$vo['id']}</td>
+					<td>{$vo['title']}</td>
+					<td>{$vo['author']}</td>
+					<php>
+						if ($vo['isPayChapter'] > 0)
+							echo "<td>".$vo['isPayChapter']."</td>";
+						else 
+							echo "<td>免费</td>";	
+					</php>
+					<php>
+						if ($vo['over'] ==1)
+						echo "<td>完结</td>";
+						else
+						echo "<td>未完结</td>";
+					</php>
+					<td>{$vo['copyright']}</td>
+					<td>{$vo['wordCount']}</td>
+					<td>{$vo['latelyFollower']}</td>
+					<td>{$vo['majorCate']}</td>
+					<td>{$vo['manualUpdate']|showStatus=$vo['id']}</td>
+
+					<td>{$vo['status']|getStatus}</td>
+					<td>{$vo['create_at']|date="Y-m-d H:i:s",###}</td>
+					<td>{$vo['update_at']|date="Y-m-d H:i:s",###}</td>
+				</tr>
+			</volist>
+			</tbody>
+		</table>
+
+		<div class="panelBar">
+			<div class="pages">
+				<span>显示</span>
+				<select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
+					<option value="10" <eq name="numPerPage" value="10">selected</eq>>10</option>
+					<option value="20" <eq name="numPerPage" value="20">selected</eq>>20</option>
+					<option value="50" <eq name="numPerPage" value="50">selected</eq>>50</option>
+					<option value="100" <eq name="numPerPage" value="100">selected</eq>>100</option>
+					<option value="200" <eq name="numPerPage" value="200">selected</eq>>200</option>
+				</select>
+				<span>共{$totalCount}条</span>
+			</div>
+			<div class="pagination" targetType="navTab" totalCount="{$totalCount}" numPerPage="{$numPerPage}" pageNumShown="10" currentPage="{$currentPage}"></div>
+		</div>
+	</div>
+</div>

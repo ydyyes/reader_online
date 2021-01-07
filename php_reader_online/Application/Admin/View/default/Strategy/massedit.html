@@ -1,0 +1,42 @@
+<div class="page">
+	<div class="pageContent">
+	<form method="post" action="__URL__/massupdate" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone)">
+		<div class="pageFormContent" layoutH="58">
+			<div class="unit">
+				<label>上线渠道：</label>
+				<button type="button" class="checkboxCtrl buttonstyle" group="channel[]">全选</button>
+				<button type="button" class="checkboxCtrl buttonstyle" group="channel[]" selectType="none">全不选</button>
+				<button type="button" class="checkboxCtrl buttonstyle" group="channel[]" selectType="invert">反选</button>
+			</div>
+			<div class="unit">
+				<volist id="channelname" name="allChannel">
+					<div style="width:160px;float:left;">
+						<label style="cursor:pointer;width:100%;">
+						<input type="checkbox" name="channel[]" value="{$key},{$channelname}" class="required"/>{$channelname}
+						</label>
+					</div>
+				</volist>
+			</div>
+			
+			<div class="unit">
+                <label style="width:200px;">配置项</label>
+                <label style="width:300px;">中文名称</label>
+                <label style="width:200px;">配置值</label>
+            </div>
+			<volist id="vo" name="list">
+	            <div class="unit">
+	                <label style="width:200px;">{$vo['name']}</label>
+	                <label style="width:300px;">{$vo['cname']}</label>
+	                <input type="text" name="{$vo['name']}--{$vo['cname']}" size="30"/>
+	            </div>
+            </volist>
+        </div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+		</div>
+	</form>
+	</div>
+</div>

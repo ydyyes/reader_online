@@ -1,0 +1,129 @@
+<style>
+    .searchBar label {
+        width: auto;
+        padding: 0;
+    }
+    .searchBar ul.searchContent li {
+        margin-right: 20px;
+    }
+	.searchBar ul.searchContent li input {
+    	width: 50px;
+    }
+</style>
+<form id="pagerForm" action="__URL__/index" method="post">
+	<input type="hidden" name="pid" value="{$_REQUEST.pid}"/>
+	<input type="hidden" name="pageNum" value="{$_REQUEST.pageNum}"/>
+	<input type="hidden" name="numPerPage" value="{$_REQUEST.numPerPage}" />
+	<input type="hidden" name="orderField" value="{$_REQUEST.orderField}" />
+	<input type="hidden" name="orderDirection" value="{$_REQUEST.orderDirection}" />
+	<volist name="_search" key="name" id="field">
+		<input type="hidden" name="_search[{$key}]" value="{$field|safe}"/>
+	</volist>
+</form>
+<div class="page">
+
+	<div class="pageHeader">
+		<form onsubmit="return navTabSearch(this);" action="__URL__/index" method="post">
+		<div class="searchBar">
+			<ul class="searchContent" style="height:100%;">
+				<li>
+                    <label>联系方式：</label>
+                    <input type="text" name="_search[contact]" value="{$_REQUEST._search.contact}"/>
+                </li>
+                <li>
+                    <label>手机号：</label>
+                    <input type="text" name="_search[username]" value="{$_REQUEST._search.username}"/>
+                </li>
+                <li>
+                    <label>支付宝账户：</label>
+                    <input type="text" name="_search[alipay]" value="{$_REQUEST._search.alipay}"/>
+                </li>
+				<li>
+					<label>开始时间：</label>
+					<php>
+						$startstr = $_search['start_day'] ? $_search['start_day'] : '-1 day';
+						$endstr = $_search['end_day'] ? $_search['end_day'] : 'now';
+						$startstr = strtotime($startstr);
+						$endstr = strtotime($endstr);
+					</php>
+					<input name="_search[start_day]" value="{:date('Y-m-d', $startstr)}" class="date" readonly="true" style="width:auto"/>
+				</li>
+				<li>
+					<label>截止时间：</label>
+					<input name="_search[end_day]" value="{:date('Y-m-d', $endstr)}" class="date" readonly="true" style="width:auto"/>
+				</li>
+                <div class="buttonActive"><div class="buttonContent"><button type="submit">查询</button></div></div>
+			</ul>
+		</div>
+		</form>
+	</div>
+
+    <div class="panelBar">
+			<ul class="toolBar">
+				<li><a class="edit" href="__URL__/edit/id/{sid_node}" width="900" height="450" target="dialog" mask="true" warn="请选择操作对象"><span>编辑</span></a></li>
+			</ul>
+		</div>
+
+    <div class="pageContent">
+		<table class="list" width="100%" layoutH="138">
+			<thead>
+			<tr>
+                <th orderField="id" class="{:orderField('id','desc')}">ID</th>
+				<th>手机号</th>
+				<th>是否锁定</th>
+				<th>消耗金币</th>
+				<th>提现金额</th>
+				<th>应提金额(2%手续费)</th>
+				<th>支付宝账户</th>
+                <th>账户姓名</th>
+                <th>联系方式</th>
+				<th>申请时间</th>
+				<th>最后修改时间</th>
+			</tr>
+			</thead>
+			<tbody>
+			<php>$uids = []; </php>
+			<volist id="f" name="list">
+				<php>$uids[] = $f['uid'];</php>
+			</volist>
+			<php>
+				//username
+				if (!empty($uids))
+				{
+				$users = D('Admin/Users')->where(['id'=>['IN', $uids]])->getField('id,username', true);
+				$lockinfo = D('Admin/Users')->where(['id'=>['IN', $uids]])->getField('id,lock', true);
+				}
+			</php>
+			<volist id="vo" name="list">
+				<tr target="sid_node" rel="{$vo['id']}">
+					<td>{$vo['id']}</td>
+                    <td>{$users[$vo['uid']]}</td>
+                    <td>{$lock[$lockinfo[$vo['uid']]]}</td>
+                    <td>{$vo['gamecoin']}</td>
+                    <td>{$vo['total_amount']}</td>
+                    <td>{$vo['receipt_amount']}</td>
+					<td>{$vo['alipay']}</td>
+					<td>{$vo['aliname']}</td>
+					<td>{$vo['contact']}</td>
+                    <td>{$vo['create_at']|date="Y-m-d H:i:s",###}</td>
+					<td>{$vo['update_at']|date="Y-m-d H:i:s",###}</td>
+                </tr>
+			</volist>
+			</tbody>
+		</table>
+		<div class="panelBar">
+			<div class="pages">
+				<span>显示</span>
+				<select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
+					<option value="10" <eq name="numPerPage" value="10">selected</eq>>10</option>
+					<option value="20" <eq name="numPerPage" value="20">selected</eq>>20</option>
+					<option value="50" <eq name="numPerPage" value="50">selected</eq>>50</option>
+					<option value="100" <eq name="numPerPage" value="100">selected</eq>>100</option>
+					<option value="200" <eq name="numPerPage" value="200">selected</eq>>200</option>
+				</select>
+				<span>共{$totalCount}条</span>
+			</div>
+			<div class="pagination" targetType="navTab" totalCount="{$totalCount}" numPerPage="{$numPerPage}" pageNumShown="10" currentPage="{$currentPage}"></div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.bule.free.ireader.common.widget.ToolBarView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:visibility="invisible" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <com.bule.free.ireader.common.widget.MVerticalTabLayout
+            android:id="@+id/book_mall_tablayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            app:indicator_color="@color/white"
+            app:indicator_gravity="fill"
+            app:indicator_width="5dp"
+            app:tab_height="46dp"
+            app:tab_margin="1dp"
+            app:tab_mode="scrollable" />
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:paddingHorizontal="10dp" />
+
+        <TextView
+            android:id="@+id/tv_loaderr"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="数据加载异常，请稍后重试"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</LinearLayout>

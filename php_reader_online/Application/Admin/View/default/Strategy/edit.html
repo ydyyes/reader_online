@@ -1,0 +1,32 @@
+<div class="page">
+	<div class="pageContent">
+		<form method="post" action="__URL__/update/navTabId/{:strtoupper(CONTROLLER_NAME)}/callbackType/closeCurrent" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone)">
+			<div class="pageFormContent" layoutH="58">
+			<input type="hidden" name="id" value="{$vo.id}" />
+			<div class="unit">
+				<label>渠道：</label>
+				<input type="text" class="required" readonly size="30" class="required" value="{:D('SysChannel')->getChannelName($vo['channel_id']);}">
+			</div>
+			<div class="unit">
+				<label>配置项_英文：</label>
+				<input type="text" class="required" readonly size="30" class="required" value="{$vo['name']}">
+			</div>
+			<div class="unit">
+				<label>配置名_中文：</label>
+				<input type="text" class="required" size="30" class="required" name="cname" value="{$vo['cname']}">
+			</div>
+			<div class="unit">
+				<label>配置值：</label>
+				<input type="text" class="required" size="30" class="required" name="value" value="{$vo['value']}">
+			</div>
+			</div>
+			<div class="formBar">
+				<ul>
+					<li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+					<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+				</ul>
+			</div>
+		</form>
+	
+	</div>
+</div>

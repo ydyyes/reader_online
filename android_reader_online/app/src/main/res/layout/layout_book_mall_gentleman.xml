@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_gentleman"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingHorizontal="14dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="18dp"
+        android:paddingBottom="18dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="男频推荐"
+            android:textColor="#FF222222"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/btn_more_gentleman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="更多 >"
+            android:textColor="#FF999999"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layout_gentleman_book1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/iv_gentleman_cover1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_book_default"
+            app:layout_constraintDimensionRatio="3:4"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.2" />
+
+        <TextView
+            android:id="@+id/tv_gentleman_book_title1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="#FF222222"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_gentleman_author1"
+            app:layout_constraintLeft_toRightOf="@+id/iv_gentleman_cover1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gentleman_author1"
+            app:layout_constraintTop_toTopOf="@+id/iv_gentleman_cover1" />
+
+        <TextView
+            android:id="@+id/tv_gentleman_author1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:textColor="#FF999999"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_gentleman_book_des1"
+            app:layout_constraintLeft_toLeftOf="@+id/tv_gentleman_book_title1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gentleman_book_title1" />
+
+        <TextView
+            android:id="@+id/tv_gentleman_book_des1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text=""
+            android:textColor="#FF666666"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_gentleman_cover1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_gentleman_author1"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gentleman_author1" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layout_gentleman_book2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="?android:attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/iv_gentleman_cover2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_book_default"
+            app:layout_constraintDimensionRatio="3:4"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.2" />
+
+        <TextView
+            android:id="@+id/tv_gentleman_book_title2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="#FF222222"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_gentleman_author2"
+            app:layout_constraintLeft_toRightOf="@+id/iv_gentleman_cover2"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gentleman_author2"
+            app:layout_constraintTop_toTopOf="@+id/iv_gentleman_cover2" />
+
+        <TextView
+            android:id="@+id/tv_gentleman_author2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:textColor="#FF999999"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_gentleman_book_des2"
+            app:layout_constraintLeft_toLeftOf="@+id/tv_gentleman_book_title2"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gentleman_book_title2" />
+
+        <TextView
+            android:id="@+id/tv_gentleman_book_des2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text=""
+            android:textColor="#FF666666"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_gentleman_cover2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_gentleman_author2"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gentleman_author2" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layout_gentleman_book3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="?android:attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/iv_gentleman_cover3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_book_default"
+            app:layout_constraintDimensionRatio="3:4"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.2" />
+
+        <TextView
+            android:id="@+id/tv_gentleman_book_title3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="#FF222222"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_gentleman_author3"
+            app:layout_constraintLeft_toRightOf="@+id/iv_gentleman_cover3"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gentleman_author3"
+            app:layout_constraintTop_toTopOf="@+id/iv_gentleman_cover3" />
+
+        <TextView
+            android:id="@+id/tv_gentleman_author3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:textColor="#FF999999"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_gentleman_book_des3"
+            app:layout_constraintLeft_toLeftOf="@+id/tv_gentleman_book_title3"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gentleman_book_title3" />
+
+        <TextView
+            android:id="@+id/tv_gentleman_book_des3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="#FF666666"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_gentleman_cover3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_gentleman_author3"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gentleman_author3" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layout_gentleman_book4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="?android:attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/iv_gentleman_cover4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_book_default"
+            app:layout_constraintDimensionRatio="3:4"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.2" />
+
+        <TextView
+            android:id="@+id/tv_gentleman_book_title4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="#FF222222"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_gentleman_author4"
+            app:layout_constraintLeft_toRightOf="@+id/iv_gentleman_cover4"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gentleman_author4"
+            app:layout_constraintTop_toTopOf="@+id/iv_gentleman_cover4" />
+
+        <TextView
+            android:id="@+id/tv_gentleman_author4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:textColor="#FF999999"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_gentleman_book_des4"
+            app:layout_constraintLeft_toLeftOf="@+id/tv_gentleman_book_title4"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gentleman_book_title4" />
+
+        <TextView
+            android:id="@+id/tv_gentleman_book_des4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="#FF666666"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_gentleman_cover4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_gentleman_author4"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gentleman_author4" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layout_gentleman_book5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="?android:attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/iv_gentleman_cover5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_book_default"
+            app:layout_constraintDimensionRatio="3:4"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.2" />
+
+        <TextView
+            android:id="@+id/tv_gentleman_book_title5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="#FF222222"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_gentleman_author5"
+            app:layout_constraintLeft_toRightOf="@+id/iv_gentleman_cover5"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gentleman_author5"
+            app:layout_constraintTop_toTopOf="@+id/iv_gentleman_cover5" />
+
+        <TextView
+            android:id="@+id/tv_gentleman_author5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:textColor="#FF999999"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_gentleman_book_des5"
+            app:layout_constraintLeft_toLeftOf="@+id/tv_gentleman_book_title5"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gentleman_book_title5" />
+
+        <TextView
+            android:id="@+id/tv_gentleman_book_des5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="#FF666666"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_gentleman_cover5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_gentleman_author5"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gentleman_author5" />
+    </android.support.constraint.ConstraintLayout>
+</LinearLayout>

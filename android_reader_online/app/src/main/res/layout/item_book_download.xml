@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_common_bg">
+
+    <ImageView
+        android:id="@+id/iv_check_box"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginLeft="14dp"
+        android:src="@drawable/book_dl_ic_checked_n"
+        app:layout_constraintBottom_toBottomOf="@id/iv_book_cover"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/iv_book_cover" />
+
+    <ImageView
+        android:id="@+id/iv_book_cover"
+        android:layout_width="78dp"
+        android:layout_height="105dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="4dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/iv_check_box"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_book_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="15dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="xx小说"
+        android:textColor="#333"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/progress_bar"
+        app:layout_constraintLeft_toRightOf="@+id/iv_book_cover"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/iv_book_cover"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="15dp"
+        android:max="100"
+        android:progressDrawable="@drawable/book_dl_progress_downloading"
+        app:layout_constraintBottom_toTopOf="@+id/tv_cache_progress"
+        app:layout_constraintLeft_toRightOf="@+id/iv_book_cover"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_book_title" />
+
+    <TextView
+        android:id="@+id/tv_cache_progress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_book_cover"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_book_title"
+        app:layout_constraintRight_toRightOf="@+id/tv_book_title"
+        app:layout_constraintTop_toBottomOf="@+id/progress_bar" />
+
+</android.support.constraint.ConstraintLayout>

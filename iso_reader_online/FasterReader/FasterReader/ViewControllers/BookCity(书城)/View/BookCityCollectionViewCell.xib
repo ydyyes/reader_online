@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="BookCityCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="145" height="167"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="145" height="167"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zhanweitu" translatesAutoresizingMaskIntoConstraints="NO" id="vja-Le-TKO">
+                        <rect key="frame" x="0.0" y="10" width="133" height="119"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lianzai" translatesAutoresizingMaskIntoConstraints="NO" id="LYx-MZ-vLb">
+                        <rect key="frame" x="0.0" y="10" width="43" height="43"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="43" id="TcU-6v-kOU"/>
+                            <constraint firstAttribute="width" constant="43" id="lKw-bT-SgV"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3AP-yl-yOb">
+                        <rect key="frame" x="0.0" y="129" width="133" height="38"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="38" id="bIX-In-KUB"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="vja-Le-TKO" secondAttribute="trailing" constant="12" id="00O-Rz-5Gp"/>
+                <constraint firstItem="3AP-yl-yOb" firstAttribute="leading" secondItem="vja-Le-TKO" secondAttribute="leading" id="BZE-a6-JXg"/>
+                <constraint firstItem="vja-Le-TKO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="MUm-hy-OKc"/>
+                <constraint firstItem="3AP-yl-yOb" firstAttribute="top" secondItem="vja-Le-TKO" secondAttribute="bottom" id="Po2-AZ-5d4"/>
+                <constraint firstAttribute="bottom" secondItem="3AP-yl-yOb" secondAttribute="bottom" id="hM5-tr-cAl"/>
+                <constraint firstItem="3AP-yl-yOb" firstAttribute="trailing" secondItem="vja-Le-TKO" secondAttribute="trailing" id="iQl-T9-ZBH"/>
+                <constraint firstItem="LYx-MZ-vLb" firstAttribute="leading" secondItem="vja-Le-TKO" secondAttribute="leading" id="pa7-S8-AyD"/>
+                <constraint firstItem="LYx-MZ-vLb" firstAttribute="top" secondItem="vja-Le-TKO" secondAttribute="top" id="uAy-kb-PQL"/>
+                <constraint firstItem="vja-Le-TKO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="we4-rJ-ihd"/>
+            </constraints>
+            <size key="customSize" width="145" height="167"/>
+            <connections>
+                <outlet property="bookImg" destination="vja-Le-TKO" id="oi9-Yb-ToK"/>
+                <outlet property="bookNameLb" destination="3AP-yl-yOb" id="RfE-CO-SbZ"/>
+                <outlet property="bookStateImg" destination="LYx-MZ-vLb" id="wdy-Qd-k5M"/>
+            </connections>
+            <point key="canvasLocation" x="202.40000000000001" y="137.18140929535232"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="lianzai" width="43" height="43"/>
+        <image name="zhanweitu" width="102.5" height="138.5"/>
+    </resources>
+</document>

@@ -1,0 +1,123 @@
+<form id="pagerForm" action="__URL__" method="post">
+	<input type="hidden" name="pid" value="{$_REQUEST.pid}"/>
+	<input type="hidden" name="pageNum" value="{$_REQUEST.pageNum}"/>
+	<input type="hidden" name="numPerPage" value="{$_REQUEST.numPerPage}" />
+	<input type="hidden" name="orderField" value="{$_REQUEST.orderField}" />
+	<input type="hidden" name="orderDirection" value="{$_REQUEST.orderDirection}" />
+	<input type="hidden" name="do" value="{$_REQUEST.do}">
+	<volist name="_search" key="name" id="field">
+		<input type="hidden" name="_search[{$key}]" value="{$field|safe}"/>
+	</volist>
+</form>
+
+<div class="page">
+	<div class="pageHeader">
+		<form onsubmit="return navTabSearch(this);" action="__URL__/index" method="post">
+		<div class="searchBar">
+			<ul class="searchContent">
+				<li>
+					<label>设备ID：</label>
+					<input type="text" name="_search[devid]" class="medium" value="{$_search.devid}">
+				</li>
+				<li>
+					<label>Uid：</label>
+					<input type="text" name="_search[id]" class="medium" value="{$_search.id}">
+				</li>
+				<li>
+					<label>用户唯一标识：</label>
+					<input type="text" name="_search[uni_id]" class="medium" value="{$_search.uni_id}">
+				</li>
+				<li>
+					<label>手机号：</label>
+					<input type="text" name="_search[mobile]" class="medium" value="{$_search.mobile}">
+				</li>
+				<li>
+					<label>用户类型：</label>
+					{:Helper("Form")->name('_search[utid]')->option($type)->value($_search['utid'])->select();}
+				</li>
+				<li>
+					<label>所属渠道：</label>
+					<input type="text" name="_search[channel]" class="medium" value="{$_search.channel}">
+				</li>
+				<li>
+					<label>会员时长：</label>
+					{:Helper("Form")->name('_search[days]')->option($days)->value($_search['days'])->select();}
+				</li>
+				<li>
+					<label>状态：</label>
+					{:Helper("Form")->name('_search[status]')->option($status)->value($_search['status'])->select();}
+				</li>
+
+				<div class="buttonActive"><div class="buttonContent"><button type="submit">查询</button></div></div>
+			</ul>
+		</div>
+		</form>
+	</div>
+	
+	<div class="pageContent">
+		<div class="panelBar">
+		    <ul class="toolBar">
+				<li><a class="edit" href="__URL__/editGold/id/{sid_node}" target="navTab" mask="true" warn="请选择操作对象" width="600" height="450"><span>金币修改</span></a></li>
+			</ul>
+		</div>
+		<table class="list" width="100%" layoutH="138">
+			<thead>
+			<tr>
+				<th width="60">ID</th>
+				<th width="100">用户唯一标识</th>
+				<th width="100">设备ID</th>
+				<th width="150">手机号</th>
+				<th width="150">用户类型</th>
+				<th width="150">会员所剩天数</th>
+				<th width="150">剩余金币数量</th>
+				<th width="150">邀请码</th>
+				<th width="150">添加时间</th>
+				<th width="150">状态</th>
+				<th width="150">所属渠道</th>
+				<th width="150">操作</th>
+			</tr>
+			</thead>
+			<tbody>
+			<volist id="vo" name="list">
+				<tr target="sid_node" rel="{$vo['id']}">
+					<td>{$vo['id']}</td>
+					<td>{$vo['uni_id']}</td>
+					<td>{$vo['devid']}</td>
+					<td>{$vo['mobile']}</td>
+					<td>{$type[$vo['utid']]}</td>
+					<php>
+						$memdays = 0;
+						$e = $vo['expire'] - time();
+						if ($e > 0)
+						{
+							$memdays = ceil($e / 86400);
+						}
+					</php>
+					<td>{$memdays}</td>
+					<td>{$vo['gold']}</td>
+					<td>{$vo['invitation_code']}</td>
+					<td>{$vo['create_time']|date="Y-m-d H:i:s",###}</td>
+					<td>{$vo['status']|getStatus}</td>
+					<td>{$vo['channel']}</td>
+					<td>{$vo['status']|showStatus=$vo['id']}</td>
+				</tr>
+			</volist>
+			</tbody>
+		</table>
+
+		<div class="panelBar">
+			<div class="pages">
+				<span>显示</span>
+				<select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
+					<option value="10" <eq name="numPerPage" value="10">selected</eq>>10</option>
+					<option value="20" <eq name="numPerPage" value="20">selected</eq>>20</option>
+					<option value="50" <eq name="numPerPage" value="50">selected</eq>>50</option>
+					<option value="100" <eq name="numPerPage" value="100">selected</eq>>100</option>
+					<option value="200" <eq name="numPerPage" value="200">selected</eq>>200</option>
+				</select>
+				<span>共{$totalCount}条</span>
+			</div>
+			<div class="pagination" targetType="navTab" totalCount="{$totalCount}" numPerPage="{$numPerPage}" pageNumShown="10" currentPage="{$currentPage}"></div>
+		</div>
+	</div>
+</div>

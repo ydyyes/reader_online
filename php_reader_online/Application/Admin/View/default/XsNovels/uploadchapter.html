@@ -1,0 +1,25 @@
+<div class="page">
+    <div class="pageContent">
+
+        <form method="post" action="__URL__/insertChapter/navTabId/{:strtoupper(CONTROLLER_NAME)}/callbackType/closeCurrent" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone)">
+            <input type="hidden" name="id" value="{$id}" >
+            <div class="pageFormContent" layoutH="58">
+                <div class="unit">
+                    <label>章节压缩包或txt文件：</label>
+                    <input style="width:250px" class="" type="text" name="book" value="" id="identify" readonly placeholder="文件名"/>
+                    <a class="btnAttach" id="uploadAttachments" href="__URL__/uploader/type/book" lookupGroup="" width="560" height="300" title="附件">附件</a>
+                    <span class="info" style="cursor:pointer;" onclick="document.getElementById('uploadAttachments').click()">(点击上传rar或zip包或txt文件)</span>
+                    <input type="hidden" name="chapters" />
+                </div>
+            </div>
+
+            <div class="formBar">
+                <ul>
+                    <li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+                    <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+                </ul>
+            </div>
+        </form>
+
+    </div>
+</div>

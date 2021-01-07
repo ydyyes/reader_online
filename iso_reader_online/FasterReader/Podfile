@@ -1,0 +1,35 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'FasterReader' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+use_frameworks!
+
+pod 'SDCycleScrollView'
+pod 'AFNetworking'
+pod 'Bugly'
+pod 'MJRefresh'
+pod 'YYWebImage'
+pod 'YYText'
+pod 'YYCache'
+pod 'YYModel'
+pod 'YYCategories'
+pod 'Reachability'
+pod 'Masonry'
+pod 'SVProgressHUD'
+#腾讯广告
+pod 'GDTMobSDK'
+#穿山甲-头条联盟广告
+pod 'Bytedance-UnionAD'
+pod 'TXScrollLabelView'
+pod 'YBPopupMenu'
+#友盟
+pod 'UMCAnalytics'
+
+#swift
+pod 'SnapKit'
+pod 'Schedule'
+pod 'HandyJSON', '~> 5.0.0'
+
+
+end

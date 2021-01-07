@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#fff</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#5099ff</color>
+    <color name="theme_background">@color/white</color>
+
+    <!--老版本颜色定义-->
+    <color name="title_bar_background">#2e95f9</color>
+    <color name="btn_bg_press">#c1c1c1</color>
+    <color name="tv_btn_normal_black">#737373</color>
+    <color name="tv_btn_press_black">#adadad</color>
+    <!--common-->
+    <color name="transparent">#00000000</color>
+    <color name="translucent">#99343434</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="light_white">#EEEEEE</color>
+    <!--通用背景色-->
+    <color name="common_bg">@color/white</color>
+    <!--ViewPager item 选中颜色-->
+    <color name="indicator_selected">#5099ff</color>
+    <!--ViewPager item 未选中颜色-->
+    <color name="indicator_normal">#a3a3a3</color>
+    <!--list-->
+    <color name="divider_common">#727272</color>
+    <color name="divider_dash">@color/light_white</color>
+    <!--通用分割线细-->
+    <!--通用分割线粗-->
+    <color name="text_default">@color/black</color>
+    <color name="text_common_h2">#727272</color>
+    <!--button-->
+    <color name="widget_button_normal">@color/white</color>
+    <color name="widget_button_selected">#E3E3E3</color>
+    <color name="scroll_refresh_tip">#88303F9F</color>
+    <!--老版本颜色定义 end-->
+
+    <!--通用颜色-->
+    <color name="common_btn_p">#7ABCFF</color>
+    <color name="common_btn_s">#C3C3C3</color>
+    <color name="common_btn_n">#2f94f9</color>
+    <color name="common_divider">#FFECECEC</color>
+
+    <color name="divider_f0">#f0f0f0</color>
+</resources>

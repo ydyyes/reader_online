@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="MSYBookCacheListCell" rowHeight="157" id="KGk-i7-Jjw" customClass="MSYBookCacheListCell" customModule="FasterReader" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="352" height="157"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="352" height="156.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="252" translatesAutoresizingMaskIntoConstraints="NO" id="ZWJ-Hg-nvJ">
+                        <rect key="frame" x="12" y="10" width="70" height="94"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="8dU-jw-Opg"/>
+                            <constraint firstAttribute="height" constant="94" id="IvH-ac-gdu"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JIX-42-e1t" userLabel="sepView">
+                        <rect key="frame" x="82" y="109" width="260" height="1"/>
+                        <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="X1v-oM-Sev"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WjP-OP-NDA" userLabel="infoView">
+                        <rect key="frame" x="97" y="28.5" width="243" height="57"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="小说名称" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcM-j2-AOk" customClass="JPLabel">
+                                <rect key="frame" x="0.0" y="0.0" width="57.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rHr-Zh-ZjU">
+                                <rect key="frame" x="0.0" y="33" width="243" height="2"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="751" text="更新至33章" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWy-jk-GwN">
+                                <rect key="frame" x="0.0" y="45" width="54" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.65490196079999996" green="0.65490196079999996" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="751" text="猫神" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qor-oT-HXo">
+                                <rect key="frame" x="62.5" y="2.5" width="21" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.65490196079999996" green="0.65490196079999996" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="UWy-jk-GwN" firstAttribute="top" secondItem="rHr-Zh-ZjU" secondAttribute="bottom" constant="10" id="KVV-Oe-dBy"/>
+                            <constraint firstAttribute="trailing" secondItem="rHr-Zh-ZjU" secondAttribute="trailing" id="Keh-ln-4ea"/>
+                            <constraint firstItem="Qor-oT-HXo" firstAttribute="leading" secondItem="QcM-j2-AOk" secondAttribute="trailing" constant="5" id="R7P-jD-IIs"/>
+                            <constraint firstItem="rHr-Zh-ZjU" firstAttribute="leading" secondItem="WjP-OP-NDA" secondAttribute="leading" id="V72-c9-yhI"/>
+                            <constraint firstAttribute="bottom" secondItem="UWy-jk-GwN" secondAttribute="bottom" id="VWU-3x-jqM"/>
+                            <constraint firstItem="rHr-Zh-ZjU" firstAttribute="top" secondItem="QcM-j2-AOk" secondAttribute="bottom" constant="16" id="Vma-iZ-Adc"/>
+                            <constraint firstItem="QcM-j2-AOk" firstAttribute="leading" secondItem="WjP-OP-NDA" secondAttribute="leading" id="ZvY-bk-maK"/>
+                            <constraint firstItem="QcM-j2-AOk" firstAttribute="top" secondItem="WjP-OP-NDA" secondAttribute="top" id="anX-q1-Q4c"/>
+                            <constraint firstItem="UWy-jk-GwN" firstAttribute="leading" secondItem="WjP-OP-NDA" secondAttribute="leading" id="ccy-uf-W8Q"/>
+                            <constraint firstItem="Qor-oT-HXo" firstAttribute="centerY" secondItem="QcM-j2-AOk" secondAttribute="centerY" id="yjd-zp-fRI"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="JIX-42-e1t" secondAttribute="trailing" constant="10" id="E48-My-Lhn"/>
+                    <constraint firstItem="JIX-42-e1t" firstAttribute="leading" secondItem="ZWJ-Hg-nvJ" secondAttribute="trailing" id="GQf-uw-lZ3"/>
+                    <constraint firstItem="WjP-OP-NDA" firstAttribute="leading" secondItem="ZWJ-Hg-nvJ" secondAttribute="trailing" constant="15" id="H2n-lx-pkX"/>
+                    <constraint firstItem="JIX-42-e1t" firstAttribute="top" secondItem="ZWJ-Hg-nvJ" secondAttribute="bottom" constant="5" id="TCg-Uz-7MA"/>
+                    <constraint firstAttribute="trailing" secondItem="WjP-OP-NDA" secondAttribute="trailing" constant="12" id="WdL-dQ-O3V"/>
+                    <constraint firstItem="ZWJ-Hg-nvJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="omn-zY-7pY"/>
+                    <constraint firstItem="WjP-OP-NDA" firstAttribute="centerY" secondItem="ZWJ-Hg-nvJ" secondAttribute="centerY" id="pjR-nx-UJI"/>
+                    <constraint firstItem="ZWJ-Hg-nvJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="pyV-vX-qlF"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bookAuthorlabel" destination="Qor-oT-HXo" id="oh5-gt-8gh"/>
+                <outlet property="bookCoverImageView" destination="ZWJ-Hg-nvJ" id="nWg-fe-u1b"/>
+                <outlet property="bookNamelabel" destination="QcM-j2-AOk" id="ZPg-Yl-UlN"/>
+                <outlet property="currentProgress" destination="rHr-Zh-ZjU" id="3Db-Ll-LaL"/>
+                <outlet property="desLabel" destination="UWy-jk-GwN" id="aZJ-yy-cB4"/>
+            </connections>
+            <point key="canvasLocation" x="-86" y="134"/>
+        </tableViewCell>
+    </objects>
+</document>

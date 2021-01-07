@@ -1,0 +1,55 @@
+<div class="page">
+	<div class="pageContent">
+	<form method="post" action="__URL__/insert/navTabId/{:strtoupper(CONTROLLER_NAME)}/callbackType/closeCurrent" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone)">
+		<div class="pageFormContent" layoutH="58">
+
+			<div class="unit">
+				<label>渠道名_英文+数字：</label>
+				<input type="text" class="required alphanumeric" size="30" maxlength="50" name="name" />
+			</div>
+			
+			<div class="unit">
+				<label>渠道名_中文：</label>
+				<input type="text" name="cname" size="30" maxlength="100" class="required"/>
+			</div>
+			
+            <div class="unit">
+                <label>显示比例：</label>
+                <input type="text" name="ratio_show" value="78.00" size="30" maxlength="100" class="required number"/>%
+				<span class="info">（0-100之间的数字）</span>
+            </div>
+            
+            <div class="unit">
+                <label>点击比例：</label>
+                <input type="text" name="ratio_click" value="80.00" size="30" maxlength="100" class="required number"/>%
+				<span class="info">（0-100之间的数字）</span>
+            </div>
+
+            <div class="unit">
+                <label>分成比例：</label>
+                <input type="text" name="ratio_sharing" value="100.00" size="30" maxlength="100" class="required number"/>%
+				<span class="info">（0-100之间的数字）</span>
+            </div>
+
+			<div class="unit">
+				<label>渠道备注：</label>
+				<input type="text" name="mark" size="30" maxlength="100"/>
+			</div>
+
+			<div class="unit">
+				<label>状态：</label>
+				<select name="status">
+					<option value="1">启用</option>
+					<option value="0">禁用</option>
+				</select>
+			</div>			
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+		</div>
+	</form>
+	</div>
+</div>

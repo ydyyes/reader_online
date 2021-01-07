@@ -1,0 +1,37 @@
+	<div class="pageContent" style="border-left:1px #B8D0D6 solid;border-right:1px #B8D0D6 solid">
+		<div class="panelBar">
+			<ul class="toolBar">
+				<li><a class="icon" href="#" onclick="javascript:exports(this);" ><span>导出EXCEL</span></a></li>
+			</ul>
+		</div>
+		
+		<table class="list" id="table_<?php echo $page_id=rand();?>" rel="jbsxBox" style="width:100%;" layoutH="145">
+			<thead>
+			<tr>
+				<th width="20%">关键词</th>
+				<th width="15%">总计</th>
+			</tr>
+			</thead>
+				<php>
+					if( count($list) ):
+						$data = [];
+				</php>
+					<tbody>
+					<volist id="vo" name="list">
+						<tr>
+							<td>{$key}</td>
+							<td>{$vo['count']}</td>
+						</tr>
+					</volist>
+					</tbody>
+			<php>endif;</php>
+		</table>
+	</div>
+	
+	<script>
+		$('#table_<?php echo $page_id;?>').dataTable({
+			"info": false,
+			"paging": false,
+			"searching": false,
+		});
+	</script>

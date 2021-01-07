@@ -1,0 +1,92 @@
+<form id="pagerForm" action="__URL__" method="post">
+    <input type="hidden" name="pid" value="{$_REQUEST.pid}"/>
+    <input type="hidden" name="pageNum" value="{$_REQUEST.pageNum}"/>
+    <input type="hidden" name="numPerPage" value="{$_REQUEST.numPerPage}" />
+    <input type="hidden" name="orderField" value="{$_REQUEST.orderField}" />
+    <input type="hidden" name="orderDirection" value="{$_REQUEST.orderDirection}" />
+    <volist name="_search" key="name" id="field">
+        <input type="hidden" name="_search[{$key}]" value="{$field|safe}"/>
+    </volist>
+</form>
+
+<div class="page">
+	<div class="pageHeader">
+		<form onsubmit="return navTabSearch(this);" action="__URL__/" method="post">
+		<input type="hidden" name="pageNum" value="{$_REQUEST.pageNum}"/>
+		<div class="searchBar">
+			<ul class="searchContent">
+				<li>
+					<label>错误：</label>
+					<input type="text" name="_search[msg]" value="{$_search[msg]}"/>
+				</li>
+				<li>
+					<label>链接：</label>
+					<input type="text" name="_search[url]" value="{$_search[url]}"/>
+				</li>
+                <div class="buttonActive"><div class="buttonContent"><button type="submit">查询</button></div></div>
+			</ul>
+		</div>
+		</form>
+	</div>
+
+	<div class="pageContent">
+		<div class="panelBar">
+			<ul class="toolBar">
+				<li><a class="delete" href="__URL__/foreverdelete/id/{sid_user}/navTabId/{:strtoupper(CONTROLLER_NAME)}" target="ajaxTodo" title="你确定要删除吗？" warn="请选择"><span>删除</span></a></li>
+			</ul>
+		</div>
+
+		<table class="list" width="100%" layoutH="138">
+			<thead>
+			<tr>
+				<th width="60" orderField="id" class="{:orderField('id','desc')}">编号</th>
+				<th>错误</th>
+				<th>链接</th>
+				<th>变量</th>
+				<th>堆栈</th>
+				<th width="130">时间</th>
+			</tr>
+			</thead>
+			<tbody>
+			<volist id="vo" name="list">
+				<tr target="sid_user" rel="{$vo['id']}">
+					<td>{$vo['id']}</td>
+					<td>{$vo['msg']}</td>
+					<td>{$vo['url']}</td>
+					<td>
+						<if condition="!empty($vo['env'])">
+							<a href="__URL__/view/id/{$vo['id']}/field/env" target="_blank">查看</a>
+						</if>
+					</td>
+					<td>
+						<if condition="!empty($vo['backtrace'])">
+							<a href="__URL__/view/id/{$vo['id']}/field/backtrace" target="_blank">查看</a>
+						</if>
+					</td>
+					<td><gt name="vo.create_time" value="0">{$vo['create_time']|date="Y-m-d H:i:s",###}<else/>从未</gt></td>
+				</tr>
+			</volist>
+			</tbody>
+		</table>
+
+		<div class="panelBar">
+			<div class="pages">
+				<span>显示</span>
+				<select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
+					<option value="10" <eq name="numPerPage" value="10">selected</eq>>10</option>
+					<option value="20" <eq name="numPerPage" value="20">selected</eq>>20</option>
+					<option value="50" <eq name="numPerPage" value="50">selected</eq>>50</option>
+					<option value="100" <eq name="numPerPage" value="100">selected</eq>>100</option>
+					<option value="200" <eq name="numPerPage" value="200">selected</eq>>200</option>
+				</select>
+				<span>共{$totalCount}条</span>
+			</div>
+			<div class="pagination" targetType="navTab" totalCount="{$totalCount}" numPerPage="{$numPerPage}" pageNumShown="10" currentPage="{$currentPage}"></div>
+		</div>
+	</div>
+</div>
+<script>
+	$(navTab.getCurrentPanel()).find(".page tr").on("dblclick",function(){
+		$(this).parents(".page").find("a.edit").click();
+	});
+</script>

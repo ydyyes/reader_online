@@ -1,0 +1,60 @@
+<div class="page">
+	<h2 class="contentTitle">系统全局配置文件修改</h2>
+	<style>
+		fieldset {width:99%;}
+		.fieldset dl {height:auto;}
+		.fieldset dl {width:90%;}
+		.fieldset .input input, .fieldset textarea{width:100%; min-width:600px;}
+		.fieldset .input input {float:left;}
+		.fieldset .textInput {width:100%}
+
+		dd .radio label, dd .checkbox label{display:inline; float:left;}
+		dd .radio input, dd .checkbox{display:inline; float:left;}
+		
+		.input-group input, .radio-inline input, 
+		
+		.sysconfig dt{width:300px;}
+	</style>
+	
+	<form method="post" action="__URL__/save"
+		class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone)">
+	<div class="pageContent">
+		<div class="pageFormContent fieldset sysconfig" layoutH="97">
+			<volist name="config" id="field">
+				<php>
+					//如果有选项，则还原为数组
+					$option = !empty($field["option"]) ? (array)json_decode($field["option"]) : array();
+					
+					//如果是多选，则还原为数组
+					$value = is_array(json_decode($field["value"], true)) ? json_decode($field["value"], true) : $field["value"];
+					
+					//select选择器样式
+					$field["validate_type"] .= ' required';
+					$field["validate_type"] = $field["type"] == 'select' ? $field["validate_type"].' combox' : $field["validate_type"];
+				</php>
+				
+				<fieldset>
+					<legend>{$field.comment}</legend>
+					<dl>
+						<dt>{$field.name}:</dt>
+						<dd>
+							<div class="{$field.type|strtolower}">
+								<div style="width:80%;min-width:450px;float:left;">
+									{:Helper("Form")->name($field["name"])->class($field["validate_type"])->value(is_array($value) ? json_encode($value) : $value)->option($option)->placeholder($field["default"])->render($field["type"])}
+								</div>
+							</div>
+						</dd>
+					</dl>
+				</fieldset>
+			</volist>
+		</div>
+		
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+		</div>
+	</div>
+	</form>
+</div>

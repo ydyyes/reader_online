@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.bule.free.ireader">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.BATTERY_STATS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />    <!-- 如果需要精确定位的话请加上此权限 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!--穿山甲-->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!-- 如果有视频相关的广告且使用textureView播放，请务必添加，否则黑屏 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!--穿山甲 end-->
+
+    <!--推啊广告-->
+    <!--<uses-permission android:name="android.permission.MANAGE_USERS" />-->
+    <!--<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />-->
+    <!--<uses-permission android:name="android.permission.READ_SMS" />-->
+    <!--<uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />-->
+
+    <!--推啊广告 end-->
+
+
+    <application
+        android:name="com.bule.free.ireader.App"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher_online"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+
+        <!-- 需要支持全面屏的时候，把下边的注释放开 -->
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.2" />
+
+        <activity
+            android:name="com.bule.free.ireader.main.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--百度广告-->
+        <meta-data
+            android:name="BaiduMobAd_APP_ID"
+            android:value="e6fcdd83" />
+
+        <activity
+            android:name="com.baidu.mobads.AppActivity"
+            android:configChanges="screenSize|keyboard|keyboardHidden|orientation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!--百度广告end-->
+
+        <!--头条广告SDK-->
+        <service android:name="com.bule.free.ireader.common.adv.ttad.service.AppDownloadService" />
+
+        <provider
+            android:name="com.bytedance.sdk.openadsdk.TTFileProvider"
+            android:authorities="${applicationId}.TTFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+        <provider
+            android:name="com.bytedance.sdk.openadsdk.multipro.TTMultiProvider"
+            android:authorities="${applicationId}.TTMultiProvider"
+            android:exported="false" />
+        <!--头条广告SDK end-->
+
+        <!--腾讯广点通广告-->
+        <service
+            android:name="com.qq.e.comm.DownloadService"
+            android:exported="false" />
+
+
+        <activity
+            android:name="com.qq.e.ads.ADActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.qq.e.ads.PortraitADActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.qq.e.ads.LandscapeADActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape" />
+        <!--有米广告直接用这个了，因为重名了-->
+        <!--<provider-->
+        <!--android:name="android.support.v4.content.FileProvider"-->
+        <!--android:authorities="${applicationId}.fileprovider"-->
+        <!--android:exported="false"-->
+        <!--android:grantUriPermissions="true">-->
+        <!--<meta-data-->
+        <!--android:name="android.support.FILE_PROVIDER_PATHS"-->
+        <!--android:resource="@xml/gdt_file_path" />-->
+        <!--</provider>-->
+        <!--腾讯广点通广告结尾-->
+
+        <!--有米广告-->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider" />
+        </provider>
+        <!--有米广告 end-->
+
+        <!--推啊广告-->
+        <!--小米的KEY-->
+        <meta-data
+            android:name="TUIA_APPKEY"
+            android:value="2H5hGbx4zinHCRCveC6itzfNCMCp" />
+        <!--华为渠道的KEY, 还有VIVV OPPN YINGY-->
+        <!--<meta-data-->
+        <!--android:name="TUIA_APPKEY"-->
+        <!--android:value="fCjiuzwYPsp96nYJQc2wQxaprHU" />-->
+        <!--推啊广告 end-->
+
+        <activity
+            android:name="com.bule.free.ireader.ui.activity.BookListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bule.free.ireader.module.search.SearchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bule.free.ireader.ui.activity.BookDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Book.Detail" />
+        <activity
+            android:name="com.bule.free.ireader.ui.activity.WebAdsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bule.free.ireader.newbook.ui.NewReadBookActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.activity.GenderSelActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.setting.SettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.coin.CoinRecordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.coin.CoinIntroActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.coin.MyCoinActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.download.BookDownloadActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bule.free.ireader.main.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.login.BindActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.login.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.ShareActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.InviteListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.setting.UserSettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.pay.PayListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.pay.PayLogActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.pay.PayWebActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".newbook.ui.BookmarkManageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".newbook.ui.ReadSettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.SplashAdvActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.FeedBackActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.readhistory.ReadHistoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.bookcate.BookCateActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.WebViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.TestActivity"
+            android:screenOrientation="portrait" />
+    </application>
+</manifest>

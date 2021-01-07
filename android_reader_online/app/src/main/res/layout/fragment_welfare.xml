@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="1dp"
+        android:orientation="vertical">
+
+        <com.bule.free.ireader.common.widget.StatusBarPlaceHolder
+            android:id="@+id/status_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="7dp"
+            android:layout_marginLeft="14dp"
+            android:text="福利中心"
+            android:textColor="#222"
+            android:textSize="19sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_temp1"
+                android:layout_width="0dp"
+                android:layout_height="190dp"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/welfare_bg_top"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.youth.banner.Banner
+                android:id="@+id/banner_view"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="14dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_temp1" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="0dp"
+                android:layout_height="8dp"
+                android:background="#f4f4f4"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/banner_view" />
+
+            <TextView
+                android:id="@+id/tv_sign_coin_count_max"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:drawableLeft="@drawable/welfare_left_star"
+                android:drawableRight="@drawable/welfare_right_star"
+                android:drawablePadding="7.5dp"
+                android:gravity="bottom"
+                android:text="连续签到7天最高可得160金币"
+                android:textColor="#FF222222"
+                android:textSize="11sp"
+                app:layout_constraintLeft_toLeftOf="@+id/iv_temp1"
+                app:layout_constraintRight_toRightOf="@+id/iv_temp1"
+                app:layout_constraintTop_toTopOf="@+id/iv_temp1" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="4dp"
+                android:background="#fff1b6"
+                app:layout_constraintBottom_toBottomOf="@+id/ll_temp1"
+                app:layout_constraintLeft_toLeftOf="@+id/iv_temp1"
+                app:layout_constraintRight_toRightOf="@+id/iv_temp1"
+                app:layout_constraintTop_toTopOf="@+id/ll_temp1"
+                app:layout_constraintVertical_bias="0.3" />
+
+            <LinearLayout
+                android:id="@+id/ll_temp1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="@+id/iv_temp1"
+                app:layout_constraintRight_toRightOf="@+id/iv_temp1"
+                app:layout_constraintTop_toBottomOf="@+id/tv_sign_coin_count_max">
+
+                <include layout="@layout/layout_sign_days" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btn_sign"
+                android:layout_width="116dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="26dp"
+                android:background="@drawable/selector_main_bg_button_sign"
+                android:gravity="center"
+                android:text="签到"
+                android:textColor="#FF693808"
+                android:textSize="15sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ll_temp1" />
+
+            <TextView
+                android:id="@+id/btn_goto_coin_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:paddingVertical="5dp"
+                android:text="金币兑换免广告 >"
+                android:textColor="@color/colorAccent"
+                android:textSize="11sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/btn_sign"
+                app:layout_constraintRight_toRightOf="@+id/iv_temp1" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="14dp"
+                android:orientation="vertical"
+                android:paddingBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:text="新手福利"
+                    android:textColor="#FF000000"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/welfare_ic_bind_phone" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="绑定手机号"
+                            android:textColor="#FF000000"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/tv_bind_earn_hour"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="9dp"
+                            android:text="一天免广告"
+                            android:textColor="#FF858585"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/btn_mission_bind"
+                        android:layout_width="68dp"
+                        android:layout_height="28dp"
+                        android:background="@drawable/selector_main_bg_button_mission"
+                        android:gravity="center"
+                        android:text="点我"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:text="每日福利"
+                    android:textColor="#FF000000"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/welfare_ic_share" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="每日分享"
+                                android:textColor="#FF000000"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/tv_share_times"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="14dp"
+                                android:background="@drawable/main_bg_mission_times"
+                                android:paddingHorizontal="6dp"
+                                android:paddingVertical="1dp"
+                                android:text="0/5"
+                                android:textColor="#FFFF3424"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tv_share_earn_coin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="9dp"
+                            android:text="20金币"
+                            android:textColor="#FF858585"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/btn_mission_share_per_day"
+                        android:layout_width="68dp"
+                        android:layout_height="28dp"
+                        android:background="@drawable/selector_main_bg_button_mission"
+                        android:gravity="center"
+                        android:text="点我"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+                        android:src="@drawable/welfare_ic_video_adv" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="观看视频广告"
+                                android:textColor="#FF000000"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/tv_video_ad_times"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="14dp"
+                                android:background="@drawable/main_bg_mission_times"
+                                android:paddingHorizontal="6dp"
+                                android:paddingVertical="1dp"
+                                android:text="0/5"
+                                android:textColor="#FFFF3424"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tv_video_ad_earn_coin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="9dp"
+                            android:text="100金币"
+                            android:textColor="#FF858585"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/btn_mission_video"
+                        android:layout_width="68dp"
+                        android:layout_height="28dp"
+                        android:background="@drawable/selector_main_bg_button_mission"
+                        android:gravity="center"
+                        android:text="点我"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:gravity="center_vertical"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/iv_read_time_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+                        android:src="@drawable/welfare_ic_read_time"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_temp1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="阅读时长奖励"
+                        android:textColor="#FF000000"
+                        android:textSize="15sp"
+                        app:layout_constraintBottom_toBottomOf="@id/iv_read_time_icon"
+                        app:layout_constraintLeft_toRightOf="@+id/iv_read_time_icon"
+                        app:layout_constraintTop_toTopOf="@+id/iv_read_time_icon" />
+
+                    <TextView
+                        android:id="@+id/tv_read_30min_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="阅读30分钟"
+                        android:textColor="#FF666666"
+                        android:textSize="13sp"
+                        app:layout_constraintLeft_toLeftOf="@+id/tv_temp1"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_temp1" />
+
+                    <TextView
+                        android:id="@+id/tv_read_60min_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="阅读60分钟"
+                        android:textColor="#FF666666"
+                        android:textSize="13sp"
+                        app:layout_constraintLeft_toLeftOf="@+id/tv_temp1"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_read_30min_title" />
+
+                    <TextView
+                        android:id="@+id/tv_read_120min_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="阅读120分钟"
+                        android:textColor="#FF666666"
+                        android:textSize="13sp"
+                        app:layout_constraintLeft_toLeftOf="@+id/tv_temp1"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_read_60min_title" />
+
+                    <android.support.constraint.Barrier
+                        android:id="@+id/barrier1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:barrierDirection="right"
+                        app:constraint_referenced_ids="tv_read_30min_title,tv_read_60min_title,tv_read_120min_title" />
+
+                    <TextView
+                        android:id="@+id/tv_read_30min_reward"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp"
+                        android:text="10金币"
+                        android:textColor="#FF858585"
+                        android:textSize="11sp"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/tv_read_30min_title"
+                        app:layout_constraintLeft_toRightOf="@+id/barrier1" />
+
+                    <TextView
+                        android:id="@+id/tv_read_60min_reward"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="20金币"
+                        android:textColor="#FF858585"
+                        android:textSize="11sp"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/tv_read_60min_title"
+                        app:layout_constraintLeft_toLeftOf="@id/tv_read_30min_reward" />
+
+                    <TextView
+                        android:id="@+id/tv_read_120min_reward"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="30金币"
+                        android:textColor="#FF858585"
+                        android:textSize="11sp"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/tv_read_120min_title"
+                        app:layout_constraintLeft_toLeftOf="@id/tv_read_30min_reward" />
+
+                    <android.support.constraint.Barrier
+                        android:id="@+id/barrier2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:barrierDirection="right"
+                        app:constraint_referenced_ids="tv_read_30min_reward,tv_read_60min_reward,tv_read_120min_reward" />
+
+                    <com.bule.free.ireader.common.widget.StepView
+                        android:id="@+id/sv_read_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/btn_read_time_reward"
+                        app:layout_constraintLeft_toRightOf="@+id/barrier2"
+                        app:layout_constraintTop_toTopOf="@+id/btn_read_time_reward" />
+
+                    <TextView
+                        android:id="@+id/btn_read_time_reward"
+                        android:layout_width="68dp"
+                        android:layout_height="28dp"
+                        android:background="@drawable/selector_main_bg_button_mission"
+                        android:gravity="center"
+                        android:text="点我"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_read_120min_title"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/tv_read_30min_title" />
+
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_ic_download_get_coin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+                        android:src="@drawable/welfare_ic_download"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_title_download_get_coin"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:text="做任务抢金币"
+                        android:textColor="#FF000000"
+                        android:textSize="15sp"
+                        app:layout_constraintLeft_toRightOf="@+id/iv_ic_download_get_coin"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/btn_download_get_coin"
+                        android:layout_width="68dp"
+                        android:layout_height="28dp"
+                        android:background="@drawable/selector_main_bg_button_mission"
+                        android:gravity="center"
+                        android:text="点我"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="9dp"
+                        android:text="不限次数，无限金币等你来拿"
+                        android:textColor="#FF858585"
+                        android:textSize="11sp"
+                        app:layout_constraintLeft_toLeftOf="@+id/tv_title_download_get_coin"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_title_download_get_coin" />
+
+                </android.support.constraint.ConstraintLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="邀请福利"
+                        android:textColor="#FF000000"
+                        android:textSize="19sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/btn_invite_detial"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="邀请列表 >"
+                        android:textColor="#FF858585"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/welfare_ic_invite1" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="每邀请1位好友"
+                            android:textColor="#FF000000"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/tv_invite_1_friend_reward"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="9dp"
+                            android:text="100金币"
+                            android:textColor="#FF858585"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/btn_invite_1_friend"
+                        android:layout_width="68dp"
+                        android:layout_height="28dp"
+                        android:background="@drawable/selector_main_bg_button_mission"
+                        android:gravity="center"
+                        android:text="点我"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/welfare_ic_invite3" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="累计邀请3位好友"
+                            android:textColor="#FF000000"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/tv_invite_3_friend_reward"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="9dp"
+                            android:text="500金币"
+                            android:textColor="#FF858585"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/btn_invite_3_friend"
+                        android:layout_width="68dp"
+                        android:layout_height="28dp"
+                        android:background="@drawable/selector_main_bg_button_mission"
+                        android:gravity="center"
+                        android:text="点我"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:text="兑换福利"
+                    android:textColor="#FF000000"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="24dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/et_invite_code"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="16dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/walfare_bg_invite_code_input"
+                        android:gravity="left|center_vertical"
+                        android:hint="请填写推荐码"
+                        android:maxLength="10"
+                        android:paddingLeft="16dp"
+                        android:singleLine="true"
+                        android:textColorHint="#FF999999"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/btn_exchange_invite_code"
+                        android:layout_width="68dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="-1dp"
+                        android:background="@drawable/selector_walfare_bg_invite_code_exchange"
+                        android:gravity="center"
+                        android:text="兑换"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="注：每个账号只可兑换一次,兑换成功奖励1500金币"
+                    android:textColor="#FF858585"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>
+

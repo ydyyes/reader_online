@@ -1,0 +1,127 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - Bugly (2.5.0)
+  - Bytedance-UnionAD (2.0.1.2)
+  - GDTMobSDK (4.10.5):
+    - GDTMobSDK/GDTMobSDK (= 4.10.5)
+  - GDTMobSDK/GDTMobSDK (4.10.5)
+  - HandyJSON (5.0.0)
+  - Masonry (1.1.0)
+  - MJRefresh (3.2.0)
+  - Reachability (3.2)
+  - Schedule (1.0.0)
+  - SDCycleScrollView (1.80):
+    - SDWebImage (>= 5.0.0)
+  - SDWebImage (5.0.4):
+    - SDWebImage/Core (= 5.0.4)
+  - SDWebImage/Core (5.0.4)
+  - SnapKit (4.2.0)
+  - SVProgressHUD (2.2.5)
+  - TXScrollLabelView (1.3.2)
+  - UMCAnalytics (6.0.3):
+    - UMCCommon
+  - UMCCommon (2.0.1)
+  - YBPopupMenu (1.1.2)
+  - YYCache (1.0.4)
+  - YYCategories (1.0.4):
+    - YYCategories/no-arc (= 1.0.4)
+  - YYCategories/no-arc (1.0.4)
+  - YYImage (1.0.4):
+    - YYImage/Core (= 1.0.4)
+  - YYImage/Core (1.0.4)
+  - YYModel (1.0.4)
+  - YYText (1.0.7)
+  - YYWebImage (1.0.5):
+    - YYCache
+    - YYImage
+
+DEPENDENCIES:
+  - AFNetworking
+  - Bugly
+  - Bytedance-UnionAD
+  - GDTMobSDK
+  - HandyJSON (~> 5.0.0)
+  - Masonry
+  - MJRefresh
+  - Reachability
+  - Schedule
+  - SDCycleScrollView
+  - SnapKit
+  - SVProgressHUD
+  - TXScrollLabelView
+  - UMCAnalytics
+  - YBPopupMenu
+  - YYCache
+  - YYCategories
+  - YYModel
+  - YYText
+  - YYWebImage
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - Bugly
+    - Bytedance-UnionAD
+    - GDTMobSDK
+    - HandyJSON
+    - Masonry
+    - MJRefresh
+    - Reachability
+    - Schedule
+    - SDCycleScrollView
+    - SDWebImage
+    - SnapKit
+    - SVProgressHUD
+    - TXScrollLabelView
+    - UMCAnalytics
+    - UMCCommon
+    - YBPopupMenu
+    - YYCache
+    - YYCategories
+    - YYImage
+    - YYModel
+    - YYText
+    - YYWebImage
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
+  Bytedance-UnionAD: 4c92b68418e4a9f2b8a78d8cc275fef14f5c2c3e
+  GDTMobSDK: 815b36af278faafd38639b78eaa633d4cd211ddd
+  HandyJSON: 992f2d661716d6a91de82d0056927bc7813b5770
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  Schedule: 64f334e01daa6f80201ab147b59cb4f1e118ae74
+  SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
+  SDWebImage: c739016e4bdf0a4a1f9a04b5e0385395ad63a282
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  TXScrollLabelView: 0e1650caf61198bf5dc0938ea6493254aeb80f90
+  UMCAnalytics: ff58714ada407682c4a07548156f94bcec92f055
+  UMCCommon: 0263a057a2e1ae1da4c8308541e56904a493ce13
+  YBPopupMenu: 6efb286385d95ba5f97c58b8464ec873645e8764
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
+  YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
+  YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
+  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
+  YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
+
+PODFILE CHECKSUM: 4389558196cb7e4047204b30d6dfdea86f53e1b9
+
+COCOAPODS: 1.5.2

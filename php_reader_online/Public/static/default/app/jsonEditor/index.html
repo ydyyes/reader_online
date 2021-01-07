@@ -1,0 +1,32 @@
+<!doctype html>
+<html ng-app="JSONedit">
+<head>
+    <meta charset='utf-8'>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-ui-sortable/sortable.min.js"></script>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <script src="js/directives.js"></script>
+    <script src="js/JSONedit.js"></script>
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="mainView" ng-controller="MainViewCtrl">
+        <h2>JSONedit</h2>
+
+        <div class="jsonView">
+            <json child="jsonData" default-collapsed="false" type="object"></json>
+        </div>
+
+        <hr>
+        <div>
+            <textarea id="jsonTextarea" ng-model="jsonString"></textarea>
+            <span class="red" ng-if="!wellFormed">请检查输入的内容</span>
+        </div>
+  </div>
+
+    </div>
+</body>
+</html>

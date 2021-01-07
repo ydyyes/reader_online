@@ -1,0 +1,103 @@
+<form id="pagerForm" action="__URL__" method="post">
+    <input type="hidden" name="pid" value="{$_REQUEST.pid}"/>
+    <input type="hidden" name="pageNum" value="{$_REQUEST.pageNum}"/>
+    <input type="hidden" name="numPerPage" value="{$_REQUEST.numPerPage}" />
+    <input type="hidden" name="orderField" value="{$_REQUEST.orderField}" />
+    <input type="hidden" name="orderDirection" value="{$_REQUEST.orderDirection}" />
+    <input type="hidden" name="do" value="{$_REQUEST.do}">
+    <volist name="_search" key="name" id="field">
+        <input type="hidden" name="_search[{$key}]" value="{$field|safe}"/>
+    </volist>
+</form>
+
+<div class="page">
+    <div class="pageHeader">
+        <form onsubmit="return navTabSearch(this);" action="__URL__/index" method="post">
+            <div class="searchBar">
+                <ul class="searchContent">
+                    <li>
+                        <label>Uid：</label>
+                        <input type="text" name="_search[u_id]" class="medium" value="{$_search.u_id}">
+                    </li>
+                    <li>
+                        <label>消费项目：</label>
+                        <input type="text" name="_search[note]" class="medium" value="{$_search.note}">
+                    </li>
+                    <li>
+                        <label>查询开始时间:</label>
+                        <input type="text" name="_search[start_time]"   value="{$_search.start_time}" class="date textInput readonly" readonly="true">
+                        <a class="inputDateButton" href="javascript:;">选择</a>
+                    </li>
+                    <li>
+                        <label>查询结束时间:</label>
+                        <input type="text" name="_search[end_time]" value="{$_search.end_time}" class="date textInput readonly" readonly="true">
+                        <a class="inputDateButton" href="javascript:;">选择</a>
+                    </li>
+                    <li>
+                        <label>订单号：</label>
+                        <input type="text" name="_search[order_sn]" class="medium" value="{$_search.order_sn}">
+                    </li>
+                    <li>
+                        <label>平台订单号：</label>
+                        <input type="text" name="_search[pay_sn]" class="medium" value="{$_search.pay_sn}">
+                    </li>
+                    <div class="buttonActive"><div class="buttonContent"><button type="submit">查询</button></div></div>
+                </ul>
+            </div>
+        </form>
+    </div>
+
+    <div class="pageContent">
+        <div class="panelBar">
+            <ul class="toolBar">
+                <li><a class="edit" href="__URL__/editGold/id/{sid_node}" target="navTab" mask="true" warn="请选择操作对象" width="600" height="450"><span>金币修改</span></a></li>
+            </ul>
+        </div>
+        <table class="list" width="100%" layoutH="138">
+            <thead>
+            <tr>
+                <th width="60">ID</th>
+                <th width="100">用户id</th>
+                <th width="100">消费项目</th>
+                <th width="150">订单号</th>
+                <th width="150">平台订单号</th>
+                <th width="150">支付金额</th>
+                <th width="150">时间</th>
+                <th width="150">支付状态</th>
+            </tr>
+            </thead>
+            <tbody>
+            <volist id="vo" name="list">
+                    <td>{$vo['id']}</td>
+                    <td>{$vo['u_id']}</td>
+                    <td>{$vo['note']}</td>
+                    <td>{$vo['order_sn']}</td>
+                    <td>{$vo['pay_sn']}</td>
+                    <td>{$vo['pay_price']}</td>
+                    <td>{$vo['create_time']|date="Y-m-d H:i:s",###}</td>
+                    <if condition="$vo['status'] eq 2 ">
+                        <td>支付成功</td>
+                        <else/>
+                    <td>{$vo['status']|query_order_msg}</td>
+                    </if>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+
+        <div class="panelBar">
+            <div class="pages">
+                <span>显示</span>
+                <select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
+                    <option value="10" <eq name="numPerPage" value="10">selected</eq>>10</option>
+                    <option value="20" <eq name="numPerPage" value="20">selected</eq>>20</option>
+                    <option value="50" <eq name="numPerPage" value="50">selected</eq>>50</option>
+                    <option value="100" <eq name="numPerPage" value="100">selected</eq>>100</option>
+                    <option value="200" <eq name="numPerPage" value="200">selected</eq>>200</option>
+                </select>
+                <span>共{$totalCount}条</span>
+            </div>
+            <div class="pagination" targetType="navTab" totalCount="{$totalCount}" numPerPage="{$numPerPage}" pageNumShown="10" currentPage="{$currentPage}"></div>
+        </div>
+    </div>
+</div>

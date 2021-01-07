@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:activity="com.bule.free.ireader.main.MainActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/tab_vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:id="@+id/layout_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/status_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="14dp"
+                    android:text="书架"
+                    android:textColor="#FF222222"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/btn_search_bar"
+                    android:layout_width="0dp"
+                    android:layout_height="26dp"
+                    android:layout_marginLeft="@dimen/common_margin"
+                    android:layout_weight="1"
+                    android:background="@drawable/main_bg_search"
+                    android:drawableLeft="@drawable/main_ic_search"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/common_margin"
+                    android:text="搜索书名、作者"
+                    android:textColor="#666"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/btn_sign"
+                    android:layout_width="31dp"
+                    android:layout_height="38dp"
+                    android:layout_marginLeft="@dimen/common_margin"
+                    android:layout_marginRight="9dp"
+                    android:paddingHorizontal="5dp"
+                    android:paddingVertical="10dp"
+                    android:src="@drawable/selector_main_ic_setting" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.6dp"
+                android:background="@color/divider_f0" />
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f7f7f7" />
+
+    <com.bule.free.ireader.common.widget.RVPIndicator
+        android:id="@+id/indicator"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/common_bg"
+        android:orientation="horizontal"
+        app:indicator_color="@color/common_bg"
+        app:indicator_style="0"
+        app:item_count="4"
+        app:text_color_hightlight="@color/indicator_selected"
+        app:text_color_normal="@color/indicator_normal" />
+</LinearLayout>

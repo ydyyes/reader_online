@@ -1,0 +1,41 @@
+<script src="{:cdn('PUBLIC')}/app/datatable/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<style>
+	.searchBar{height:auto;}
+	.searchContent {width:auto; display:inline; float:auto; height:200px;}
+	.searchBar ul.searchContent {height:auto;}
+	.searchContent input {width:150px;display:inline;}
+	#suggest ul{width:250px;}
+</style>
+<div class="page">
+	<div class="pageContent">
+
+	<form method="post" action="__URL__/update/navTabId/{:strtoupper(CONTROLLER_NAME)}/callbackType/closeCurrent" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone)">
+		<div class="pageFormContent" layoutH="58">
+			<input type="hidden" name="id" value="{$vo.id}">
+			<div class="unit">
+				<label>小说ID：</label>
+				<input id="inputNid" name="novel.nid" value="{$vo.nid}" placeholder="" type="text" postField="keyword" suggestFields="name" suggestUrl="{:U("getNovels")}" lookupGroup="novel" ondblclick="this.value='';this.blur();this.focus();"
+				/>
+			</div>
+			<div class="unit">
+				<label>文章排序：</label>
+				<input type="text" class="required" value="{$vo['rating']}" name="rating" size="60">
+			</div>
+			<div class="unit">
+				<label>渠道：</label>
+				<php>$chns = explode(',', $vo['chn_id']);</php>
+				{:Helper("Form")->name('chn_id')->option($channels)->value($chns)->render('checkbox');}
+			</div>
+		</div>
+		
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+		</div>
+	</form>
+	
+	</div>
+</div>
+

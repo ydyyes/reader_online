@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.bule.free.ireader.common.widget.StatusBarPlaceHolder
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <ImageView
+                android:id="@+id/btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingLeft="10dp"
+                android:paddingRight="15dp"
+                android:src="@drawable/main_ic_back" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="分类"
+                android:textColor="#FF222222"
+                android:textSize="18sp" />
+
+            <com.kyleduo.switchbutton.SwitchButton
+                android:id="@+id/swh_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="14dp"
+                android:checked="true"
+                android:textColor="@color/white"
+                app:kswBackColor="@drawable/selector_switch_button_gender"
+                app:kswTextOff="女频"
+                app:kswTextOn="男频"
+                app:kswThumbColor="#ffffff"
+                app:kswThumbWidth="20dp" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/toolbar_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider_f0" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <com.bule.free.ireader.common.widget.MVerticalTabLayout
+            android:id="@+id/book_mall_tablayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            app:indicator_color="@color/white"
+            app:indicator_gravity="fill"
+            app:indicator_width="5dp"
+            app:tab_height="46dp"
+            app:tab_margin="1dp"
+            app:tab_mode="scrollable" />
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:paddingHorizontal="10dp" />
+
+        <TextView
+            android:id="@+id/tv_loaderr"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="数据加载异常，请稍后重试"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</LinearLayout>

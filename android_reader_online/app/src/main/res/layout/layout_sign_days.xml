@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_sign_1d"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/selector_welfare_ic_sign"
+            android:gravity="center"
+            android:paddingTop="2dp"
+            android:paddingRight="3dp"
+            android:textColor="#FFFFFBBA"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1天"
+            android:layout_marginTop="9dp"
+            android:textColor="#FF999999"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_sign_2d"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/selector_welfare_ic_sign"
+            android:gravity="center"
+            android:paddingTop="2dp"
+            android:paddingRight="3dp"
+            android:textColor="#FFFFFBBA"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="9dp"
+            android:layout_height="wrap_content"
+            android:text="2天"
+            android:textColor="#FF999999"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_sign_3d"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/selector_welfare_ic_sign"
+            android:gravity="center"
+            android:paddingTop="2dp"
+            android:paddingRight="3dp"
+            android:textColor="#FFFFFBBA"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="3天"
+            android:textColor="#FF999999"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_sign_4d"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/selector_welfare_ic_sign"
+            android:gravity="center"
+            android:paddingTop="2dp"
+            android:paddingRight="3dp"
+            android:textColor="#FFFFFBBA"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="9dp"
+            android:layout_height="wrap_content"
+            android:text="4天"
+            android:textColor="#FF999999"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_sign_5d"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/selector_welfare_ic_sign"
+            android:gravity="center"
+            android:paddingTop="2dp"
+            android:paddingRight="3dp"
+            android:textColor="#FFFFFBBA"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="5天"
+            android:textColor="#FF999999"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_sign_6d"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/selector_welfare_ic_sign"
+            android:gravity="center"
+            android:paddingTop="2dp"
+            android:paddingRight="3dp"
+            android:textColor="#FFFFFBBA"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="6天"
+            android:textColor="#FF999999"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_sign_7d"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/selector_welfare_ic_sign"
+            android:gravity="center"
+            android:paddingTop="2dp"
+            android:paddingRight="3dp"
+            android:textColor="#FFFFFBBA"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7天"
+            android:layout_marginTop="9dp"
+            android:textColor="#FF999999"
+            android:textSize="11sp" />
+    </LinearLayout>
+</merge>

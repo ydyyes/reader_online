@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="99" id="KGk-i7-Jjw" customClass="SerachTabViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="456" height="99"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="456" height="98.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iyo-fZ-cxS">
+                        <rect key="frame" x="12" y="15" width="46" height="62"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="46" id="AQT-rN-bsl"/>
+                            <constraint firstAttribute="height" constant="62" id="In6-kV-XvC"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="绝世神医" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxk-0B-gpf">
+                        <rect key="frame" x="70" y="23" width="374" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="古言 | 苏小暖" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVO-b1-GIv">
+                        <rect key="frame" x="70" y="53" width="374" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="mVO-b1-GIv" firstAttribute="bottom" secondItem="Iyo-fZ-cxS" secondAttribute="bottom" constant="-8" id="FRE-S2-E2j"/>
+                    <constraint firstItem="Iyo-fZ-cxS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Gfr-fq-cO5"/>
+                    <constraint firstAttribute="trailing" secondItem="pxk-0B-gpf" secondAttribute="trailing" constant="12" id="NuM-0L-P3E"/>
+                    <constraint firstItem="mVO-b1-GIv" firstAttribute="leading" secondItem="Iyo-fZ-cxS" secondAttribute="trailing" constant="12" id="OQe-IF-rkk"/>
+                    <constraint firstAttribute="trailing" secondItem="mVO-b1-GIv" secondAttribute="trailing" constant="12" id="Zjf-dT-DDB"/>
+                    <constraint firstItem="pxk-0B-gpf" firstAttribute="leading" secondItem="Iyo-fZ-cxS" secondAttribute="trailing" constant="12" id="qng-bs-GdT"/>
+                    <constraint firstItem="pxk-0B-gpf" firstAttribute="top" secondItem="Iyo-fZ-cxS" secondAttribute="top" constant="8" id="rdf-6x-8TF"/>
+                    <constraint firstItem="Iyo-fZ-cxS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="wyA-UM-L8p"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bookDescLb" destination="mVO-b1-GIv" id="JEH-CI-bVm"/>
+                <outlet property="bookImg" destination="Iyo-fZ-cxS" id="hhO-V8-6PH"/>
+                <outlet property="bookNameLb" destination="pxk-0B-gpf" id="JHX-A7-1uh"/>
+            </connections>
+            <point key="canvasLocation" x="198" y="59"/>
+        </tableViewCell>
+    </objects>
+</document>

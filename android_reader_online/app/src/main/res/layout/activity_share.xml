@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_shared_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <com.bule.free.ireader.common.widget.ToolBarView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tb_is_show_divider="false"
+        app:tb_title="邀请好友免费看小说" />
+
+    <ImageView
+        android:layout_width="203dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/share_bg_top" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btn_save_to_album"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/selector_login_button"
+            android:gravity="center"
+            android:text="保存到相册"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/btn_share_to_friend"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:background="@drawable/selector_login_button"
+            android:gravity="center"
+            android:text="分享给好友"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="海量小说免费阅读，尽在快读小说"
+        android:textColor="#FF222222"
+        android:textSize="12sp" />
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="#ffffff">
+
+        <ImageView
+            android:id="@+id/img_qrcode"
+            android:layout_width="144dp"
+            android:layout_height="144dp"
+            android:layout_gravity="center"
+            android:scaleType="fitXY" />
+
+    </FrameLayout>
+    <TextView
+        android:id="@+id/tv_invite_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="推荐码： --"
+        android:textColor="#FF000000"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="扫描二维码进行下载"
+        android:textColor="#FF000000"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:maxWidth="280dp"
+        android:id="@+id/tv_share_web_sit"
+        android:autoLink="web"
+        android:textColor="#FF222222"
+        android:textIsSelectable="true"
+        android:textSize="13sp" />
+
+</LinearLayout>

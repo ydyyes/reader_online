@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/main_bg_menu"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingHorizontal="14dp">
+
+    <TextView
+        android:id="@+id/btn_shelf_sort"
+        android:layout_width="wrap_content"
+        android:layout_height="43dp"
+        android:drawableLeft="@drawable/main_ic_book_sort"
+        android:drawablePadding="14dp"
+        android:gravity="center_vertical"
+        android:textColor="#FF222222"
+        android:textSize="12sp"
+        android:text="书架排序" />
+
+    <TextView
+        android:id="@+id/btn_clear_cache"
+        android:layout_width="wrap_content"
+        android:layout_height="43dp"
+        android:drawableLeft="@drawable/main_ic_clear_cache"
+        android:drawablePadding="14dp"
+        android:textColor="#FF222222"
+        android:textSize="12sp"
+        android:gravity="center_vertical"
+        android:text="清除缓存" />
+
+    <TextView
+        android:id="@+id/btn_shelf_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="43dp"
+        android:drawableLeft="@drawable/main_ic_list_mode"
+        android:drawablePadding="14dp"
+        android:textColor="#FF222222"
+        android:textSize="12sp"
+        android:gravity="center_vertical"
+        android:text="列表模式" />
+
+    <TextView
+        android:id="@+id/btn_feedback"
+        android:layout_width="wrap_content"
+        android:layout_height="43dp"
+        android:drawableLeft="@drawable/main_ic_feed_back"
+        android:drawablePadding="14dp"
+        android:textColor="#FF222222"
+        android:textSize="12sp"
+        android:gravity="center_vertical"
+        android:text="意见反馈" />
+
+    <TextView
+        android:id="@+id/btn_read_history"
+        android:layout_width="wrap_content"
+        android:layout_height="43dp"
+        android:textColor="#FF222222"
+        android:textSize="12sp"
+        android:drawableLeft="@drawable/main_ic_read_history"
+        android:drawablePadding="14dp"
+        android:gravity="center_vertical"
+        android:text="浏览记录" />
+
+    <TextView
+        android:id="@+id/btn_switch_night_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="43dp"
+        android:textColor="#FF222222"
+        android:textSize="12sp"
+        android:drawableLeft="@drawable/main_ic_night_mode"
+        android:drawablePadding="14dp"
+        android:gravity="center_vertical"
+        android:text="夜间模式" />
+</LinearLayout>

@@ -1,0 +1,76 @@
+<form id="pagerForm" action="__URL__" method="post">
+	<input type="hidden" name="pid" value="{$_REQUEST.pid}"/>
+	<input type="hidden" name="pageNum" value="{$_REQUEST.pageNum}"/>
+	<input type="hidden" name="numPerPage" value="{$_REQUEST.numPerPage}" />
+	<input type="hidden" name="orderField" value="{$_REQUEST.orderField}" />
+	<input type="hidden" name="orderDirection" value="{$_REQUEST.orderDirection}" />
+	<input type="hidden" name="do" value="{$_REQUEST.do}">
+	<volist name="_search" key="name" id="field">
+		<input type="hidden" name="_search[{$key}]" value="{$field|safe}"/>
+	</volist>
+</form>
+
+<div class="page">
+	<div class="pageHeader">
+
+	</div>
+	
+	<div class="pageContent">
+		<div class="panelBar">
+			<ul class="toolBar">
+				<li><a class="add" href="__URL__/add" target="dialog" mask="true" width="600" height="450"><span>新增</span></a></li>
+				<!--<li><a class="edit" href="__URL__/edit/id/{sid_node}" target="dialog" mask="true" warn="请选择操作对象" width="600" height="450"><span>修改</span></a></li>-->
+				<li><a class="delete" href="__URL__/delete/id/{sid_node}/navTabId/{:strtoupper(CONTROLLER_NAME)}" target="ajaxTodo" calback="navTabAjaxMenu" title="你确定要删除吗？" warn="请选择操作对象"><span>删除</span></a></li>
+			</ul>
+		</div>
+		<table class="list" width="100%" layoutH="138">
+			<thead>
+			<tr>
+				<th width="60">ID</th>
+				<th width="100">名称</th>
+				<th width="100">状态</th>
+				<th width="150">添加时间</th>
+				<!--<td>状态</td>-->
+			</tr>
+			</thead>
+			<tbody>
+			<volist id="vo" name="list">
+
+				<tr target="sid_node" rel="{$vo['id']}">
+					<td>{$vo['id']}</td>
+					<td>{$vo['name']}</td>
+					<td>{$vo['status']|showStatus=$vo['id']}</td>
+					<td>{$vo['create_at']|date="Y-m-d H:i:s",###}</td>
+					<!--<td>{$vo['status']|getStatus}</td>-->
+				</tr>
+				<if condition="$vo['chil'] neq '' ">
+					<volist id="voo" name="vo['chil']">
+						<tr target="sid_node" rel="{$voo['id']}">
+							<td>{$voo['id']}</td>
+							<td>__{$voo['name']}</td>
+							<td>{$voo['status']|showStatus=$vo['id']}</td>
+							<td>{$voo['create_at']|date="Y-m-d H:i:s",###}</td>
+							<!--<td>{$vo['status']|getStatus}</td>-->
+						</tr>
+					</volist>
+				</if>
+			</volist>
+			</tbody>
+		</table>
+
+		<div class="panelBar">
+			<div class="pages">
+				<span>显示</span>
+				<select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
+					<option value="10" <eq name="numPerPage" value="10">selected</eq>>10</option>
+					<option value="20" <eq name="numPerPage" value="20">selected</eq>>20</option>
+					<option value="50" <eq name="numPerPage" value="50">selected</eq>>50</option>
+					<option value="100" <eq name="numPerPage" value="100">selected</eq>>100</option>
+					<option value="200" <eq name="numPerPage" value="200">selected</eq>>200</option>
+				</select>
+				<span>共{$totalCount}条</span>
+			</div>
+			<div class="pagination" targetType="navTab" totalCount="{$totalCount}" numPerPage="{$numPerPage}" pageNumShown="10" currentPage="{$currentPage}"></div>
+		</div>
+	</div>
+</div>

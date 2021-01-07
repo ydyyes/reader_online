@@ -1,0 +1,20 @@
+<style>
+input {width:100%;height:180px;margin-left:20px;}
+</style>
+<div class="page">
+	<div class="pageContent">
+		<input type="hidden" name="user_id" value="<?php echo $_SESSION[C('USER_AUTH_KEY')] ?>"/>
+		<input type="hidden" name="id" value="{$vo.id}" />
+		<div class="pageFormContent" layoutH="58">
+			<div class="unit" style="height:98%;">
+				<textarea style="width:98%; height:100%">{$vo.errorlog|trim}</textarea>
+			</div>
+		</div>
+		
+		<div class="formBar">
+			<ul>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">关闭</button></div></div></li>
+			</ul>
+		</div>
+	</div>
+</div>

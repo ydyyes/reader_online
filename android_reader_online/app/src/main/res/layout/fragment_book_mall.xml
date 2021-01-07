@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.bule.free.ireader.common.widget.ToolBarView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.youth.banner.Banner
+                        android:id="@+id/banner_view"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintDimensionRatio="25:12"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </android.support.constraint.ConstraintLayout>
+
+                <!--分类按钮-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/btn_category"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:drawableTop="@drawable/book_mall_ic_category"
+                        android:drawablePadding="6dp"
+                        android:gravity="center"
+                        android:paddingTop="17dp"
+                        android:paddingBottom="17dp"
+                        android:text="分类"
+                        android:textColor="#FF222222"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/btn_hot_rank"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:drawableTop="@drawable/book_mall_ic_remen"
+                        android:drawablePadding="6dp"
+                        android:gravity="center"
+                        android:paddingTop="17dp"
+                        android:paddingBottom="17dp"
+                        android:text="热门榜"
+                        android:textColor="#FF222222"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/btn_new_book_rank"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:drawableTop="@drawable/book_mall_ic_xinshu"
+                        android:drawablePadding="6dp"
+                        android:gravity="center"
+                        android:paddingTop="17dp"
+                        android:paddingBottom="17dp"
+                        android:text="新书榜"
+                        android:textColor="#FF222222"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/btn_evaluation_rank"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:drawableTop="@drawable/book_mall_ic_koubei"
+                        android:drawablePadding="6dp"
+                        android:gravity="center"
+                        android:paddingTop="17dp"
+                        android:paddingBottom="17dp"
+                        android:text="口碑榜"
+                        android:textColor="#FF222222"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/btn_over_rank"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:drawableTop="@drawable/book_mall_ic_wanjie"
+                        android:drawablePadding="6dp"
+                        android:gravity="center"
+                        android:paddingTop="17dp"
+                        android:paddingBottom="17dp"
+                        android:text="完结榜"
+                        android:textColor="#FF222222"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#FFF5F5F5" />
+
+                <LinearLayout
+                    android:id="@+id/layout_book_mall_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <!--热门更新-->
+                    <include layout="@layout/layout_book_mall_hot_update" />
+
+                    <View
+                        android:id="@+id/divider_hot_update"
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:background="#FFF6F6F6" />
+
+                    <include layout="@layout/layout_book_mall_editor_rec" />
+
+                    <View
+                        android:id="@+id/divider_editor_rec"
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:background="#FFF6F6F6" />
+
+                    <include layout="@layout/layout_book_mall_hot_search" />
+
+                    <View
+                        android:id="@+id/divider_hot_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:background="#FFF6F6F6" />
+
+                    <include layout="@layout/layout_book_mall_new_book" />
+
+                    <View
+                        android:id="@+id/divider_new_book"
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:background="#FFF6F6F6" />
+
+                    <include layout="@layout/layout_book_mall_over_book" />
+
+                    <View
+                        android:id="@+id/divider_over_book"
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:background="#FFF6F6F6" />
+
+                    <include layout="@layout/layout_book_mall_gentleman" />
+
+                    <View
+                        android:id="@+id/divider_gentleman"
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:background="#FFF6F6F6" />
+
+                    <include layout="@layout/layout_book_mall_lady" />
+
+                    <View
+                        android:id="@+id/divider_lady"
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:background="#FFF6F6F6" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_layout_error"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingVertical="40dp"
+                    android:text="数据加载异常，请刷新重试"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </ScrollView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>

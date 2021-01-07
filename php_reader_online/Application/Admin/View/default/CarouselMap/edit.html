@@ -1,0 +1,54 @@
+<div class="page">
+	<div class="pageContent">
+
+	<form method="post" action="__URL__/update/navTabId/{:strtoupper(CONTROLLER_NAME)}/callbackType/closeCurrent" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone)">
+		<div class="pageFormContent" layoutH="58">
+			<input type="hidden" name="id" value="{$vo.id}">
+			<div class="unit">
+				<label>轮播图类型：</label>
+				{:Helper("Form")->name('type')->option($types)->value($vo['type'])->render('radio');}
+			</div>
+			<div class="unit">
+				<label>对应类型的ID：</label>
+				<input type="text" class="required" value="{$vo.fid}" name="fid" placeholder="ID" size="60">
+			</div>
+			<div class="unit">
+				<label>轮播图标题：</label>
+				<input type="text" class="required" value="{$vo.name}" name="name" placeholder="30字以内" size="60">
+			</div>
+			<div class="unit">
+				<label>分类权重：</label>
+				<input type="text" class="required numeric" value="{$vo.weight}" name="weight" placeholder="请使用正整数">
+			</div>
+			<div class="unit">
+				<label>轮播图片：</label>
+				<input style="width:250px" class="" type="text" name="pic" value="{$vo['img']}" id="identify" readonly placeholder="文件名"/>
+				<a class="btnAttach" id="uploadAttachments" href="__URL__/uploader" lookupGroup="" width="560" height="300" title="附件">附件</a>
+				<span class="info" style="cursor:pointer;" onclick="document.getElementById('uploadAttachments').click()">(点击上传文件，支持png、jpg)</span>
+				<input type="hidden" name="img" value="{$vo['img']}">
+			</div>
+			<div class="unit">
+				<label>是否是内部链接(如果不是,不用选择)：</label>
+				{:Helper("Form")->name('local_inner')->option($inner)->value($vo['local_inner'])->select();}
+			</div>
+			<div class="unit">
+				<label>轮播图上下架：</label>
+				{:Helper("Form")->name('status')->option($status)->value($vo['status'])->render('radio');}
+			</div>
+			<div class="unit">
+				<label>渠道：</label>
+				<php>$chns = explode(',', $vo['chn_id']);</php>
+				{:Helper("Form")->name('chn_id')->option($channels)->value($chns)->render('checkbox');}
+			</div>
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+		</div>
+	</form>
+	
+	</div>
+</div>
+
