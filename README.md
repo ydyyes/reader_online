@@ -7,45 +7,35 @@ online reader  contain server(php),android client ,apple client;
 
 项目部署源码有具体部署文档，请查看二级reader;
 
-下面是主要的接口文档：
-快读小说V1.0
-获取服务器时间：
-1、用户登陆注册接口：
-2、获取分类数据：
-3、获取轮播图接口：
-4、获取书城接口：
-5、获取书籍详情：
-6、获取书的章节：
-7、章节内容接口：
-8、发送短信接口：
-9、绑定手机号：
-10、用户反馈接口：
-11 获取推荐数据：
-12、任务列表：（第二版任务列表有改动）
-13 任务上报接口：(第二版已经弃用,但是兼容第一版)
-14 搜索列表：
-15 搜索关键字：
-16、升级检测接口：
-17、 用户信息接口：
-18、策略接口：
+下面是主要的接口文档（有可能会有些小差别）：
+
+[Toc]
 通用参数：imei、imsi、uuid、其他一些设备信息
 
-字段	说明
-imei	用户设备的imei， 可能为空
-imsi	用户Sim 卡的 序列号， 可能为空
-uuid	生成的UUid
-vcode	apk的版本号
-vname	apk的版本名
-model	设备型号
-manuFacturer	设备制造商
-brand	设备品牌
-resolution	设备的宽x高
-sdk	系统版本
-channel	渠道号
-net	网络类型
-'0' =>'操作成功',
-'200' =>'操作成功',
-'2001' =>'操作失败',
+|字段|说明
+|--|--|
+|imei|	用户设备的imei， 可能为空| 
+|imsi| 用户Sim 卡的 序列号， 可能为空|
+|uuid|生成的UUid|
+|vcode|apk的版本号||
+|vname| apk的版本名|
+|model|设备型号||
+|manuFacturer|设备制造商 |
+|brand|设备品牌|
+resolution|设备的宽x高|
+|sdk|系统版本|
+|channel|渠道号|
+|net|网络类型|
+
+*****
+
+*****
+******
+~~~
+~~~
+'0'      =>'操作成功',
+'200'    =>'操作成功',
+'2001'   =>'操作失败',
 '300100' =>'用户唯一标识别为空',
 '300101' =>'请求类型不正确',
 '300102' =>'操作失败请稍后重试',
@@ -72,31 +62,39 @@ net	网络类型
 '400112' => '频繁发送验证码',
 '600101' => '订单创建失败',
 '500101' => 'sign不成功'
+~~~
+~~~
+---
+### 获取服务器时间：
+      
+ - 请求方式： GET
+ - 请求地址：http://172.16.2.160:9000/GetTime/1
 
-获取服务器时间：
-请求方式： GET
-请求地址：http://172.16.2.160:9000/GetTime/1
+``` 
 1550820571209
-token:token
-u_type:用户类型
-expire:有无会员，如果有会员会显示到期时间戳,没有或者到期显示为0
+```
+> token:token
+> u_type:用户类型
+> expire:有无会员，如果有会员会显示到期时间戳,没有或者到期显示为0
 
-1、用户登陆注册接口：
-请求方式： POST
+---
 
-请求地址： http://172.16.2.160:9000/ApinRegist/1
-
-请求参数： sign=密文参数
-
-业务请求参数
-
-mobile string 手机号码，短信通道往此手机发送验证码 （type为2,必填）
-code string 验证码 (type为2,必填）
-areacode string 区号 (type为2,必填）例如 +86
-响应数据格式： json
-
-明文返回值如下：
-
+*****
+********
+---
+### 1、用户登陆注册接口：
+      
+ - 请求方式： POST
+ - 请求地址： http://172.16.2.160:9000/ApinRegist/1
+ - 请求参数： sign=密文参数
+ - 业务请求参数
+ 
+	- mobile     string  手机号码，短信通道往此手机发送验证码 （type为2,必填）
+        - code        string  验证码  (type为2,必填）
+        - areacode string  区号  (type为2,必填）例如 +86
+ - 响应数据格式： json
+ - 明文返回值如下：
+``` json
 {
     "errorno": 200,
     "msg": "操作成功",
@@ -110,27 +108,31 @@ areacode string 区号 (type为2,必填）例如 +86
         "reader_time" : "123456"
     }
 }
-token:token
-u_type:用户类型
-gold:金币数量
-expire:有无会员，如果有会员会显示到期时间戳,没有或者到期显示为0
-uni_id :用户独一无二的ID
-invitation_code：邀请码
-reader_time:用户阅读时长 时间单位 秒
+```
+> token:token
+> u_type:用户类型
+> gold:金币数量
+> expire:有无会员，如果有会员会显示到期时间戳,没有或者到期显示为0
+>  uni_id  :用户独一无二的ID
+>invitation_code：邀请码
+>reader_time:用户阅读时长 时间单位 秒
 
-2、获取分类数据：
-请求方式： POST
 
-请求地址： http://172.16.2.160:9000/Cate/1
+---
 
-请求参数： sign=密文参数
+*****
+---
+### 2、获取分类数据：
+      
+ - 请求方式： POST
+ - 请求地址： http://172.16.2.160:9000/Cate/1
+ - 请求参数： sign=密文参数
+ - 业务请求参数
 
-业务请求参数
 
-响应数据格式： json
-
-明文返回值如下：
-
+ - 响应数据格式： json
+ - 明文返回值如下：
+``` json
 {
     "errorno": 200,
     "msg": "操作成功",
@@ -145,16 +147,21 @@ reader_time:用户阅读时长 时间单位 秒
         }
     ]
 }
-id:分类id
-name:分类名称
+```
+> id:分类id
+> name:分类名称
 
-3、获取轮播图接口：
-请求方式： POST
-请求地址： http://172.16.2.160:9000/Banners/1
-请求参数： sign=密文参数
-业务请求参数
-响应数据格式： json
-明文返回值如下：
+---
+---
+### 3、获取轮播图接口：
+      
+ - 请求方式： POST
+ - 请求地址： http://172.16.2.160:9000/Banners/1
+ - 请求参数： sign=密文参数
+ - 业务请求参数
+ - 响应数据格式： json
+ - 明文返回值如下：
+``` json
 ~~~
 {
     "errorno": 200,
@@ -186,25 +193,28 @@ name:分类名称
 }
 
 ~~~
-4、获取书城接口：
-请求方式： POST
+```
+---
 
-请求地址： http://172.16.2.160:9000/Novel/1
+---
+### 4、获取书城接口：
+      
+ - 请求方式： POST
+ - 请求地址： http://172.16.2.160:9000/Novel/1
+ - 请求参数： sign=密文参数
+ - 业务请求参数
+  
+        - m_id    int  左侧分类的id   （如果不传默认全部）
+        - type    string  上传分类的name  参数值 hot new reputation over,对应 新书 热门 口碑 完结 默认new    （如果不传默认全部）
+        - page    int  第几页,默认为1
+        - size    int   每页显示，默认为6
+ 
+        注：m_id,type传一个或者不传
+        
 
-请求参数： sign=密文参数
-
-业务请求参数
-
- - m_id    int  左侧分类的id   （如果不传默认全部）
- - type    string  上传分类的name  参数值 hot new reputation over,对应 新书 热门 口碑 完结 默认new    （如果不传默认全部）
- - page    int  第几页,默认为1
- - size    int   每页显示，默认为6
-
- 注：m_id,type传一个或者不传
-响应数据格式： json
-
-明文返回值如下：
-
+ - 响应数据格式： json
+ - 明文返回值如下：
+``` json
 {
     "errorno": 200,
     "msg": "操作成功",
@@ -249,39 +259,43 @@ name:分类名称
         }
     ]
 }
-id:id
-titile:名称
-author:作者
-cover :封面
-cates 分类
-longIntro 描述
-latelyFollower 追书人数
-retentionRatio 留存率
-serializeWordCount 日更新字数
-label 标签
-wordCount 本书字数
-score 评分
-isfree:是否免费 1,是 0 不是
-over 是否完结 1完结 0 没有完结
-lastChapter 最后一章节
-updated 最后书籍时间
+```
+> id:id
+> titile:名称  
+> author:作者
+> cover :封面
+> cates  分类
+> longIntro 描述
+> latelyFollower 追书人数
+> retentionRatio 留存率
+> serializeWordCount 日更新字数
+> label 标签
+> wordCount 本书字数
+> score 评分
+> isfree:是否免费 1,是 0 不是
+> over  是否完结 1完结 0 没有完结
+> lastChapter  最后一章节
+> updated  最后书籍时间
+> 
 
-5、获取书籍详情：
-请求方式： POST
+---
 
-请求地址： http://172.16.2.160:9000/Detail/1
+---
+### 5、获取书籍详情：
+      
+ - 请求方式： POST
+ - 请求地址： http://172.16.2.160:9000/Detail/1
+ - 请求参数： sign=密文参数
+ - 业务请求参数
 
-请求参数： sign=密文参数
+        - id    int  小说ID  （如果不传默认全部）
+ 
+        注：此接口会根据用户的channel 下发推荐书本,如果 channel没有的话,会默认下发全部
+        
 
-业务请求参数
-
- - id    int  小说ID  （如果不传默认全部）
-
- 注：此接口会根据用户的channel 下发推荐书本,如果 channel没有的话,会默认下发全部
-响应数据格式： json
-
-明文返回值如下：
-
+ - 响应数据格式： json
+ - 明文返回值如下：
+``` json
 {
     "errorno": 200,
     "msg": "操作成功",
@@ -351,39 +365,41 @@ updated 最后书籍时间
         ]
     }
 }
-detail:详解内容 recommend:推荐内容
+```
+detail:详解内容   recommend:推荐内容
+> id:id
+> titile:名称  
+> author:作者
+> cover :封面
+> cates  分类
+> longIntro 描述
+> latelyFollower 追书人数
+> retentionRatio 留存率
+> serializeWordCount 日更新字数
+> label 标签
+> wordCount 本书字数
+> score 评分
+> isfree:是否免费 1,是 0 不是
+> over  是否完结 1完结 0 没有完结
+> lastChapter  最后一章节
+> updated  最后书籍时间
+> 
 
-id:id
-titile:名称
-author:作者
-cover :封面
-cates 分类
-longIntro 描述
-latelyFollower 追书人数
-retentionRatio 留存率
-serializeWordCount 日更新字数
-label 标签
-wordCount 本书字数
-score 评分
-isfree:是否免费 1,是 0 不是
-over 是否完结 1完结 0 没有完结
-lastChapter 最后一章节
-updated 最后书籍时间
+---
 
-6、获取书的章节：
-请求方式： POST
+---
+### 6、获取书的章节：
+      
+ - 请求方式： POST
+ - 请求地址：http://172.16.2.160:9000/ChapterLt/1
+ - 请求参数： sign=密文参数
+ - 业务请求参数
+        - id         int 书ID
 
-请求地址：http://172.16.2.160:9000/ChapterLt/1
 
-请求参数： sign=密文参数
-
-业务请求参数
-- id int 书ID
-
-响应数据格式： json
-
-明文返回值如下：
-
+ - 响应数据格式： json
+ - 明文返回值如下：
+``` json
 {
     "errorno": 200,
     "msg": "操作成功",
@@ -400,25 +416,26 @@ updated 最后书籍时间
       
   
 }
-title:标题
-label:标记
-注: 按顺序返回的章节
+```
+> title:标题
+> label:标记
+ 注: 按顺序返回的章节
+---
+---
+### 7、章节内容接口：
+      
+ - 请求方式： POST
+ - 请求地址：http://172.16.2.160:9000/ChapterIn/1
+ - 请求参数： sign=密文参数
+ - 业务请求参数
+      
+        - id         int 书ID
+        - label      int   标记
 
-7、章节内容接口：
-请求方式： POST
 
-请求地址：http://172.16.2.160:9000/ChapterIn/1
-
-请求参数： sign=密文参数
-
-业务请求参数
-
- - id         int 书ID
- - label      int   标记
-响应数据格式： json
-
-明文返回值如下：
-
+ - 响应数据格式： json
+ - 明文返回值如下：
+``` json
 {
     "errorno": 200,
     "msg": "操作成功",
@@ -426,103 +443,101 @@ label:标记
         "url": "http://172.16.2.160:9000/Uploads/admin_txt/3/102_8ecd04ae441ba801078ce99fd4423dd5.txt"
     }
 }
-url:内容所在地址
+```
+> url:内容所在地址
+---
+---
+### 8、发送短信接口：
+      
+ - 请求方式： POST
+ - 请求地址：http://172.16.2.160:9000/sms/1
+ - 请求参数： sign=密文参数
+ - 业务请求参数
+        - areacode   stirng      区号 例如 +86
+        - mobile      int   手机号码
 
-8、发送短信接口：
-请求方式： POST
 
-请求地址：http://172.16.2.160:9000/sms/1
-
-请求参数： sign=密文参数
-
-业务请求参数
-- areacode stirng 区号 例如 +86
-- mobile int 手机号码
-
-响应数据格式： json
-
-明文返回值如下：
-
+ - 响应数据格式： json
+ - 明文返回值如下：
+``` json
 {
     "errorno": 200,
     "msg": "操作成功",
     "data": []
 }
-9、绑定手机号：
-请求方式： POST
+```
+---
+### 9、绑定手机号：
+      
+ - 请求方式： POST
+ - 请求地址：http://172.16.2.160:9000/Bindph/1
+ - 请求参数： sign=密文参数
+ - 业务请求参数
+        - areacode  stirng      区号 例如 +86
+        - mobile     int   手机号码
+        - code        int   验证码
+        - token      token
 
-请求地址：http://172.16.2.160:9000/Bindph/1
 
-请求参数： sign=密文参数
-
-业务请求参数
-- areacode stirng 区号 例如 +86
-- mobile int 手机号码
-- code int 验证码
-- token token
-
-响应数据格式： json
-
-明文返回值如下：
+ - 响应数据格式： json
+ - 明文返回值如下：
 {
-"errorno": 200,
-"msg": "操作成功",
-"data": {
-"token": "9uaf7ffc2a629a1c258336fde8a1f71e0a15c6d071a2a180",
-"u_type": "游客",
-"gold": "金币"，
-"expire": "0",
-"uni_id":"2c1e21e73d30a8de8e7bb1a69d5f06c81Zjm"
+    "errorno": 200,
+    "msg": "操作成功",
+    "data": {
+            "token": "9uaf7ffc2a629a1c258336fde8a1f71e0a15c6d071a2a180",
+            "u_type": "游客",
+            "gold": "金币"，
+            "expire": "0",
+            "uni_id":"2c1e21e73d30a8de8e7bb1a69d5f06c81Zjm"
+             }
 }
-}
+---
+> token:token
+> u_type:用户类型
+> gold:金币数量
+> expire:有无会员，如果有会员会显示到期时间戳,没有或者到期显示为0
+>  uni_id  :用户独一无二的ID
+> nickname :昵称
+> sex 性别 1男 2女 -1 保密
+> cover 头像地址
 
-token:token
-u_type:用户类型
-gold:金币数量
-expire:有无会员，如果有会员会显示到期时间戳,没有或者到期显示为0
-uni_id :用户独一无二的ID
-nickname :昵称
-sex 性别 1男 2女 -1 保密
-cover 头像地址
+---
+### 10、用户反馈接口：
+      
+ - 请求方式： POST
+ - 请求地址：http://172.16.2.160:9000/Feecba/1
+ - 请求参数： sign=密文参数
+ - 业务请求参数
+        - file     string    图片上传字段（不用加入sign,直接用post提交）
+        - content       string 反馈的内容不能低于10或者超过200的长度
+        - email      string  邮箱地址    
+        - token      token
 
-10、用户反馈接口：
-请求方式： POST
 
-请求地址：http://172.16.2.160:9000/Feecba/1
-
-请求参数： sign=密文参数
-
-业务请求参数
-- file string 图片上传字段（不用加入sign,直接用post提交）
-- content string 反馈的内容不能低于10或者超过200的长度
-- email string 邮箱地址
-- token token
-
-响应数据格式： json
-
-明文返回值如下：
-
+ - 响应数据格式： json
+ - 明文返回值如下：
+``` json
 {
     "errorno": 200,
     "msg": "操作成功",
     "data": []
 }
-11 获取推荐数据：
-请求方式： POST
+```
+---
+### 11  获取推荐数据：
+      
+ - 请求方式： POST
+ - 请求地址：http://172.16.2.160:9000/ReCommence/1
+ - 请求参数： sign=密文参数
+ - 业务请求参数
+        - gender  int  类别  1 男 2 女 0不限 （选填,如果不传就是获得不分类别的书籍列表）
+        - page    int  第几页,默认为1
+        - size    int   每页显示，默认为6
 
-请求地址：http://172.16.2.160:9000/ReCommence/1
-
-请求参数： sign=密文参数
-
-业务请求参数
-- gender int 类别 1 男 2 女 0不限 （选填,如果不传就是获得不分类别的书籍列表）
-- page int 第几页,默认为1
-- size int 每页显示，默认为6
-
-响应数据格式： json
-
-明文返回值如下：
-
+ - 响应数据格式： json
+ - 明文返回值如下：
+``` json
 {
     "errorno": 200,
     "msg": "操作成功",
@@ -567,112 +582,7 @@ cover 头像地址
         }
     ]
 }
-id:id
-titile:名称
-author:作者
-cover :封面
-cates 分类
-longIntro 描述
-latelyFollower 追书人数
-retentionRatio 留存率
-serializeWordCount 日更新字数
-label 标签
-wordCount 本书字数
-score 评分
-isfree:是否免费 1,是 0 不是
-over 是否完结 1完结 0 没有完结
-lastChapter 最后一章节
-updated 最后书籍时间
-
-12、任务列表：（第二版任务列表有改动）
-请求方式： POST
-
-请求地址：http://172.16.2.161:9000/Ta/1
-
-请求参数： sign=密文参数
-
-业务请求参数
-
-响应数据格式： json
-
-明文返回值如下：
-
-{
-    "errorno": 200,
-    "msg": "操作成功",
-    "data": [
-        {
-            "id": "2",
-            "name": "每日分享",
-            "describe": "每日分享"
-        }
-    ]
-}
-> id: 任务ID
-> neme:任务名称  
-> describe:任务描述    
-13 任务上报接口：(第二版已经弃用,但是兼容第一版)
-请求方式： POST
-
-请求地址：http://172.16.2.161:9000/TastL/1
-
-请求参数： sign=密文参数
-
-业务请求参数
-- token token （不是必传,如果不传默认为UUID登陆）
-- id 任务id
-
-响应数据格式： json
-
-明文返回值如下：
-
-{
-    "errorno": 200,
-    "msg": "操作成功",
-    "data": [
-    ]
-}
-14 搜索列表：
-请求方式： POST
-
-请求地址：http://172.16.2.161:9000/Search/1
-
-请求参数： sign=密文参数
-
-业务请求参数
-- key string 搜索关键字
-- page int 第几页,默认为1
-- size int 每页显示，默认为6
-
-响应数据格式： json
-
-明文返回值如下：
-
-{
-    "errorno": 200,
-    "msg": "操作成功",
-    "data": [
-        {
-            "id": "11",
-            "title": "试婚老公，要给力",
-            "cover": "xiaoshuo/29/7a/d5ca89c2e543.jpg",
-            "author": "佚名",
-            "longIntro": "九点，夜色撩人。 　　 　　唐宁在单身派对上喝得有点多，所以被未婚夫带回了公寓，只是当她头疼欲裂的睁开眼时，。。。",
-            "wordCount": "200000",
-            "gender": "2",
-            "over": "1",
-            "score": "8.0",
-            "serializeWordCount": "115",
-            "latelyFollower": "115",
-            "retentionRatio": "31.00",
-            "tags": "现代言情,爽文",
-            "isfree": "1",
-            "majorCate": "9",
-            "lastChapter": "115",
-            "updated": "0"
-        }
-    ]
-}
+``` 
 > id:id
 > titile:名称  
 > author:作者
@@ -690,19 +600,130 @@ updated 最后书籍时间
 > lastChapter  最后一章节
 > updated  最后书籍时间
 > 
-15 搜索关键字：
-请求方式： POST
 
-请求地址：http://172.16.2.161:9000/Key/1
+---
+### 12、任务列表：（第二版任务列表有改动）
+      
+ - 请求方式： POST
+ - 请求地址：http://172.16.2.161:9000/Ta/1
+ - 请求参数： sign=密文参数
+ - 业务请求参数
+     
+ - 响应数据格式： json
+ - 明文返回值如下：
+``` json
+{
+    "errorno": 200,
+    "msg": "操作成功",
+    "data": [
+        {
+            "id": "2",
+            "name": "每日分享",
+            "describe": "每日分享"
+        }
+    ]
+}
+```
+```
+> id: 任务ID
+> neme:任务名称  
+> describe:任务描述    
+```
+---
+### 13 任务上报接口：(第二版已经弃用,但是兼容第一版)
+      
+ - 请求方式： POST
+ - 请求地址：http://172.16.2.161:9000/TastL/1
+ - 请求参数： sign=密文参数
+ - 业务请求参数
+        - token      token （不是必传,如果不传默认为UUID登陆）
+        - id      任务id
 
-请求参数： sign=密文参数
 
-业务请求参数
+ - 响应数据格式： json
+ - 明文返回值如下：
+``` json
+{
+    "errorno": 200,
+    "msg": "操作成功",
+    "data": [
+    ]
+}
+```
+---
+---
+### 14 搜索列表：
+      
+ - 请求方式： POST
+ - 请求地址：http://172.16.2.161:9000/Search/1
+ - 请求参数： sign=密文参数
+ - 业务请求参数
+        - key     string 搜索关键字
+        - page    int  第几页,默认为1
+        - size    int   每页显示，默认为6
 
-响应数据格式： json
 
-明文返回值如下：
+ - 响应数据格式： json
+ - 明文返回值如下：
+``` json
+{
+    "errorno": 200,
+    "msg": "操作成功",
+    "data": [
+        {
+            "id": "11",
+            "title": "试婚老公，要给力",
+            "cover": "xiaoshuo/29/7a/d5ca89c2e543.jpg",
+            "author": "佚名",
+            "longIntro": "九点，夜色撩人。 　　 　　唐宁在单身派对上喝得有点多，所以被未婚夫带回了公寓，只是当她头疼欲裂的睁开眼时，……",
+            "wordCount": "200000",
+            "gender": "2",
+            "over": "1",
+            "score": "8.0",
+            "serializeWordCount": "115",
+            "latelyFollower": "115",
+            "retentionRatio": "31.00",
+            "tags": "现代言情,爽文",
+            "isfree": "1",
+            "majorCate": "9",
+            "lastChapter": "115",
+            "updated": "0"
+        }
+    ]
+}
+```
+``` 
+> id:id
+> titile:名称  
+> author:作者
+> cover :封面
+> cates  分类
+> longIntro 描述
+> latelyFollower 追书人数
+> retentionRatio 留存率
+> serializeWordCount 日更新字数
+> label 标签
+> wordCount 本书字数
+> score 评分
+> isfree:是否免费 1,是 0 不是
+> over  是否完结 1完结 0 没有完结
+> lastChapter  最后一章节
+> updated  最后书籍时间
+> 
+```
+---
 
+### 15 搜索关键字：
+      
+ - 请求方式： POST
+ - 请求地址：http://172.16.2.161:9000/Key/1
+ - 请求参数： sign=密文参数
+ - 业务请求参数
+
+
+ - 响应数据格式： json
+ - 明文返回值如下：
+```
 
 {
     "errorno": 200,
@@ -711,7 +732,11 @@ updated 最后书籍时间
         "试"
     ]
 }
-16、升级检测接口：
+```
+
+### 16、升级检测接口：
+
+~~~
 * 根据客户端上报的渠道、版本号判断是否需要更新apk
 - 请求方式： POST
 - 请求地址： http://172.16.2.161:9000/Upgrad/1
@@ -719,6 +744,9 @@ updated 最后书籍时间
 - 响应数据格式： json
 - 明文返回值如下：
 
+~~~
+
+~~~
 #需要更新时返回
 {
       "errno": 0,
@@ -733,6 +761,8 @@ updated 最后书籍时间
           }
 }
 
+~~~
+~~~
 #不需要更新时返回
 {
       "errno": 0,
@@ -741,7 +771,12 @@ updated 最后书籍时间
           }
 }
 
-17、 用户信息接口：
+~~~
+
+
+### 17、 用户信息接口：
+
+~~~
 * 根据客户端上报的渠道、版本号判断是否需要更新apk
 - 请求方式： POST
 - 请求地址：http://172.16.2.161:9000/UserIn/1
@@ -772,6 +807,8 @@ updated 最后书籍时间
     }
 }
 
+~~~
+``` 
 > expire:  过期时间 如果没有过期就会返回到期 的时间戳, 否则 返回0
 > gold:名称    剩余金币数量
 > u_type:  用户类型
@@ -783,7 +820,11 @@ updated 最后书籍时间
 > nickname：昵称
 > invitation : 该用户是否填写过邀请码 1 填写过 0 没有
 >reader_time: 阅读时长 时间为秒
-18、策略接口：
+```
+
+### 18、策略接口：
+
+~~~
 * 根据客户端上报的渠道、版本号判断是否需要更新apk
 - 请求方式： POST
 - 请求地址：172.16.2.161:9000/Strate/1
@@ -815,6 +856,8 @@ updated 最后书籍时间
         "CONTACT_US": "666666"
     }
 }
+~~~
+``` 
 > STRATEGY_FREE_AD_OPEN:  自由广告展示开关
 > STRATEGY_FREE_AD_SHOW_TIMES_EVERYDAY":自由广告每天展示次数
 > STRATEGY_FREE_AD_SHOW_INTV:  自由广告展示间隔(单位:分钟)
@@ -831,5 +874,18 @@ updated 最后书籍时间
 > BANNER_AD_RATIO   Banner广告比例（广、穿、百）
 > BANNER_AD_LIMIT Banner 广告间隔
 > CONTACT_US 联系客服
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
