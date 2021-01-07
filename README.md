@@ -1,13 +1,15 @@
 # reader_online
 online reader  contain server(php),android client ,apple client;
-具体分为三个项目：
+一 具体分为三个项目：
 1. android_reader_online 安卓端
+
 2.ios_reader_online  苹果端
+
 3.php_reader_online  php服务器端对应客户端接口及后台功能
 
-项目部署源码有具体部署文档，请查看二级reader;
+项目部署源码有具体部署文档，请查看二级readme;
 
-下面是主要的接口文档（有可能会有些小差别）：
+二 下面是主要的接口文档（有可能会有些小差别）：
 
 [Toc]
 通用参数：imei、imsi、uuid、其他一些设备信息
